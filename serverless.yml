@@ -1,4 +1,4 @@
-service: 12dom-club
+service: site-12dom-club
 unresolvedVariablesNotificationMode: error # future proofing
 variablesResolutionMode: 20210219 # future proofing
 
