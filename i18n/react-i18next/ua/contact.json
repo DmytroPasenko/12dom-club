@@ -1,0 +1,12 @@
+{
+  "companyCountry": "Україна",
+  "writeUsAMessage": "Напишіть нам повідомлення",
+  "yourName": "Ваше ім'я",
+  "phoneNumber": "Номер телефону",
+  "emailAddress": "Адреса ел. пошти",
+  "writeMessage": "Напишіть повідомлення",
+  "submit": "Надіслати",
+  "submitting": "Відправлення...",
+  "contactUsSuccess": "Повідомлення було успішно відправлено!",
+  "contactUsError": "Помилка. Повідомлення не відправлено."
+}

@@ -1,0 +1,200 @@
+service: 12dom-club
+unresolvedVariablesNotificationMode: error # future proofing
+variablesResolutionMode: 20210219 # future proofing
+
+plugins:
+  - serverless-s3-sync
+  - serverless-cloudfront-invalidate
+
+provider:
+  name: aws
+  profile: miran
+  region: eu-central-1
+  runtime: nodejs14.x
+  stage: ${opt:stage}
+  endpointType: REGIONAL
+  memorySize: 128
+  lambdaHashingVersion: 20201221 # future proofing
+  # apiGateway:
+  #   shouldStartNameWithService: true # future proofing
+
+custom:
+  # frontendBucketName: ${file(./.cache/s3.config.json):bucketName}
+  bucketNames: # bucket names for deployment, those need to be also your domain names
+    dev: dev.12dom.club # in order to use subdomain, you have to have wildcard certificate
+    prod: 12dom.club # your production site address
+
+  frontendBucketName: ${self:custom.bucketNames.${self:provider.stage}} # the bucket name is based on the stage
+
+  siteAliases:
+    dev:
+      - dev.12dom.club
+    prod:
+      - 12dom.club
+      - www.12dom.club
+
+  domainCertificateArn: arn:aws:acm:us-east-1:867352238118:certificate/9cb2fbff-b2f7-4796-a4a9-2a71f992566a # your SSL cerificate for that domain
+  s3Sync:
+    - bucketName: ${self:custom.frontendBucketName}
+      localDir: public
+      deleteRemoved: true
+      acl: public-read
+      defaultContentType: text/html
+      # params: ${file(./.cache/s3.params.json)}
+      # ! Count of spaces are supper important (4 spaces before CacheControl after -)
+      params: # optional
+        - "**/**.html":
+            CacheControl: "public, max-age=0, must-revalidate"
+        - "page-data/**/**.json":
+            CacheControl: "public, max-age=0, must-revalidate"
+        - "**/static/**":
+            CacheControl: "public, max-age=31536000, immutable"
+        - "img/**/**":
+            CacheControl: "public, max-age=31536000, immutable"
+        - "svg/**/**":
+            CacheControl: "public, max-age=31536000, immutable"
+        - "**/**/!(sw).js":
+            CacheControl: "public, max-age=31536000, immutable"
+        - "**/**.css":
+            CacheControl: "public, max-age=31536000, immutable"
+        - "sw.js":
+            CacheControl: "public, max-age=0, must-revalidate"
+        - "favicon.ico":
+            CacheControl: "public, max-age=31536000, immutable"
+
+  cloudfrontInvalidate:
+    - distributionIdKey: "WebAppCloudFrontDistributionId"
+      autoInvalidate: true
+      items:
+        - "/*"
+
+resources:
+  Resources:
+    FrontendBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.frontendBucketName}
+        AccessControl: PublicRead
+        WebsiteConfiguration:
+          IndexDocument: index.html
+          ErrorDocument: 404.html
+          # RoutingRules: ${file(./.cache/s3.sls.routingRules.json)}
+        # CorsConfiguration:
+        #   CorsRules:
+        #     - AllowedMethods:
+        #         - GET
+        #       AllowedOrigins:
+        #         - "*"
+        #       AllowedHeaders:
+        #         - "Authorization"
+        #         - "Content-Length"
+        #       MaxAge: 3000
+    # UNCOMMENT THE FOLLOWING if you wish to add cloudfront.
+    # Be aware that cloudfront deploys take a long time so the deploy script may take up to
+    # 20 mins when deploying changes to the cloudfront configuration values.
+
+    # FrontendBucketPolicy: # the bucket also need a public access policy, since we'll use S3 bucket hosting
+    #   Type: AWS::S3::BucketPolicy
+    #   Properties:
+    #     Bucket:
+    #       Ref: FrontendBucket
+    #     PolicyDocument:
+    #       Statement:
+    #         - Sid: PublicReadGetObject
+    #           Effect: Allow
+    #           Principal: { AWS: "*" }
+    #           Action:
+    #             - s3:GetObject
+    #           Resource: arn:aws:s3:::${self:custom.frontendBucketName}/*
+
+    WebAppCloudFrontDistribution:
+      Type: AWS::CloudFront::Distribution
+      Properties:
+        DistributionConfig:
+          Origins:
+            - DomainName: ${self:custom.frontendBucketName}.s3-website.${self:provider.region}.amazonaws.com
+              Id: Frontend
+              CustomOriginConfig:
+                HTTPPort: 80
+                HTTPSPort: 443
+                OriginProtocolPolicy: http-only
+          Enabled: "true"
+          HttpVersion: "http2"
+          PriceClass: "PriceClass_200" # cheapest price class
+          ## Uncomment the following section in case you are using a custom domain
+          Aliases: ${self:custom.siteAliases.${self:provider.stage}}
+          DefaultRootObject: index.html
+          # CustomErrorResponses:
+          #   - ErrorCode: 404
+          #     ResponseCode: 200
+          #     ResponsePagePath: /index.html
+          DefaultCacheBehavior:
+            AllowedMethods:
+              # - DELETE
+              - GET
+              - HEAD
+              # - OPTIONS
+              # - PATCH
+              # - POST
+              # - PUT
+            ## The origin id defined above
+            TargetOriginId: Frontend
+            ## Defining if and how the QueryString and Cookies are forwarded to the origin which in this case is S3
+            ForwardedValues:
+              QueryString: "false"
+              Cookies:
+                Forward: none
+            ## The protocol that users can use to access the files in the origin. To allow HTTP use `allow-all`
+            ViewerProtocolPolicy: redirect-to-https
+            Compress: "true"
+            FunctionAssociations:
+              - EventType: viewer-request
+                FunctionARN: arn:aws:cloudfront::867352238118:function/url-fix
+          ## The certificate to use when viewers use HTTPS to request objects.
+          ViewerCertificate:
+            AcmCertificateArn: ${self:custom.domainCertificateArn}
+            SslSupportMethod: sni-only
+            MinimumProtocolVersion: TLSv1.2_2019
+          ## Uncomment the following section in case you want to enable logging for CloudFront requests
+          # Logging:
+          #   IncludeCookies: 'false'
+          #   Bucket: mylogs.s3.amazonaws.com
+          #   Prefix: myprefix
+    # LambdaEdgeRemoveTrailingSlash:
+    #   Type: 'AWS::Serverless::Function'
+    #   Properties:
+    #     Handler: index.handler
+    #     Runtime: nodejs8.10
+    #     CodeUri: src/
+    #     Role: !GetAtt LambdaEdgeRemoveTrailingSlashRole.Arn
+    #     Description: 'A Lambda@Edge function to remove trailing slashes from CloudFront requests'
+    #     MemorySize: 128
+    #     Timeout: 3
+    #     AutoPublishAlias: live
+
+    # LambdaEdgeRemoveTrailingSlashRole:
+    #   Type: "AWS::IAM::Role"
+    #   Properties:
+    #     Path: "/"
+    #     ManagedPolicyArns:
+    #       - "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+    #     AssumeRolePolicyDocument:
+    #       Version: "2012-10-17"
+    #       Statement:
+    #         - Sid: "AllowLambdaServiceToAssumeRole"
+    #           Effect: "Allow"
+    #           Action:
+    #             - "sts:AssumeRole"
+    #           Principal:
+    #             Service:
+    #               - "lambda.amazonaws.com"
+    #               - "edgelambda.amazonaws.com"
+
+  ## In order to print out the hosted domain via `serverless info` we need to define the DomainName output for CloudFormation
+  Outputs:
+    WebAppCloudFrontDistributionOutput:
+      Value:
+        "Fn::GetAtt": [WebAppCloudFrontDistribution, DomainName]
+    WebAppCloudFrontDistributionId:
+      Value:
+        Ref: WebAppCloudFrontDistribution
