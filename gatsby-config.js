@@ -7,8 +7,7 @@ const siteAddress = new URL("https://12dom.club");
 module.exports = {
   siteMetadata: {
     title: "12dom.club",
-    description:
-      "12dom.club",
+    description: "12dom.club",
     siteUrl: "https://12dom.club",
     author: "12dom.club",
   },
@@ -30,25 +29,21 @@ module.exports = {
     //   },
     // },
     "gatsby-transformer-remark",
-    // {
-    //   resolve: "gatsby-plugin-webfonts",
-    //   options: {
-    //     usePreload: true,
-    //     usePreconnect: true,
-    //     fonts: {
-    //       google2: [
-    //         {
-    //           family: "Barlow",
-    //           axes: "ital,wght@0,500;0,700;1,500;1,700",
-    //         },
-    //         {
-    //           family: "Amatic SC",
-    //           axes: "wght@700",
-    //         },
-    //       ],
-    //     },
-    //   },
-    // },
+    {
+      resolve: "gatsby-plugin-webfonts",
+      options: {
+        usePreload: true,
+        usePreconnect: true,
+        fonts: {
+          google2: [
+            {
+              family: "Roboto",
+              axes: "wght@300;400;500;700",
+            },
+          ],
+        },
+      },
+    },
     {
       resolve: `gatsby-theme-i18n`,
       options: {
@@ -62,14 +57,7 @@ module.exports = {
       options: {
         locales: `./i18n/react-i18next`,
         i18nextOptions: {
-          ns: [
-            "site",
-            "company",
-            "footer",
-            "about",
-            "contact",
-            "404",
-          ],
+          ns: ["site", "company", "footer", "about", "contact", "404"],
         },
       },
     },

@@ -1,6 +1,6 @@
 :root {
-  --thm-font: "Barlow", sans-serif;
-  --heading-font: "Amatic SC", cursive;
+  --thm-font: "Roboto", sans-serif;
+  --heading-font: "Roboto";
   --thm-base: #eddd5e;
   --thm-base-rgb: 237, 221, 94;
   --thm-primary: #5b8c51;
@@ -15,7 +15,7 @@ body {
   color: #747673;
   font-size: 1.125rem;
   line-height: 34px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 button:focus {
