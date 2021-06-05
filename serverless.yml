@@ -8,7 +8,7 @@ plugins:
 
 provider:
   name: aws
-  profile: miran
+  profile: admin
   region: eu-central-1
   runtime: nodejs14.x
   stage: ${opt:stage}
