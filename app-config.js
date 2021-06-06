@@ -5,5 +5,5 @@ module.exports = {
   DEF_LOCALE: "ru",
   API_SITE_ID: "1f66155f-5011-4f75-9b15-ecea36576c43",
   API_ENDPOINT:
-    "https://hm98xgjl6d.execute-api.eu-west-1.amazonaws.com/prod/public", // miran.cloud
+    "https://yw3rvw9q62.execute-api.eu-west-1.amazonaws.com/prod/graphql", // cms.miran
 };

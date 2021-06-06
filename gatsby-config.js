@@ -1,4 +1,4 @@
-const { DEF_LOCALE, API_SITE_ID } = require("./app-config");
+const { DEF_LOCALE, API_SITE_ID, API_ENDPOINT } = require("./app-config");
 const { LOCALES } = require("./app-config");
 
 // https://jakubjafra.github.io/gatsby-deployment-to-cloudfront-using-serverless/
@@ -37,7 +37,7 @@ module.exports = {
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: "cmsApi",
         // Url to query from
-        url: "https://yw3rvw9q62.execute-api.eu-west-1.amazonaws.com/prod/graphql",
+        url: API_ENDPOINT,
         headers: {
           // Learn about environment variables: https://gatsby.dev/env-vars
           // Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,

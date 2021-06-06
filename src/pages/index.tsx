@@ -8,6 +8,7 @@ import ProductList from "../components/ProductList/ProductList";
 import Certificates from "../templates/Certificates/Certificates";
 import { ApiDataResponse, ApiRequestBody, PropertyType } from "../types/common";
 import { API_SITE_ID } from "../../app-config";
+import { graphql, PageProps } from "gatsby";
 
 interface DataRecord {
   Content: string;
@@ -17,33 +18,40 @@ interface DataRecord {
   Language: string;
 }
 
-// interface IndexPageProps extends PageProps {
-//   data: {
-//     products: {
-//       nodes: {
-//         slug: string;
-//         image: string;
-//       }[];
-//     };
-//   };
+interface IndexPageProps extends PageProps {
+  data: {
+    cmsApi: string;
+    // products: {
+    //   nodes: {
+    //     slug: string;
+    //     image: string;
+    //   }[];
+    // };
+  };
+}
+
+// products: allProductsJson(sort: { fields: position }) {
+//   nodes {
+//     slug
+//     image
+//   }
 // }
 
-// query HomePageQuery($locale: String!) {
-// export const pageQuery = graphql`
-//   query HomePageQuery {
-//     products: allProductsJson(sort: { fields: position }) {
-//       nodes {
-//         slug
-//         image
-//       }
-//     }
-//   }
-// `;
+export const pageQuery = graphql`
+  query IndexPageQuery($locale: String!) {
+    cmsApi {
+      page(locale: $locale) {
+        Content
+      }
+    }
+  }
+`;
 
-// const IndexPage: FunctionComponent<IndexPageProps> = ({ data }) => {
-const IndexPage: FunctionComponent = () => {
+const IndexPage: FunctionComponent<IndexPageProps> = ({ data }) => {
   const { t } = useTranslation(["site"]);
   const { locale } = useLocalization();
+
+  console.log("data", data);
 
   // const products = data.products.nodes.map((node) => {
   //   const { slug, image } = node;
