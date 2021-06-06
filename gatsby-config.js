@@ -21,6 +21,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-transformer-json",
     "gatsby-plugin-remove-trailing-slashes",
+
     // {
     //   resolve: "gatsby-source-filesystem",
     //   options: {
@@ -28,6 +29,17 @@ module.exports = {
     //     name: "products",
     //   },
     // },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // Arbitrary name for the remote schema Query type
+        typeName: "CMSAPI",
+        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+        fieldName: "cmsapi",
+        // Url to query from
+        url: "https://yw3rvw9q62.execute-api.eu-west-1.amazonaws.com/prod/graphql",
+      },
+    },
     "gatsby-transformer-remark",
     {
       resolve: "gatsby-plugin-webfonts",
