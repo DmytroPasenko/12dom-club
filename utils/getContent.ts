@@ -15,7 +15,7 @@
 //     path: "cms/page",
 //     params: {
 //       SiteID: API_SITE_ID,
-//       Language: locale,
+//       Locale: locale,
 //     },
 //   };
 

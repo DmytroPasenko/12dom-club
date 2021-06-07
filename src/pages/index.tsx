@@ -11,16 +11,18 @@ import { API_SITE_ID } from "../../app-config";
 import { graphql, PageProps } from "gatsby";
 
 interface DataRecord {
-  Content: string;
+  // Content: string;
   Property: string;
   Type: PropertyType;
   Value: string;
-  Language: string;
+  // Locale: string;
 }
 
 interface IndexPageProps extends PageProps {
   data: {
-    cmsApi: string;
+    cmsApi: {
+      page: DataRecord[];
+    };
     // products: {
     //   nodes: {
     //     slug: string;
@@ -40,8 +42,10 @@ interface IndexPageProps extends PageProps {
 export const pageQuery = graphql`
   query IndexPageQuery($locale: String!) {
     cmsApi {
-      page(locale: $locale) {
-        Content
+      page(locale: $locale, content: "index") {
+        Property
+        Type
+        Value
       }
     }
   }
@@ -51,7 +55,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({ data }) => {
   const { t } = useTranslation(["site"]);
   const { locale } = useLocalization();
 
-  console.log("data", data);
+  console.log("data.cmsApi.page", data.cmsApi.page);
 
   // const products = data.products.nodes.map((node) => {
   //   const { slug, image } = node;
@@ -75,7 +79,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({ data }) => {
   //   path: "cms/page",
   //   params: {
   //     SiteID: "1f66155f-5011-4f75-9b15-ecea36576c43",
-  //     Language: locale,
+  //     Locale: locale,
   //   },
   // };
 
@@ -103,7 +107,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({ data }) => {
 
   // const content = await getContent("cms/page", {
   //   SiteID: API_SITE_ID,
-  //   Language: locale,
+  //   Locale: locale,
   // });
   // console.log("content", content);
 
