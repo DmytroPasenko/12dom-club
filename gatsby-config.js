@@ -1,5 +1,9 @@
-const { DEF_LOCALE, API_SITE_ID, API_ENDPOINT } = require("./app-config");
-const { LOCALES } = require("./app-config");
+const {
+  LOCALES,
+  DEF_LOCALE,
+  API_SITE_ID,
+  API_ENDPOINT,
+} = require("./app-config");
 
 // https://jakubjafra.github.io/gatsby-deployment-to-cloudfront-using-serverless/
 const siteAddress = new URL("https://12dom.club");

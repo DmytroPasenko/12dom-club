@@ -1,18 +1,5 @@
 // import { ImageDataLike } from "gatsby-plugin-image";
 
-// export interface ProductListRecord {
-//   slug: string;
-//   title: string;
-//   mainImage: ImageDataLike | undefined;
-// }
-
-// export interface ProductMainImages {
-//   nodes: {
-//     relativeDirectory: string;
-//     childImageSharp: ImageDataLike;
-//   }[];
-// }
-
 export interface ApiRequestBody extends Record<string, unknown> {
   locale: string;
   path: string;
@@ -53,3 +40,16 @@ enum PropertyTypeEnum {
 }
 
 export type PropertyType = keyof typeof PropertyTypeEnum;
+
+// export interface ProductListRecord {
+//   slug: string;
+//   title: string;
+//   mainImage: ImageDataLike | undefined;
+// }
+
+// export interface ProductMainImages {
+//   nodes: {
+//     relativeDirectory: string;
+//     childImageSharp: ImageDataLike;
+//   }[];
+// }

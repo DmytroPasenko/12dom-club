@@ -11,11 +11,9 @@ import { API_SITE_ID } from "../../app-config";
 import { graphql, PageProps } from "gatsby";
 
 interface DataRecord {
-  // Content: string;
   Property: string;
   Type: PropertyType;
   Value: string;
-  // Locale: string;
 }
 
 interface IndexPageProps extends PageProps {
@@ -23,21 +21,8 @@ interface IndexPageProps extends PageProps {
     cmsApi: {
       page: DataRecord[];
     };
-    // products: {
-    //   nodes: {
-    //     slug: string;
-    //     image: string;
-    //   }[];
-    // };
   };
 }
-
-// products: allProductsJson(sort: { fields: position }) {
-//   nodes {
-//     slug
-//     image
-//   }
-// }
 
 export const pageQuery = graphql`
   query IndexPageQuery($locale: String!) {
