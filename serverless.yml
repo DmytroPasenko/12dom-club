@@ -9,7 +9,7 @@ plugins:
 provider:
   name: aws
   profile: admin
-  region: eu-central-1
+  region: eu-west-1
   runtime: nodejs14.x
   stage: ${opt:stage}
   endpointType: REGIONAL
