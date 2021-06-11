@@ -98,20 +98,19 @@ resources:
         AccessControl: PublicRead
         WebsiteConfiguration:
           IndexDocument: index.html
-
-    # FrontendBucketPolicy: # the bucket also need a public access policy, since we'll use S3 bucket hosting
-    #   Type: AWS::S3::BucketPolicy
-    #   Properties:
-    #     Bucket:
-    #       Ref: FrontendBucket
-    #     PolicyDocument:
-    #       Statement:
-    #         - Sid: PublicReadGetObject
-    #           Effect: Allow
-    #           Principal: { AWS: "*" }
-    #           Action:
-    #             - s3:GetObject
-    #           Resource: arn:aws:s3:::${self:custom.frontendBucketName}/*
+    StorageBucketPolicy: # the bucket also need a public access policy, since we'll use S3 bucket hosting
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket:
+          Ref: StorageBucket
+        PolicyDocument:
+          Statement:
+            - Sid: PublicReadGetObject
+              Effect: Allow
+              Principal: { AWS: "*" }
+              Action:
+                - s3:GetObject
+              Resource: arn:aws:s3:::${self:custom.storageBucketName}/*
 
     WebAppCloudFrontDistribution:
       Type: AWS::CloudFront::Distribution
@@ -167,7 +166,7 @@ resources:
                 - GET
                 - HEAD
               TargetOriginId: Storage
-              PathPattern: files/*
+              PathPattern: assets/*
               ForwardedValues:
                 QueryString: "false"
                 Cookies:
