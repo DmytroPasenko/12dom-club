@@ -24,17 +24,17 @@ interface IndexPageProps extends PageProps {
   };
 }
 
-export const pageQuery = graphql`
-  query IndexPageQuery($locale: String!) {
-    cmsApi {
-      page(locale: $locale, content: "index") {
-        Property
-        Type
-        Value
-      }
-    }
-  }
-`;
+// export const pageQuery = graphql`
+//   query IndexPageQuery($locale: String!) {
+//     cmsApi {
+//       page(locale: $locale, content: "index") {
+//         Property
+//         Type
+//         Value
+//       }
+//     }
+//   }
+// `;
 
 const IndexPage: FunctionComponent<IndexPageProps> = ({ data }) => {
   const { t } = useTranslation(["site"]);
@@ -96,7 +96,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({ data }) => {
   // });
   // console.log("content", content);
 
-  return <div>{t("site:title")} - under construction</div>;
+  return <div>{t("site:title")} - under construction.</div>;
   // return (
   //   <Layout title={t("site:title")} description={t("site:description")}>
   //     <ProductList />
