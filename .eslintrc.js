@@ -17,14 +17,6 @@ module.exports = {
     es2021: true,
   },
   rules: {
-    quotes: "off",
-    "@typescript-eslint/quotes": [
-      2,
-      "backtick",
-      {
-        avoidEscape: true,
-      },
-    ],
     indent: ["error", 2, { SwitchCase: 1 }],
     "prettier/prettier": [
       "error",
