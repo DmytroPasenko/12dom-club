@@ -44,5 +44,23 @@ module.exports = {
         paths: ["lodash"],
       },
     ],
+    "prettier/prettier": "error",
+    // this assumes that something that exports one item now will always do so
+    "import/prefer-default-export": "off",
+    // airbnb considers any loop restricted syntax O_o
+    "no-restricted-syntax": "off",
+    "no-continue": "off",
+    "no-await-in-loop": "off",
+    // Until this is resolved:
+    // https://github.com/typescript-eslint/typescript-eslint/issues/2077
+    "@typescript-eslint/camelcase": "off",
+    // "no-console": "off",
+    "no-underscore-dangle": ["error", { allow: ["_id"] }],
+    "no-restricted-imports": [
+      "error",
+      {
+        paths: ["lodash"],
+      },
+    ],
   },
 };

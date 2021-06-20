@@ -32,11 +32,12 @@ export interface ApiDataResponse<T> extends ApiBasicResponse {
 
 enum PropertyTypeEnum {
   STRING = "STRING",
+  INTEGER = "INTEGER",
   NUMBER = "NUMBER",
   MONEY = "MONEY",
   FILE = "FILE",
-  // BOOLEAN = "BOOLEAN",
-  // DATE = "DATE",
+  BOOLEAN = "BOOLEAN",
+  DATE = "DATE",
 }
 
 export type PropertyType = keyof typeof PropertyTypeEnum;

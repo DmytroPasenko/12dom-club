@@ -1,3 +1,4 @@
+# https://www.serverless.com/framework/docs/providers/aws/guide/serverless.yml/
 service: site-12dom-club
 unresolvedVariablesNotificationMode: error # future proofing
 variablesResolutionMode: 20210219 # future proofing
@@ -9,7 +10,7 @@ plugins:
 provider:
   name: aws
   profile: admin
-  region: eu-central-1
+  region: eu-west-1
   runtime: nodejs14.x
   stage: ${opt:stage}
   endpointType: REGIONAL
@@ -25,6 +26,7 @@ custom:
     prod: 12dom.club # your production site address
 
   frontendBucketName: ${self:custom.bucketNames.${self:provider.stage}} # the bucket name is based on the stage
+  storageBucketName: s.${self:custom.bucketNames.prod}
 
   siteAliases:
     dev:
@@ -89,23 +91,26 @@ resources:
         #         - "Authorization"
         #         - "Content-Length"
         #       MaxAge: 3000
-    # UNCOMMENT THE FOLLOWING if you wish to add cloudfront.
-    # Be aware that cloudfront deploys take a long time so the deploy script may take up to
-    # 20 mins when deploying changes to the cloudfront configuration values.
-
-    # FrontendBucketPolicy: # the bucket also need a public access policy, since we'll use S3 bucket hosting
-    #   Type: AWS::S3::BucketPolicy
-    #   Properties:
-    #     Bucket:
-    #       Ref: FrontendBucket
-    #     PolicyDocument:
-    #       Statement:
-    #         - Sid: PublicReadGetObject
-    #           Effect: Allow
-    #           Principal: { AWS: "*" }
-    #           Action:
-    #             - s3:GetObject
-    #           Resource: arn:aws:s3:::${self:custom.frontendBucketName}/*
+    StorageBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.storageBucketName}
+        AccessControl: PublicRead
+        WebsiteConfiguration:
+          IndexDocument: index.html
+    StorageBucketPolicy: # the bucket also need a public access policy, since we'll use S3 bucket hosting
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket:
+          Ref: StorageBucket
+        PolicyDocument:
+          Statement:
+            - Sid: PublicReadGetObject
+              Effect: Allow
+              Principal: { AWS: "*" }
+              Action:
+                - s3:GetObject
+              Resource: arn:aws:s3:::${self:custom.storageBucketName}/*
 
     WebAppCloudFrontDistribution:
       Type: AWS::CloudFront::Distribution
@@ -114,6 +119,12 @@ resources:
           Origins:
             - DomainName: ${self:custom.frontendBucketName}.s3-website.${self:provider.region}.amazonaws.com
               Id: Frontend
+              CustomOriginConfig:
+                HTTPPort: 80
+                HTTPSPort: 443
+                OriginProtocolPolicy: http-only
+            - DomainName: ${self:custom.storageBucketName}.s3-website.${self:provider.region}.amazonaws.com
+              Id: Storage
               CustomOriginConfig:
                 HTTPPort: 80
                 HTTPSPort: 443
@@ -150,6 +161,19 @@ resources:
             FunctionAssociations:
               - EventType: viewer-request
                 FunctionARN: arn:aws:cloudfront::989029361662:function/fix-url
+          CacheBehaviors:
+            - AllowedMethods:
+                - GET
+                - HEAD
+              TargetOriginId: Storage
+              PathPattern: assets/*
+              ForwardedValues:
+                QueryString: "false"
+                Cookies:
+                  Forward: none
+              ViewerProtocolPolicy: redirect-to-https
+              Compress: "true"
+              DefaultTTL: 31536000
           ## The certificate to use when viewers use HTTPS to request objects.
           ViewerCertificate:
             AcmCertificateArn: ${self:custom.domainCertificateArn}

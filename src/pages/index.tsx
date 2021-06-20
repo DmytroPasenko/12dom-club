@@ -24,23 +24,23 @@ interface IndexPageProps extends PageProps {
   };
 }
 
-export const pageQuery = graphql`
-  query IndexPageQuery($locale: String!) {
-    cmsApi {
-      page(locale: $locale, content: "index") {
-        Property
-        Type
-        Value
-      }
-    }
-  }
-`;
+// export const pageQuery = graphql`
+//   query IndexPageQuery($locale: String!) {
+//     cmsApi {
+//       page(locale: $locale, content: "index") {
+//         Property
+//         Type
+//         Value
+//       }
+//     }
+//   }
+// `;
 
 const IndexPage: FunctionComponent<IndexPageProps> = ({ data }) => {
   const { t } = useTranslation(["site"]);
   const { locale } = useLocalization();
 
-  console.log("data.cmsApi.page", data.cmsApi.page);
+  // console.log("data.cmsApi.page", data.cmsApi.page);
 
   // const products = data.products.nodes.map((node) => {
   //   const { slug, image } = node;
@@ -96,7 +96,12 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({ data }) => {
   // });
   // console.log("content", content);
 
-  return <div>{t("site:title")} - under construction</div>;
+  return (
+    <div>
+      {t("site:title")} - under construction.
+      <img alt="" src="https://12dom.club/assets/cms/1.jpg" />
+    </div>
+  );
   // return (
   //   <Layout title={t("site:title")} description={t("site:description")}>
   //     <ProductList />
