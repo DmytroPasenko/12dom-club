@@ -13,12 +13,10 @@ const AppLink: FunctionComponent<AppLinkProps> = ({
   language,
   children,
   className,
-}) => {
-  return (
-    <LocalizedLink to={to} language={language} className={className}>
-      {children}
-    </LocalizedLink>
-  );
-};
+}) => (
+  <LocalizedLink to={to} language={language} className={className}>
+    {children}
+  </LocalizedLink>
+);
 
 export default AppLink;

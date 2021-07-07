@@ -8,7 +8,7 @@ const Error404Page: FunctionComponent<PageProps> = () => {
   const { t } = useTranslation(["404"]);
 
   return (
-    <Layout title={`404`}>
+    <Layout title="404">
       <div className="text-center" style={{ padding: "50px 0 100px 0" }}>
         <p style={{ fontSize: "1.5rem", padding: "20px 0 30px 0" }}>
           {t("404:notFound")}

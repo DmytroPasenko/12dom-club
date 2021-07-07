@@ -5,17 +5,24 @@ const {
   API_ENDPOINT,
 } = require("./app-config");
 
-// https://jakubjafra.github.io/gatsby-deployment-to-cloudfront-using-serverless/
-const siteAddress = new URL("https://12dom.club");
+// const siteAddress = new URL("https://12dom.club");
+
+const activeEnv =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development";
+
+require("dotenv").config({
+  path: `.env.${activeEnv}`,
+});
 
 module.exports = {
   siteMetadata: {
     title: "12dom.club",
     description: "12dom.club",
     siteUrl: "https://12dom.club",
-    author: "12dom.club",
+    author: "hypersoft.io",
   },
   plugins: [
+    "gatsby-plugin-postcss",
     "gatsby-plugin-sass",
     "gatsby-plugin-dts-css-modules",
     "gatsby-plugin-image",
@@ -78,18 +85,18 @@ module.exports = {
       options: {
         locales: `./i18n/react-i18next`,
         i18nextOptions: {
-          ns: ["site", "company", "footer", "about", "contact", "404"],
+          ns: ["site", "footer", "about"],
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-s3`,
-      options: {
-        bucketName: "12dom.club",
-        protocol: siteAddress.protocol.slice(0, -1),
-        hostname: siteAddress.hostname,
-        region: "eu-central-1",
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-s3`,
+    //   options: {
+    //     bucketName: "12dom.club",
+    //     protocol: siteAddress.protocol.slice(0, -1),
+    //     hostname: siteAddress.hostname,
+    //     region: "eu-central-1",
+    //   },
+    // },
   ],
 };
