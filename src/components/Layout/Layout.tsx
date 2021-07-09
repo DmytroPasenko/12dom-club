@@ -17,7 +17,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
 }) => {
   return (
     <main className={wrapper}>
-      <Seo title={title} description={description} />
+      <Seo title={title} description={description}/>
       <Header title={title} />
       {children}
       <Footer />
