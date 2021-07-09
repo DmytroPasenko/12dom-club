@@ -23,7 +23,7 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-postcss",
-    "gatsby-plugin-sass",
+    // "gatsby-plugin-sass",
     "gatsby-plugin-dts-css-modules",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
@@ -87,6 +87,22 @@ module.exports = {
         i18nextOptions: {
           ns: ["site", "footer", "about"],
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-minify-classnames`,
+      options: {
+        dictionary: 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ0123456789',
+        enable: process.env.NODE_ENV === 'production',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        postCssPlugins: [
+          require("tailwindcss"),
+          require("./tailwind.config.js"), // Optional: Load custom Tailwind CSS configuration
+        ],
       },
     },
     // {
