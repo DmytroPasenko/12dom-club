@@ -12,6 +12,4 @@ export const emailButton: string;
 export const socialNetworksContent: string;
 export const socialNetworks: string;
 export const socialLink: string;
-export const greyLink: string;
-export const pinkLink: string;
 export const copyright: string;
