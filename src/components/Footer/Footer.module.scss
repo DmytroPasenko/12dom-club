@@ -65,23 +65,24 @@
         li {
           position: relative;
           a {
-            .grey-link {
+            .social-link {
               height: 18px;
               width: auto;
-              position: absolute;
+              position: absolute;     
               left: 0px;
-              transition: all 0.3s ease;
               margin: 5px 11px;
-            }
-            .grey-link:hover {
-              opacity: 0;
-            }
-            .pink-link {
-              height: 18px;
-              width: auto;
-              margin: 5px 11px;
+              transition: all .3s ease-in-out;
+              filter: invert(59%) sepia(2%) saturate(7%) hue-rotate(350deg) brightness(95%) contrast(88%);
             }
           }
+          a {
+            &:hover {
+              .social-link {
+                filter: invert(67%) sepia(48%) saturate(395%) hue-rotate(309deg) brightness(102%) contrast(79%);
+              }
+            } 
+          }
+          // 
         }
       }
     }
