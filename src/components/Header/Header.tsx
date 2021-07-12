@@ -39,9 +39,7 @@ import {
   homeBottomLi,
   blogTopLi
 } from "./Header.module.scss";
-import moreIconBlack from "../../../static/svg/header/more-icon-black.svg"
-import moreIconPink from "../../../static/svg/header/more-icon-pink.svg"
-import moreIconWhite from "../../../static/svg/header/more-icon-white.svg"
+import moreIcon from "../../../static/svg/header/more-icon.svg"
 
 interface HeaderProps {
   title: string;
