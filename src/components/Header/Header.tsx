@@ -66,17 +66,12 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => (
                 <div className={classNames(moreThenContainer,"flex")}>
                   <img
                     className={classNames(moreThen,"md:block hidden")}
-                    src={moreIconPink}
+                    src={moreIcon}
                     alt="more"
                   />
                   <img
-                    className={classNames(moreThen, moreThenWhite,"md:block hidden")}
-                    src={moreIconWhite}
-                    alt="more"
-                  />
-                  <img
-                    className="more-then-black touch-arrow md:hidden"
-                    src={moreIconBlack}
+                    className={classNames(moreThenBlack,"md:hidden")}
+                    src={moreIcon}
                     alt="more"
                   />
                 </div>                
@@ -87,13 +82,8 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => (
                     Header settings
                     <div className={subMoreThenContainer}>
                       <img
-                        className={classNames(subMoreThen,subMoreThenBlack)}
-                        src={moreIconBlack}
-                        alt="more"
-                      />
-                      <img
-                        className={classNames(subMoreThen,subMoreThenPink,"md:block hidden")}
-                        src={moreIconPink}
+                        className={classNames(subMoreThen)}
+                        src={moreIcon}
                         alt="more"
                       />
                     </div>
@@ -132,12 +122,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => (
                     <div className={subMoreThenContainer}>
                       <img
                         className={classNames(subMoreThen,subMoreThenBlack)}
-                        src={moreIconBlack}
-                        alt="more"
-                      />
-                      <img
-                        className={classNames(subMoreThen,subMoreThenPink,"md:block hidden")}
-                        src={moreIconPink}
+                        src={moreIcon}
                         alt="more"
                       />
                     </div>
@@ -170,17 +155,12 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => (
                 <div className={classNames(moreThenContainer,"flex")}>
                   <img
                     className={classNames(moreThen,"md:block hidden")}
-                    src={moreIconPink}
+                    src={moreIcon}
                     alt="more"
                   />
                   <img
-                    className={classNames(moreThen, moreThenWhite,"md:block hidden")}
-                    src={moreIconWhite}
-                    alt="more"
-                  />
-                  <img
-                    className="more-then-black touch-arrow md:hidden"
-                    src={moreIconBlack}
+                    className={classNames(moreThenBlack,"md:hidden")}
+                    src={moreIcon}
                     alt="more"
                   />
                 </div> 
@@ -192,12 +172,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => (
                     <div className={subMoreThenContainer}>
                       <img
                         className={classNames(subMoreThen,subMoreThenBlack)}
-                        src={moreIconBlack}
-                        alt="more"
-                      />
-                      <img
-                        className={classNames(subMoreThen,subMoreThenPink,"md:block hidden")}
-                        src={moreIconPink}
+                        src={moreIcon}
                         alt="more"
                       />
                     </div>
@@ -233,12 +208,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => (
                     <div className={subMoreThenContainer}>
                       <img
                         className={classNames(subMoreThen,subMoreThenBlack)}
-                        src={moreIconBlack}
-                        alt="more"
-                      />
-                      <img
-                        className={classNames(subMoreThen,subMoreThenPink,"md:block hidden")}
-                        src={moreIconPink}
+                        src={moreIcon}
                         alt="more"
                       />
                     </div>
@@ -265,12 +235,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => (
                     <div className={subMoreThenContainer}>
                       <img
                         className={classNames(subMoreThen,subMoreThenBlack)}
-                        src={moreIconBlack}
-                        alt="more"
-                      />
-                      <img
-                        className={classNames(subMoreThen,subMoreThenPink,"md:block hidden")}
-                        src={moreIconPink}
+                        src={moreIcon}
                         alt="more"
                       />
                     </div>
@@ -299,17 +264,12 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => (
                 <div className={classNames(moreThenContainer,"flex")}>
                   <img
                     className={classNames(moreThen,"md:block hidden")}
-                    src={moreIconPink}
+                    src={moreIcon}
                     alt="more"
                   />
                   <img
-                    className={classNames(moreThen, moreThenWhite,"md:block hidden")}
-                    src={moreIconWhite}
-                    alt="more"
-                  />
-                  <img
-                    className="more-then-black touch-arrow md:hidden"
-                    src={moreIconBlack}
+                    className={classNames(moreThenBlack,"md:hidden")}
+                    src={moreIcon}
                     alt="more"
                   />
                 </div> 

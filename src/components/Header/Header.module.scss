@@ -221,22 +221,15 @@
                 width: 9px;
                 height: auto;
                 margin-left: 3px;
-              }
-              .more-then-white {
-                position: absolute;
-                left: 0px;
-                top: 9px;
                 transition: all 0.4s ease;
-              }
-              .more-then-white.current-more-then-white {
-                display: none;
+                filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
               }
             }
             .site-link:hover {
               color: #e49c9f;
             }
-            .site-link:hover .more-then-white {
-              opacity: 0;
+            .site-link:hover .more-then {
+              filter: invert(67%) sepia(48%) saturate(395%) hue-rotate(309deg) brightness(102%) contrast(79%);
             }
             .sub-menu {
               position: absolute;
@@ -265,22 +258,9 @@
                     height: auto;
                     margin-top: 10px;
                     transform: rotate(270deg);
+                    transition: all 0.4s ease;
+                    filter: invert(67%) sepia(48%) saturate(395%) hue-rotate(309deg) brightness(102%) contrast(79%);
                     right: 0;
-                  }
-                  .sub-more-then-pink {
-                    position: absolute;
-                    top: 0px;
-                    transition: all 0.4s ease;
-                  }
-                  .sub-more-then-black {
-                    opacity: 0;
-                    transition: all 0.4s ease;
-                  }
-                  .current-sub-more-than-pink {
-                    display: none;
-                  }
-                  .current-sub-more-than-black {
-                    opacity: 1;
                   }
                 }
                 .current-sub-link {
@@ -289,11 +269,8 @@
                 .site-sub-link:hover {
                   color: #222222;
                 }
-                .site-sub-link:hover .sub-more-then-pink {
-                  opacity: 0;
-                }
-                .site-sub-link:hover .sub-more-then-black {
-                  opacity: 1;
+                .site-sub-link:hover .sub-more-then {
+                  filter: none;
                 }
               }
               .top-li {
