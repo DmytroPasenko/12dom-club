@@ -13,6 +13,7 @@ import {
   emailButton,
   socialNetworksContent,
   socialNetworks,
+  socialLink,
   greyLink,
   pinkLink,
   copyright
@@ -62,14 +63,8 @@ const Footer: FunctionComponent = () => {
             <li className="flex">
               <a href="https://www.facebook.com/"
                 ><img
-                  className={greyLink}
+                  className={socialLink}
                   src={fbGreyIcon}
-                  alt="social-network-1"
-              /></a>
-              <a href="https://www.facebook.com/"
-                ><img
-                  className={pinkLink}
-                  src={fbPinkIcon}
                   alt="social-network-1"
               /></a>
             </li>
