@@ -1,29 +1,37 @@
 import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
+// import { PageProps } from "gatsby";
+// import Layout from "../Layout/Layout";
+// import { PropertyType } from "../../types/common"
+import Slider from "../Home/home-components/Slider/Slider.module"
 
-// import {
-//   footer,
-//   footerContent,
-//   footerHeader,
-//   emailContainer,
-//   inputBox,
-//   emailImg,
-//   emailInput,
-//   emailButton,
-//   socialNetworksContent,
-//   socialNetworks,
-//   socialLink,
-//   copyright
-// } from "./Home.module.scss"
+import {
+  siteContainer,
+  slider
+} from "./Home.module.scss"
+
+// interface DataRecord {
+//   Property: string;
+//   Type: PropertyType;
+//   Value: string;
+// }
+
+// interface IndexPageProps extends PageProps {
+//   data: {
+//     cmsApi: {
+//       page: DataRecord[];
+//     };
+//   };
+// }
 
 const Home: FunctionComponent = () => {
   const { t } = useTranslation(["site", "home"]);
 
   return (
-    <div className="site-container mx-auto">
-      <section className="slider text-white uppercase">
-				Slider
+    <div className={classNames(siteContainer,"mx-auto")}>
+      <section className={classNames(slider,"text-white uppercase")}>
+			  {<Slider />}
       </section>
 
       <section
