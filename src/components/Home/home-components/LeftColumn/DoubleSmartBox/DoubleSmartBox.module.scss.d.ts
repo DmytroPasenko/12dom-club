@@ -6,4 +6,3 @@ export const postDate: string;
 export const entryP: string;
 export const postButton: string;
 export const arrowIcon: string;
-export const postButton: string;
