@@ -7,8 +7,8 @@ import {
   latestPostsBlockContent
 } from "./LatestPosts.module.scss";
 
-const LatestPosts: FunctionComponent = () => {
-  const { t } = useTranslation(["site", "latest-posts"]);
+const CustomPosts: FunctionComponent = () => {
+  const { t } = useTranslation(["site", "custom-posts"]);
 
   return (
     <>
@@ -35,4 +35,4 @@ const LatestPosts: FunctionComponent = () => {
   );
 };
 
-export default LatestPosts;
+export default CustomPosts;
