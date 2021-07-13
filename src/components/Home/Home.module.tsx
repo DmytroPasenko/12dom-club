@@ -11,6 +11,7 @@ import DoubleSmartBox from "./home-components/LeftColumn/DoubleSmartBox/DoubleSm
 import PaginationContent from "./home-components/LeftColumn/PaginationContent/PaginationContent.module";
 import AboutMe from "./home-components/SideBar/AboutMe/AboutMe.module";
 import CustomPosts from "./home-components/SideBar/CustomPosts/CustomPosts.module";
+import LatestPosts from "./home-components/SideBar/LatestPosts/LatestPosts.module"
 
 import {
   siteContainer,
@@ -83,9 +84,7 @@ const Home: FunctionComponent = () => {
           </div>
 
           <div className={sideBarBlock}>
-            <div className="latest-posts-block">
-              
-            </div>
+            <LatestPosts />
           </div>
 
           <div className={sideBarBlock}>
