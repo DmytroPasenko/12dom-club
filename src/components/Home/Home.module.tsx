@@ -8,6 +8,7 @@ import Slider from "../Home/home-components/Slider/Slider.module";
 import TopGridNews from "./home-components/TopGridNews/TopGridNews.module";
 import NewsSmartBox from "./home-components/LeftColumn/NewsSmartBox/NewsSmartBox.module";
 import DoubleSmartBox from "./home-components/LeftColumn/DoubleSmartBox/DoubleSmartBox.module";
+import PaginationContent from "./home-components/LeftColumn/PaginationContent/PaginationContent.module";
 
 import {
   siteContainer,
@@ -17,6 +18,7 @@ import {
   leftColumn,
   newsSmartBox,
   doubleSmartBox,
+  paginationContent
 } from "./Home.module.scss";
 
 // interface DataRecord {
@@ -66,8 +68,8 @@ const Home: FunctionComponent = () => {
             <DoubleSmartBox />
           </div>
 
-          <div className="pagination-content flex col-span-2 flex-col">
-            PaginationContent
+          <div className={classNames(paginationContent,"flex col-span-2 flex-col")}>
+            <PaginationContent />
           </div>
         </div>
 
