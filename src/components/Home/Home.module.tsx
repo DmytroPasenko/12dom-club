@@ -6,11 +6,9 @@ import classNames from "classnames";
 // import { PropertyType } from "../../types/common"
 import Slider from "../Home/home-components/Slider/Slider.module";
 import TopGridNews from "./home-components/TopGridNews/TopGridNews.module";
+import NewsSmartBox from "./home-components/LeftColumn/NewsSmartBox/NewsSmartBox.module";
 
-import { 
-  siteContainer, 
-  slider,
-  topGridNews } from "./Home.module.scss";
+import { siteContainer, slider, topGridNews, newsContainer, leftColumn, newsSmartBox } from "./Home.module.scss";
 
 // interface DataRecord {
 //   Property: string;
@@ -35,24 +33,24 @@ const Home: FunctionComponent = () => {
         {<Slider />}
       </section>
 
-      <section className={classNames(topGridNews,"grid xl:grid-cols-2 grid-cols-1 text-white")}>
+      <section
+        className={classNames(
+          topGridNews,
+          "grid xl:grid-cols-2 grid-cols-1 text-white",
+        )}
+      >
         <TopGridNews />
       </section>
 
       <section
-        className="
-          news-container
-          grid
-          lg:grid-cols-3
-          grid-cols-1
-          uppercase
-          flex
-          text-white
-        "
+        className={classNames(
+          newsContainer,
+          "grid lg:grid-cols-3 grid-cols-1 uppercase flex text-white",
+        )}
       >
-        <div className="left-column col-span-2">
-          <div className="news-smart-box grid grid-cols-2">
-            MainNewsContainer
+        <div className={classNames(leftColumn,"col-span-2")}>
+          <div className={classNames(newsSmartBox,"grid grid-cols-2")}>
+            <NewsSmartBox />
           </div>
 
           <div className="double-smart-box">DoublesmartBox</div>

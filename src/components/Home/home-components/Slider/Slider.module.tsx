@@ -19,10 +19,6 @@ import {
   activeRadio
 } from "./Slider.module.scss"
 
-import firstSldieBg from "../../../../../static/img/home/slider/slide-1.jpg"
-import secondSldieBg from "../../../../../static/img/home/slider/slide-2.jpg"
-import thirdldieBg from "../../../../../static/img/home/slider/slide-3.jpg"
-
 const Slider: FunctionComponent = () => {
   const { t } = useTranslation(["site", "slider"]);
 
