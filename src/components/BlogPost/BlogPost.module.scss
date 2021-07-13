@@ -1,0 +1,30 @@
+/*site-container*/
+.site-container {
+  max-width: 930px;
+  padding: 0px 25px;
+}
+
+/*media-queries*/
+@media screen and (max-width: 1439px) {
+  .site-container {
+    max-width: 1405px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .site-container {
+    max-width: 940px;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .site-container {
+    max-width: 720px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .site-container {
+    max-width: 576px;
+  }
+}
