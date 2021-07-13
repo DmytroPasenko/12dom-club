@@ -10,6 +10,7 @@ import NewsSmartBox from "./home-components/LeftColumn/NewsSmartBox/NewsSmartBox
 import DoubleSmartBox from "./home-components/LeftColumn/DoubleSmartBox/DoubleSmartBox.module";
 import PaginationContent from "./home-components/LeftColumn/PaginationContent/PaginationContent.module";
 import AboutMe from "./home-components/SideBar/AboutMe/AboutMe.module";
+import CustomPosts from "./home-components/SideBar/CustomPosts/CustomPosts.module";
 
 import {
   siteContainer,
@@ -82,25 +83,13 @@ const Home: FunctionComponent = () => {
           </div>
 
           <div className={sideBarBlock}>
-            <div className="latest-posts-block">LatestPost</div>
+            <div className="latest-posts-block">
+              
+            </div>
           </div>
 
           <div className={sideBarBlock}>
-            <h5 className="uppercase">Custom Posts</h5>
-            <div
-              className="
-                custom-posts-block
-                grid
-                lg:grid-cols-1
-                sm:grid-cols-2
-                grid-cols-1
-                flex
-                lg:flex-col
-                flex-row
-              "
-            >
-              CustomPosts
-            </div>
+            <CustomPosts />
           </div>
 
           <div className={sideBarBlock}>
