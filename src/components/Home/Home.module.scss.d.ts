@@ -7,3 +7,5 @@ export const leftColumn: string;
 export const newsSmartBox: string;
 export const doubleSmartBox: string;
 export const paginationContent: string;
+export const sideBar: string;
+export const sideBarBlock: string;

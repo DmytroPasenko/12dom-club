@@ -9,6 +9,7 @@ import TopGridNews from "./home-components/TopGridNews/TopGridNews.module";
 import NewsSmartBox from "./home-components/LeftColumn/NewsSmartBox/NewsSmartBox.module";
 import DoubleSmartBox from "./home-components/LeftColumn/DoubleSmartBox/DoubleSmartBox.module";
 import PaginationContent from "./home-components/LeftColumn/PaginationContent/PaginationContent.module";
+import AboutMe from "./home-components/SideBar/AboutMe/AboutMe.module";
 
 import {
   siteContainer,
@@ -18,7 +19,9 @@ import {
   leftColumn,
   newsSmartBox,
   doubleSmartBox,
-  paginationContent
+  paginationContent,
+  sideBar,
+  sideBarBlock
 } from "./Home.module.scss";
 
 // interface DataRecord {
@@ -73,16 +76,16 @@ const Home: FunctionComponent = () => {
           </div>
         </div>
 
-        <div className="side-bar normal-case text-black">
-          <div className="side-bar-block">
-            <div className="about-block">AboutMe</div>
+        <div className={classNames(sideBar,"normal-case text-black")}>
+          <div className={sideBarBlock}>
+            <AboutMe />
           </div>
 
-          <div className="side-bar-block">
+          <div className={sideBarBlock}>
             <div className="latest-posts-block">LatestPost</div>
           </div>
 
-          <div className="side-bar-block">
+          <div className={sideBarBlock}>
             <h5 className="uppercase">Custom Posts</h5>
             <div
               className="
@@ -100,13 +103,13 @@ const Home: FunctionComponent = () => {
             </div>
           </div>
 
-          <div className="side-bar-block">
+          <div className={sideBarBlock}>
             <div className="tags-block flex">
               <div className="tags">Tags</div>
             </div>
           </div>
 
-          <div className="side-bar-block text-black">
+          <div className={classNames(sideBarBlock,"text-black")}>
             <div className="follow-block">FollowAndSubscribe</div>
           </div>
         </div>
