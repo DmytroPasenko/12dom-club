@@ -5,7 +5,6 @@ import classNames from "classnames";
 import { 
   newsBoxContainer,
   mainNews,
-  newsTextContainer,
   newsImg,
   softNews,
   softNewsImg,
