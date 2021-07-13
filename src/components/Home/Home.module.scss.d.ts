@@ -5,3 +5,4 @@ export const topGridNews: string;
 export const newsContainer: string;
 export const leftColumn: string;
 export const newsSmartBox: string;
+export const doubleSmartBox: string;

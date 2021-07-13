@@ -7,8 +7,17 @@ import classNames from "classnames";
 import Slider from "../Home/home-components/Slider/Slider.module";
 import TopGridNews from "./home-components/TopGridNews/TopGridNews.module";
 import NewsSmartBox from "./home-components/LeftColumn/NewsSmartBox/NewsSmartBox.module";
+import DoubleSmartBox from "./home-components/LeftColumn/DoubleSmartBox/DoubleSmartBox.module";
 
-import { siteContainer, slider, topGridNews, newsContainer, leftColumn, newsSmartBox } from "./Home.module.scss";
+import {
+  siteContainer,
+  slider,
+  topGridNews,
+  newsContainer,
+  leftColumn,
+  newsSmartBox,
+  doubleSmartBox,
+} from "./Home.module.scss";
 
 // interface DataRecord {
 //   Property: string;
@@ -48,12 +57,14 @@ const Home: FunctionComponent = () => {
           "grid lg:grid-cols-3 grid-cols-1 uppercase flex text-white",
         )}
       >
-        <div className={classNames(leftColumn,"col-span-2")}>
-          <div className={classNames(newsSmartBox,"grid grid-cols-2")}>
+        <div className={classNames(leftColumn, "col-span-2")}>
+          <div className={classNames(newsSmartBox, "grid grid-cols-2")}>
             <NewsSmartBox />
           </div>
 
-          <div className="double-smart-box">DoublesmartBox</div>
+          <div className={doubleSmartBox}>
+            <DoubleSmartBox />
+          </div>
 
           <div className="pagination-content flex col-span-2 flex-col">
             PaginationContent
