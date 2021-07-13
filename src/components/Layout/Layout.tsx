@@ -22,7 +22,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
       <Seo title={title} description={description}/>
       <Header title={title} />
       <Home />
-      {children}
+      {/* {children} */}
       <BottomNewsGrid />
       <Footer />
     </main>
