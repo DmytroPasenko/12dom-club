@@ -1,0 +1,40 @@
+/*about-block*/
+.about-block {
+  .about-block-content {
+    > img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 32px;
+    }
+    .about-text {
+      font-family: "Roboto";
+      font-size: 0.875rem;
+      line-height: 1.714285;
+      width: 100%;
+    }
+    .post-button {
+      font-family: "Oswald";
+      font-size: 0.75em;
+      letter-spacing: 0.72px;
+      color: #e49c9f;
+      padding-top: 35px;
+      margin-bottom: 60px;
+      transition: all 0.3s ease;
+      .arrow-icon {
+        width: 14px;
+        height: auto;
+        margin-left: 5px;
+        transition: all 0.4s ease;
+        margin-top: 3px;
+        position: relative;
+        filter: invert(67%) sepia(48%) saturate(395%) hue-rotate(309deg) brightness(102%) contrast(79%);
+      }
+    }
+    .post-button:hover {
+      color: #000000;
+    }
+    .post-button:hover .arrow-icon {
+      filter: none;
+    }
+  }
+}

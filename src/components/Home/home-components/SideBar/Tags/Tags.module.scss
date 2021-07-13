@@ -1,0 +1,28 @@
+/*tags-block*/
+.tags-block {
+  .tags {
+    padding-bottom: 50px;
+    h5 {
+      margin-bottom: 24px;
+      cursor: auto;
+    }
+    button {
+      padding: 12.5px 19px;
+      margin: 0px 3px 10px;
+      color: #ffffff;
+      font-family: "Roboto Condensed";
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      line-height: 1.714285;
+      border: solid 1px #e49c9f;
+      border-radius: 4px;
+      background: #e49c9f;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      color: #e49c9f;
+      background: #ffffff;
+      border: solid 1px #e49c9f;
+    }
+  }
+}
