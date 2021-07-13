@@ -4,16 +4,16 @@ import classNames from "classnames";
 // import { PageProps } from "gatsby";
 // import Layout from "../Layout/Layout";
 // import { PropertyType } from "../../types/common"
-import Slider from "../Home/home-components/Slider/Slider.module";
-import TopGridNews from "./home-components/TopGridNews/TopGridNews.module";
-import NewsSmartBox from "./home-components/LeftColumn/NewsSmartBox/NewsSmartBox.module";
-import DoubleSmartBox from "./home-components/LeftColumn/DoubleSmartBox/DoubleSmartBox.module";
-import PaginationContent from "./home-components/LeftColumn/PaginationContent/PaginationContent.module";
-import AboutMe from "./home-components/SideBar/AboutMe/AboutMe.module";
+import Slider from "./home-components/Slider/Slider";
+import TopGridNews from "./home-components/TopGridNews/TopGridNews";
+import NewsSmartBox from "./home-components/LeftColumn/NewsSmartBox/NewsSmartBox";
+import DoubleSmartBox from "./home-components/LeftColumn/DoubleSmartBox/DoubleSmartBox";
+import PaginationContent from "./home-components/LeftColumn/PaginationContent/PaginationContent";
+import AboutMe from "./home-components/SideBar/AboutMe/AboutMe";
 import CustomPosts from "./home-components/SideBar/CustomPosts/CustomPosts.module";
-import LatestPosts from "./home-components/SideBar/LatestPosts/LatestPosts.module";
-import Tags from "./home-components/SideBar/Tags/Tags.module";
-import FollowAndSubscribe from "./home-components/SideBar/FollowAndSubscribe/FollowAndSubscribe.module";
+import LatestPosts from "./home-components/SideBar/LatestPosts/LatestPosts";
+import Tags from "./home-components/SideBar/Tags/Tags";
+import FollowAndSubscribe from "./home-components/SideBar/FollowAndSubscribe/FollowAndSubscribe";
 
 import {
   siteContainer,

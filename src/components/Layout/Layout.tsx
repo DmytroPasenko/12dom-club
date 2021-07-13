@@ -1,7 +1,7 @@
 import { FunctionComponent, ReactNode } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import Home from "../Home/Home.module";
+import Home from "../Home/Home";
 import BottomNewsGrid from "../BottomNewsGrid/BottomNewsGrid";
 import Seo from "../Seo";
 import { wrapper } from "./Layout.module.scss";
