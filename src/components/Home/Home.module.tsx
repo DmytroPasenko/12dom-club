@@ -13,6 +13,7 @@ import AboutMe from "./home-components/SideBar/AboutMe/AboutMe.module";
 import CustomPosts from "./home-components/SideBar/CustomPosts/CustomPosts.module";
 import LatestPosts from "./home-components/SideBar/LatestPosts/LatestPosts.module";
 import Tags from "./home-components/SideBar/Tags/Tags.module";
+import FollowAndSubscribe from "./home-components/SideBar/FollowAndSubscribe/FollowAndSubscribe.module";
 
 import {
   siteContainer,
@@ -97,7 +98,7 @@ const Home: FunctionComponent = () => {
           </div>
 
           <div className={classNames(sideBarBlock,"text-black")}>
-            <div className="follow-block">FollowAndSubscribe</div>
+            <FollowAndSubscribe />
           </div>
         </div>
       </section>

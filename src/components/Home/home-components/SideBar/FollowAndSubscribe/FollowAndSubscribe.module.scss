@@ -1,0 +1,132 @@
+/*follow-and-subscribe-block*/
+.follow-and-subscribe-block {
+  margin: 30px 0px 0px 0px;
+  padding-bottom: 50px;
+  .follow {
+    margin-bottom: 55px;
+    h5 {
+      margin-bottom: 28px;
+      cursor: auto;
+    }
+    ul {
+      margin-bottom: 36px;
+      max-width: 280px;
+      li {
+        position: relative;
+        a {
+          .follow-link {
+            height: 18px;
+            width: auto;
+            position: absolute;
+            left: 0px;
+            transition: all 0.3s ease;
+            padding-right: 21px;
+            filter: invert(59%) sepia(2%) saturate(7%) hue-rotate(350deg) brightness(95%) contrast(88%);
+          }
+          .follow-link:hover {
+            filter: invert(67%) sepia(48%) saturate(395%) hue-rotate(309deg) brightness(102%) contrast(79%);
+          }
+        }
+      }
+    }
+  }
+  .subscribe {
+    h5 {
+      margin-bottom: 28px;
+      cursor: auto;
+    }
+    .subscribe-group {
+      margin-bottom: 55px;
+      height: 70px;
+      img {
+        position: absolute;
+        width: 24px;
+        height: auto;
+        margin-top: 24px;
+        margin-left: 24px;
+      }
+      input {
+        background-color: #f8f8f8;
+        border: solid 1px #f8f8f8;
+        padding: 20.5px 20px 20.5px 60px;
+        margin: 0px 5px 5px 0px;
+        font-family: "Roboto Condensed";
+        letter-spacing: 0.2em;
+        font-size: 12px;
+        color: #333333;
+        line-height: 1.4167;
+        width: 230px;
+        transition: 0.3s;
+      }
+      input:focus {
+        background: #ffffff;
+      }
+      button {
+        padding: 20px 30px;
+        max-width: 230px;
+        max-height: 65px;
+        font-family: "Oswald";
+        font-size: 17.6px;
+        letter-spacing: 0.72px;
+        border: solid 1px #e49c9f;
+        color: #e49c9f;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+      button:hover {
+        border: solid 1px #000000;
+        background: #000000;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+/*media-queries*/
+@media screen and (max-width: 1023px) {
+  .follow-and-subscribe-block {
+    .follow {
+      ul {
+        max-width: 300px;
+        li {
+          padding: 5px 21px 5px 0px;
+        }
+      }
+    }
+    .subscribe {
+      h5 {
+        margin-bottom: 28px;
+        cursor: auto;
+      }
+      .subscribe-group {
+        flex-direction: row;
+        position: relative;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 389px) {
+  .follow-block {
+    .follow {
+      ul {
+        max-width: 220px;
+        li {
+          padding: 5px 11px 5px 0px;
+        }
+      }
+    }
+    .subscribe {
+      h5 {
+        margin-bottom: 28px;
+        cursor: auto;
+      }
+      .subscribe-group {
+        flex-direction: column;
+        position: relative;
+        margin: 0 auto;
+      }
+    }
+  }
+}
