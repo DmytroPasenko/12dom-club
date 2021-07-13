@@ -1,0 +1,216 @@
+/*post*/
+.post {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  .post-content {
+    position: relative;
+    overflow: hidden;
+    .post-meta {
+      width: 100%;
+      position: absolute;
+      background: linear-gradient(
+        0deg,
+        rgba(119, 85, 129, 0.5) 55%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      bottom: -120px;
+      padding: 40px 0 30px 20px;
+      transition: all 0.15s ease;
+      h5 {
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 1.83;
+        font-family: "Oswald", sans-serif;
+        letter-spacing: 0.28em;
+      }
+      h5:hover {
+        text-decoration: underline;
+      }
+      p > a {
+        font-family: "Roboto Condensed";
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        margin-bottom: 30px;
+        margin-right: 10px;
+      }
+      p > a:hover {
+        text-decoration: underline;
+      }
+      p > span {
+        font-family: "Roboto Condensed";
+        font-size: 12px;
+        letter-spacing: 0.2em;
+      }
+      .entry-p {
+        font-family: "Roboto";
+        font-size: 18px;
+        line-height: 1.89;
+        transform: scale(0);
+        visibility: hidden;
+        padding-top: 30px;
+      }
+      .entry-button {
+        transform: scale(0);
+        font-family: "Oswald";
+        font-size: 0.75em;
+        letter-spacing: 0.72px;
+        padding-top: 15px;
+        .entry-icon {
+          margin-top: 3px;
+          width: 14px;
+          height: auto;
+          margin-left: 5px;
+          filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(146deg) brightness(107%) contrast(101%);
+          transition: all 0.4s ease;
+        }
+      }
+    }
+    .entry-button:hover .entry-icon {
+      margin-left: 10px;
+    }
+    .post-meta:hover {
+      bottom: 0px;
+    }
+    .post-meta:hover .entry-p {
+      transform: scale(1);
+      visibility: visible;
+    }
+    .post-meta:hover .entry-button {
+      transform: scale(1);
+    }
+    .post-img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+/*media-queries*/
+@media screen and (max-width: 1199px) {
+  .post {
+    .post-content {
+      .post-meta {
+        bottom: -100px;
+        h5 {
+          font-size: 24px;
+        }
+        .entry-p {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .post {
+    .post-content {
+      .post-meta {
+        bottom: -80px;
+        h5 {
+          font-size: 24px;
+        }
+        .entry-p {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 989px) {  
+  .post {
+    .post-content {
+      .post-meta {
+        bottom: -120px;
+        h5 {
+          font-size: 24px;
+        }
+        .entry-p {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .post {
+    .post-content {
+      .post-meta {
+        bottom: -175px;
+        h5 {
+          font-size: 24px;
+        }
+        .entry-p {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .post {
+    .post-content {
+      .post-meta {
+        bottom: -170px;
+        h5 {
+          font-size: 24px;
+        }
+        .entry-p {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .post {
+    .post-content {
+      .post-meta {
+        bottom: -170px;
+        h5 {
+          font-size: 20px;
+        }
+        .entry-p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 389px) {
+  .post {
+    .post-content {
+      .post-meta {
+        bottom: -165px;
+        h5 {
+          font-size: 18px;
+        }
+        .entry-p {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 319px) {
+  .post {
+    .post-content {
+      .post-meta {
+        bottom: -230px;
+        h5 {
+          font-size: 16px;
+        }
+        .entry-p {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

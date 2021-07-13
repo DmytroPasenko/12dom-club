@@ -4,12 +4,13 @@ import classNames from "classnames";
 // import { PageProps } from "gatsby";
 // import Layout from "../Layout/Layout";
 // import { PropertyType } from "../../types/common"
-import Slider from "../Home/home-components/Slider/Slider.module"
+import Slider from "../Home/home-components/Slider/Slider.module";
+import TopGridNews from "./home-components/TopGridNews/TopGridNews.module";
 
-import {
-  siteContainer,
-  slider
-} from "./Home.module.scss"
+import { 
+  siteContainer, 
+  slider,
+  topGridNews } from "./Home.module.scss";
 
 // interface DataRecord {
 //   Property: string;
@@ -29,16 +30,13 @@ const Home: FunctionComponent = () => {
   const { t } = useTranslation(["site", "home"]);
 
   return (
-    <div className={classNames(siteContainer,"mx-auto")}>
-      <section className={classNames(slider,"text-white uppercase")}>
-			  {<Slider />}
+    <div className={classNames(siteContainer, "mx-auto")}>
+      <section className={classNames(slider, "text-white uppercase")}>
+        {<Slider />}
       </section>
 
-      <section
-        className="post-container grid xl:grid-cols-2 grid-cols-1 text-white"
-        id="post-container"
-      >
-				TopGridNews
+      <section className={classNames(topGridNews,"grid xl:grid-cols-2 grid-cols-1 text-white")}>
+        <TopGridNews />
       </section>
 
       <section
@@ -57,9 +55,7 @@ const Home: FunctionComponent = () => {
             MainNewsContainer
           </div>
 
-          <div className="double-smart-box">
-            DoublesmartBox
-          </div>
+          <div className="double-smart-box">DoublesmartBox</div>
 
           <div className="pagination-content flex col-span-2 flex-col">
             PaginationContent
@@ -68,15 +64,11 @@ const Home: FunctionComponent = () => {
 
         <div className="side-bar normal-case text-black">
           <div className="side-bar-block">
-            <div className="about-block">
-              AboutMe
-            </div>
+            <div className="about-block">AboutMe</div>
           </div>
 
           <div className="side-bar-block">
-            <div className="latest-posts-block">
-              LatestPost
-            </div>
+            <div className="latest-posts-block">LatestPost</div>
           </div>
 
           <div className="side-bar-block">
@@ -99,16 +91,12 @@ const Home: FunctionComponent = () => {
 
           <div className="side-bar-block">
             <div className="tags-block flex">
-              <div className="tags">
-                Tags
-            	</div>
-          	</div>
-					</div>
+              <div className="tags">Tags</div>
+            </div>
+          </div>
 
           <div className="side-bar-block text-black">
-            <div className="follow-block">
-              FollowAndSubscribe
-            </div>
+            <div className="follow-block">FollowAndSubscribe</div>
           </div>
         </div>
       </section>
