@@ -33,28 +33,28 @@ const BottomNewsGrid: FunctionComponent = () => {
       date: new Date().getTime(),
       author: "admin",
       text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit incidunt nostrum amet?",
-      image: "../../../img/bottom-news-grid/post-bg-1.jpg",
+      image: "/img/bottom-news-grid/post-bg-1.jpg",
     },
     {
       title: "Taurus: weekly horoscope...",
       date: new Date().getTime(),
       author: "admin",
       text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est enim ullam illum laudantium cum.",
-      image: "../../../img/bottom-news-grid/post-bg-2.jpg",
+      image: "/img/bottom-news-grid/post-bg-2.jpg",
     },
     {
       title: "Gemini: weekly horoscope...",
       date: new Date().getTime(),
       author: "admin",
       text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus ipsa sunt quod nostrum optio.",
-      image: "../../../img/bottom-news-grid/post-bg-3.jpg",
+      image: "/img/bottom-news-grid/post-bg-3.jpg",
     },
     {
       title: "Cancer: weekly horoscope...",
       date: new Date().getTime(),
       author: "admin",
       text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias magni numquam fugiat.",
-      image: "../../../img/bottom-news-grid/post-bg-4.jpg",
+      image: "/img/bottom-news-grid/post-bg-4.jpg",
     },
   ];
 
