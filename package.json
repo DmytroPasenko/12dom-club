@@ -21,6 +21,7 @@
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js"
   },
   "dependencies": {
+    "@miran-soft/common": "^1.0.33",
     "classnames": "^2.3.1",
     "gatsby": "^3.7.1",
     "gatsby-plugin-image": "^1.7.1",
@@ -65,9 +66,9 @@
     "gatsby-plugin-dts-css-modules": "^2.1.0",
     "gatsby-plugin-postcss": "^4.9.0",
     "gatsby-plugin-remove-trailing-slashes": "^3.7.1",
-    "sass": "^1.35.2",
     "postcss": "^8.3.5",
     "prettier": "^2.3.1",
+    "sass": "^1.35.2",
     "sass-loader": "^11.0.1",
     "serverless": "^2.46.0",
     "serverless-cloudfront-invalidate": "^1.9.0",
