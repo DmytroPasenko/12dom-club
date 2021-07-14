@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import { PageProps } from "gatsby";
 import Layout from "../components/Layout/Layout";
+import Home from "../components/Home/Home";
 import { PropertyType } from "../types/common";
 
 interface DataRecord {
@@ -24,7 +25,9 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({ data }) => {
 
   return (
     <Layout title={t("site:title")} description={t("site:description")}>
-      <div>{t("site:title")} - under construction.</div>
+      <div>
+        <Home />
+      </div>
     </Layout>
   );
 };
