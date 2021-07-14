@@ -58,21 +58,23 @@ const Slider: FunctionComponent = () => {
       <div className={sliderWrapper}>
         {slides.map((item) => (
           <div className={item.slideClasses}>
-            <div className={item.slideBgClasses}></div>
+            <div className={item.slideBgClasses} />
             <div className={slideContent}>
               <p className={slideParagraph}>{item.slideParagraph}</p>
-              <a className={slideLink} href="#">
-                <h2>{item.slideLink}</h2>
+              <a href="http://localhost:8000/blogPost">
+                <h2 className={slideLink}>{item.slideLink}</h2>
+                <button type="button" className={slideButton}>
+                  Read more
+                </button>
               </a>
-              <button className={slideButton}>Read more</button>
             </div>
           </div>
         ))}
       </div>
       <div className={classNames(radioButtons, "flex mx-auto")}>
-        <div className={classNames(radioButton, activeRadio)}></div>
-        <div className={radioButton}></div>
-        <div className={radioButton}></div>
+        <div className={classNames(radioButton, activeRadio)} />
+        <div className={radioButton} />
+        <div className={radioButton} />
       </div>
     </>
   );

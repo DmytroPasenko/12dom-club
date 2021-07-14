@@ -9,7 +9,7 @@ const AboutMeHeader: FunctionComponent = () => {
 
   return (
     <>
-      <div className={aboutMeHeader}></div>
+      <div className={aboutMeHeader} />
     </>
   );
 };

@@ -13,10 +13,10 @@ const AuthorBio: FunctionComponent = () => {
     <>
       <div className={classNames(postAuthorText, "flex flex-col")}>
         <h5 className="uppercase">
-          About the <a href="#">admin</a>
+          About the <a href="http://localhost:8000/about/">admin</a>
         </h5>
         <p>
-          <img src={authorPic} alt="user-picture" />
+          <img src={authorPic} alt="user-avatar" />
           Hello, my dear readers! I’d like to tell you more about myself, my
           fashion tastes and the origins of my inspiration for all things
           lifestyle and beauty. I’ve been working for almost 15 years in

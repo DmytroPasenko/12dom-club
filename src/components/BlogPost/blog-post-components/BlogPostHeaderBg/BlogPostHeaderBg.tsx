@@ -7,7 +7,7 @@ import { blogPostHeader } from "./BlogPostHeaderBg.module.scss";
 const BlogPostHeaderBg: FunctionComponent = () => {
   const { t } = useTranslation(["site", "blog-post-header-bg"]);
 
-  return <div className={blogPostHeader}></div>;
+  return <div className={blogPostHeader} />;
 };
 
 export default BlogPostHeaderBg;

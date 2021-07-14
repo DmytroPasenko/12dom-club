@@ -32,19 +32,20 @@ const StandartPostContainer: FunctionComponent = () => {
       <h3 className={classNames(postHeader, "uppercase")}>
         Your aquarius factors and your 1999 flashback
       </h3>
-      <p className={classNames(postDate, "normal-case")}>
-        <a href="#">Oct. 26, 2016</a>
+      <a
+        href="http://localhost:8000/blogPost"
+        className={classNames(postDate, "normal-case flex")}
+      >
+        <p>Oct. 26, 2016</p>
         <span>- by</span>
-        <a href="#" className={adminLink}>
-          admin
-        </a>
-        <a href="#">No comment(s)</a>
-        <a href="#">Astrology</a>
-        <a href="#">Zodiac</a>
-      </p>
+        <p className={adminLink}>admin</p>
+        <p>No comment(s)</p>
+        <p>Astrology</p>
+        <p>Zodiac</p>
+      </a>
       <img
         src={mainPostImg}
-        alt="post-image"
+        alt="post"
         className={classNames(postImg, mainImg)}
       />
       <div className={entryContent}>
@@ -68,7 +69,7 @@ const StandartPostContainer: FunctionComponent = () => {
           originating from…Europe!
         </p>
         <p>
-          <img src={softPostImg} alt="post-image" className={postImg} />
+          <img src={softPostImg} alt="post" className={postImg} />
         </p>
         <p>
           Yet., strangely arguably no one in Europe remembers, not to mention

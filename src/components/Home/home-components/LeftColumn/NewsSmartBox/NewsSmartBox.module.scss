@@ -25,17 +25,17 @@
       h5:hover {
         text-decoration: underline;
       }
-      p > a {
+      div > p {
         font-family: "Roboto Condensed";
         font-size: 12px;
         letter-spacing: 0.2em;
         margin-bottom: 40px;
         margin-right: 7px;
       }
-      p > a:hover {
+      div > p:hover {
         text-decoration: underline;
       }
-      p > span {
+      div > span {
         font-family: "Roboto Condensed";
         font-size: 12px;
         letter-spacing: 0.2em;
@@ -68,11 +68,13 @@
       h5:hover {
         color: #e49c9f;
       }
-      p > a {
+      div {
+        margin-top: 5px;
+      }
+      div > p {
         font-family: "Roboto Condensed";
         font-size: 12px;
         letter-spacing: 0.2em;
-        margin-top: 5px;
         margin-right: 7px;
       }
       .a-date {
@@ -82,7 +84,7 @@
       .a-date:hover {
         color: #000000;
       }
-      p > span {
+      div > span {
         font-family: "Roboto Condensed";
         font-size: 12px;
         letter-spacing: 0.2em;
@@ -93,6 +95,16 @@
 }
 
 /*media-queries*/
+@media screen and (max-width: 1439px) {
+  .news-box-container {
+    .soft-news {
+      a {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1023px) {
   .news-box-container {
     padding: 30px 0px 0px 0px;

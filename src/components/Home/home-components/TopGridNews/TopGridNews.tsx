@@ -47,26 +47,29 @@ const TopGridNews: FunctionComponent = () => {
       {news.map((item) => (
         <div className={post}>
           <div className={postContent}>
-            <div className={postMeta}>
-              <h5 className="uppercase">
-                <a href="#">{item.header}</a>
-              </h5>
-              <p>
-                <a href="#">{new Date(item.date).toString()}</a>
-                <span>- by</span>
-                <a href="#">{item.author}</a>
-              </p>
-              <p className={entryP}>{item.text}</p>
-              <button className={classNames(entryButton, "flex uppercase")}>
-                Read More
-                <img
-                  src="../../../../../svg/other/arrow.svg"
-                  alt="arrow"
-                  className={entryIcon}
-                />
-              </button>
-            </div>
-            <a href="#">
+            <a href="http://localhost:8000/blogPost">
+              <div className={postMeta}>
+                <h5 className="uppercase">
+                  <p>{item.header}</p>
+                </h5>
+                <div className="flex">
+                  <p>{new Date(item.date).toString()}</p>
+                  <span>- by</span>
+                  <p>{item.author}</p>
+                </div>
+                <p className={entryP}>{item.text}</p>
+                <button
+                  type="button"
+                  className={classNames(entryButton, "flex uppercase")}
+                >
+                  Read More
+                  <img
+                    src="../../../../../svg/other/arrow.svg"
+                    alt="arrow"
+                    className={entryIcon}
+                  />
+                </button>
+              </div>
               <img className={postImg} src={item.image} alt="post-img" />
             </a>
           </div>
