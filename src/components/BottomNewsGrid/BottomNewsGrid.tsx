@@ -84,7 +84,10 @@ const BottomNewsGrid: FunctionComponent = () => {
                     <p>{item.author}</p>
                   </div>
                   <p className={entryP}>{item.text}</p>
-                  <button className={classNames(entryButton, "flex uppercase")}>
+                  <button
+                    type="button"
+                    className={classNames(entryButton, "flex uppercase")}
+                  >
                     Read More
                     <img src={buttonIcon} alt="arrow" className={entryIcon} />
                   </button>
