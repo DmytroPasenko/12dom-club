@@ -14,10 +14,6 @@ import {
   thumbnailImg,
 } from "./BottomNewsGrid.module.scss";
 
-import postImg1 from "../../../static/img/bottom-news-grid/post-bg-1.jpg";
-import postImg2 from "../../../static/img/bottom-news-grid/post-bg-2.jpg";
-import postImg3 from "../../../static/img/bottom-news-grid/post-bg-3.jpg";
-import postImg4 from "../../../static/img/bottom-news-grid/post-bg-4.jpg";
 import buttonIcon from "../../../static/svg/other/arrow.svg";
 
 interface NewsRecord {
@@ -25,7 +21,7 @@ interface NewsRecord {
   date: number;
   author: string;
   text: string;
-  postImg: object;
+  image: string;
 }
 
 const BottomNewsGrid: FunctionComponent = () => {
@@ -37,33 +33,32 @@ const BottomNewsGrid: FunctionComponent = () => {
       date: new Date().getTime(),
       author: "admin",
       text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit incidunt nostrum amet?",
-      postImg: postImg1,
+      image: "../../../img/bottom-news-grid/post-bg-1.jpg",
     },
     {
       title: "Taurus: weekly horoscope...",
       date: new Date().getTime(),
       author: "admin",
       text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est enim ullam illum laudantium cum.",
-      postImg: postImg2,
+      image: "../../../img/bottom-news-grid/post-bg-2.jpg",
     },
     {
       title: "Gemini: weekly horoscope...",
       date: new Date().getTime(),
       author: "admin",
       text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus ipsa sunt quod nostrum optio.",
-      postImg: postImg3,
+      image: "../../../img/bottom-news-grid/post-bg-3.jpg",
     },
     {
       title: "Cancer: weekly horoscope...",
       date: new Date().getTime(),
       author: "admin",
       text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias magni numquam fugiat.",
-      postImg: postImg4,
+      image: "../../../img/bottom-news-grid/post-bg-4.jpg",
     },
   ];
 
   // TODO replace fake data to data from database
-  // fill news array with fake data
   const news = getNews();
 
   return (
@@ -95,7 +90,7 @@ const BottomNewsGrid: FunctionComponent = () => {
               <a href="#">
                 <img
                   className={thumbnailImg}
-                  src={new String(item.postImg).toString()}
+                  src={item.image}
                   alt="thumbnail-img"
                 />
               </a>
