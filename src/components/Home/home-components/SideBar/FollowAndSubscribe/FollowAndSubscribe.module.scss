@@ -21,10 +21,12 @@
             left: 0px;
             transition: all 0.3s ease;
             padding-right: 21px;
-            filter: invert(59%) sepia(2%) saturate(7%) hue-rotate(350deg) brightness(95%) contrast(88%);
+            filter: invert(59%) sepia(2%) saturate(7%) hue-rotate(350deg)
+              brightness(95%) contrast(88%);
           }
           .follow-link:hover {
-            filter: invert(67%) sepia(48%) saturate(395%) hue-rotate(309deg) brightness(102%) contrast(79%);
+            filter: invert(67%) sepia(48%) saturate(395%) hue-rotate(309deg)
+              brightness(102%) contrast(79%);
           }
         }
       }
@@ -123,6 +125,7 @@
         cursor: auto;
       }
       .subscribe-group {
+        display: flex;
         flex-direction: column;
         position: relative;
         margin: 0 auto;
