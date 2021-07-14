@@ -7,18 +7,7 @@ import classNames from "classnames";
 import AboutMeHeader from "./about-me-page-components/AboutMeHeader/AboutMeHeader";
 import AboutMePostContainer from "./about-me-page-components/AboutMePostContainer/AboutMePostContainer";
 
-import {
-  siteContainer,
-  slider,
-  topGridNews,
-  newsContainer,
-  leftColumn,
-  newsSmartBox,
-  doubleSmartBox,
-  paginationContent,
-  sideBar,
-  sideBarBlock,
-} from "./AboutMePage.module.scss";
+import { siteContainer, postContainer } from "./AboutMePage.module.scss";
 
 // interface DataRecord {
 //   Property: string;
@@ -44,7 +33,7 @@ const AboutMePage: FunctionComponent = () => {
       </div>
 
       <div className={classNames(siteContainer, "mx-auto")}>
-        <section className="post-container">
+        <section className={postContainer}>
           <AboutMePostContainer />
         </section>
       </div>
