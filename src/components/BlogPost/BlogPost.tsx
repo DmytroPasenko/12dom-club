@@ -7,7 +7,7 @@ import classNames from "classnames";
 import BlogPostHeaderBg from "./blog-post-components/BlogPostHeaderBg/BlogPostHeaderBg";
 import StandartPostContainer from "./blog-post-components/StandartPostContainer/StandartPostContainer";
 
-import { siteContainer } from "./BlogPost.module.scss";
+import { siteContainer, standartPostContainer } from "./BlogPost.module.scss";
 
 // interface DataRecord {
 //   Property: string;
@@ -33,7 +33,7 @@ const BlogPost: FunctionComponent = () => {
       </div>
 
       <div className={classNames(siteContainer, "mx-auto")}>
-        <section className="standart-post-container">
+        <section className={standartPostContainer}>
           <StandartPostContainer />
         </section>
 
