@@ -26,7 +26,6 @@ interface NewsRecord {
   author: string;
   text: string;
   postImg: object;
-  // TODO add all other properties
 }
 
 const BottomNewsGrid: FunctionComponent = () => {
@@ -103,126 +102,6 @@ const BottomNewsGrid: FunctionComponent = () => {
             </div>
           </div>
         ))}
-
-        {/* <div className={bottomNews}>
-          <div className={bottomNewsContent}>
-            <div className={bottomNewsMeta}>
-              <h5 className="uppercase">
-                <a href="#">Aries: weekly horoscope...</a>
-              </h5>
-              <p>
-                <a href="#">Oct. 24, 2016</a>
-                <span>- by</span>
-                <a href="#">admin</a>
-              </p>
-              <p className={entryP}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-                incidunt nostrum amet?
-              </p>
-              <button className={classNames(entryButton, "flex uppercase")}>
-                Read More
-                <img src={buttonIcon} alt="arrow" className={entryIcon} />
-              </button>
-            </div>
-            <a href="#">
-              <img
-                className={thumbnailImg}
-                src={postImg1}
-                alt="thumbnail-img"
-              />
-            </a>
-          </div>
-        </div> */}
-
-        {/* <div className={bottomNews}>
-          <div className={bottomNewsContent}>
-            <div className={bottomNewsMeta}>
-              <h5 className="uppercase">
-                <a href="#">Taurus: weekly horoscope...</a>
-              </h5>
-              <p>
-                <a href="#">Oct. 23, 2016</a>
-                <span>- by</span>
-                <a href="#">admin</a>
-              </p>
-              <p className={entryP}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-                incidunt nostrum amet?
-              </p>
-              <button className={classNames(entryButton, "flex uppercase")}>
-                Read More
-                <img src={buttonIcon} alt="arrow" className={entryIcon} />
-              </button>
-            </div>
-            <a href="#">
-              <img
-                className={thumbnailImg}
-                src={postImg2}
-                alt="thumbnail-img"
-              />
-            </a>
-          </div>
-        </div> */}
-
-        {/* <div className={bottomNews}>
-          <div className={bottomNewsContent}>
-            <div className={bottomNewsMeta}>
-              <h5 className="uppercase">
-                <a href="#">Gemini: weekly horoscope...</a>
-              </h5>
-              <p>
-                <a href="#">Oct. 20, 2016</a>
-                <span>- by</span>
-                <a href="#">admin</a>
-              </p>
-              <p className={entryP}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-                incidunt nostrum amet?
-              </p>
-              <button className={classNames(entryButton, "flex uppercase")}>
-                Read More
-                <img src={buttonIcon} alt="arrow" className={entryIcon} />
-              </button>
-            </div>
-            <a href="#">
-              <img
-                className={thumbnailImg}
-                src={postImg3}
-                alt="thumbnail-img"
-              />
-            </a>
-          </div>
-        </div> */}
-
-        {/* <div className={bottomNews}>
-          <div className={bottomNewsContent}>
-            <div className={bottomNewsMeta}>
-              <h5 className="uppercase">
-                <a href="#">Cancer: weekly horoscope...</a>
-              </h5>
-              <p>
-                <a href="#">Oct. 12, 2016</a>
-                <span>- by</span>
-                <a href="#">admin</a>
-              </p>
-              <p className={entryP}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-                incidunt nostrum amet?
-              </p>
-              <button className={classNames(entryButton, "flex uppercase")}>
-                Read More
-                <img src={buttonIcon} alt="arrow" className={entryIcon} />
-              </button>
-            </div>
-            <a href="#">
-              <img
-                className={thumbnailImg}
-                src={postImg4}
-                alt="thumbnail-img"
-              />
-            </a>
-          </div>
-        </div> */}
       </div>
     </section>
   );
