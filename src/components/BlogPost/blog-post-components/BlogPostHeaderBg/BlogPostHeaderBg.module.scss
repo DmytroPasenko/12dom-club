@@ -1,0 +1,14 @@
+/*blog-post-header*/
+.blog-post-header {
+  background-color: #333333;
+  height: 280px;
+  margin: 0px 0px 54px;
+  width: 100%;
+}
+
+/*media-queries*/
+@media screen and (max-width: 767px) {
+  .blog-post-header {
+    height: 280px;
+  }
+}
