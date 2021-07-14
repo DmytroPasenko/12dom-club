@@ -75,22 +75,20 @@ const BottomNewsGrid: FunctionComponent = () => {
         {news.map((item) => (
           <div className={bottomNews}>
             <div className={bottomNewsContent}>
-              <div className={bottomNewsMeta}>
-                <h5 className="uppercase">
-                  <a href="#">{item.title}</a>
-                </h5>
-                <p>
-                  <a href="#">{formatDate(item.date, locale)}</a>
-                  <span>- by</span>
-                  <a href="#">{item.author}</a>
-                </p>
-                <p className={entryP}>{item.text}</p>
-                <button className={classNames(entryButton, "flex uppercase")}>
-                  Read More
-                  <img src={buttonIcon} alt="arrow" className={entryIcon} />
-                </button>
-              </div>
-              <a href="#">
+              <a href="http://localhost:8000/blogPost">
+                <div className={bottomNewsMeta}>
+                  <h5 className="uppercase">{item.title}</h5>
+                  <div className="flex">
+                    <p>{formatDate(item.date, locale)}</p>
+                    <span>- by</span>
+                    <p>{item.author}</p>
+                  </div>
+                  <p className={entryP}>{item.text}</p>
+                  <button className={classNames(entryButton, "flex uppercase")}>
+                    Read More
+                    <img src={buttonIcon} alt="arrow" className={entryIcon} />
+                  </button>
+                </div>
                 <img
                   className={thumbnailImg}
                   src={item.image}
