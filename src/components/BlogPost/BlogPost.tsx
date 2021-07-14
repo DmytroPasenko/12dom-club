@@ -6,8 +6,13 @@ import classNames from "classnames";
 // import { PropertyType } from "../../types/common"
 import BlogPostHeaderBg from "./blog-post-components/BlogPostHeaderBg/BlogPostHeaderBg";
 import StandartPostContainer from "./blog-post-components/StandartPostContainer/StandartPostContainer";
+import AuthorBio from "./blog-post-components/AuthorBio/AuthorBio";
 
-import { siteContainer, standartPostContainer } from "./BlogPost.module.scss";
+import {
+  siteContainer,
+  standartPostContainer,
+  postAuthorBio,
+} from "./BlogPost.module.scss";
 
 // interface DataRecord {
 //   Property: string;
@@ -37,8 +42,8 @@ const BlogPost: FunctionComponent = () => {
           <StandartPostContainer />
         </section>
 
-        <section className="post-author-bio flex items-left">
-          <div>Post Authot Bio</div>
+        <section className={classNames(postAuthorBio, "flex items-left")}>
+          <AuthorBio />
         </section>
       </div>
     </>
