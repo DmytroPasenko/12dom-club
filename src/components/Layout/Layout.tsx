@@ -20,9 +20,6 @@ const Layout: FunctionComponent<LayoutProps> = ({
     <main className={wrapper}>
       <Seo title={title} description={description} />
       <Header title={title} />
-      {/* <Home /> */}
-      {/* <BlogPost /> */}
-      {/* <AboutMePage /> */}
       {children}
       <BottomNewsGrid />
       <Footer />
