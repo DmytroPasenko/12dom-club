@@ -24,6 +24,8 @@ interface NewsRecord {
   title: string;
   date: number;
   author: string;
+  text: string;
+  postImg: object;
   // TODO add all other properties
 }
 
@@ -35,11 +37,29 @@ const BottomNewsGrid: FunctionComponent = () => {
       title: "Aries: weekly horoscope...",
       date: new Date().getTime(),
       author: "admin",
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit incidunt nostrum amet?",
+      postImg: postImg1,
     },
     {
-      title: "2222...",
+      title: "Taurus: weekly horoscope...",
       date: new Date().getTime(),
-      author: "333",
+      author: "admin",
+      text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est enim ullam illum laudantium cum.",
+      postImg: postImg2,
+    },
+    {
+      title: "Gemini: weekly horoscope...",
+      date: new Date().getTime(),
+      author: "admin",
+      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus ipsa sunt quod nostrum optio.",
+      postImg: postImg3,
+    },
+    {
+      title: "Cancer: weekly horoscope...",
+      date: new Date().getTime(),
+      author: "admin",
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias magni numquam fugiat.",
+      postImg: postImg4,
     },
   ];
 
@@ -67,10 +87,7 @@ const BottomNewsGrid: FunctionComponent = () => {
                   <span>- by</span>
                   <a href="#">{item.author}</a>
                 </p>
-                <p className={entryP}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-                  incidunt nostrum amet?
-                </p>
+                <p className={entryP}>{item.text}</p>
                 <button className={classNames(entryButton, "flex uppercase")}>
                   Read More
                   <img src={buttonIcon} alt="arrow" className={entryIcon} />
@@ -79,7 +96,7 @@ const BottomNewsGrid: FunctionComponent = () => {
               <a href="#">
                 <img
                   className={thumbnailImg}
-                  src={postImg1}
+                  src={new String(item.postImg).toString()}
                   alt="thumbnail-img"
                 />
               </a>
