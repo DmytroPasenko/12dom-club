@@ -2,6 +2,8 @@ import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 
+import { formatDate } from "@miran-soft/common";
+import { useLocalization } from "gatsby-theme-i18n";
 import {
   bottomNewsGrid,
   bottomNewsGridWrapper,
@@ -26,6 +28,7 @@ interface NewsRecord {
 
 const BottomNewsGrid: FunctionComponent = () => {
   const { t } = useTranslation(["site", "bottom-news-grid"]);
+  const { locale } = useLocalization();
 
   const getNews = (): NewsRecord[] => [
     {
@@ -77,7 +80,7 @@ const BottomNewsGrid: FunctionComponent = () => {
                   <a href="#">{item.title}</a>
                 </h5>
                 <p>
-                  <a href="#">{new Date(item.date).toString()}</a>
+                  <a href="#">{formatDate(item.date, locale)}</a>
                   <span>- by</span>
                   <a href="#">{item.author}</a>
                 </p>
