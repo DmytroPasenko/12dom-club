@@ -1,6 +1,6 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 /*google fonts*/
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap");
@@ -81,4 +81,12 @@ h6 {
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: url("../../static/img/bg/bg-body.webp") no-repeat;
+}
+h3 {
+  font-size: 40px;
+  line-height: 1.775;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.28em;
+  color: #000000;
+  padding-bottom: 18px;
 }

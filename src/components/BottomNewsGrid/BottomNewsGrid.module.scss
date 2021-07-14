@@ -34,7 +34,7 @@
             font-size: 12px;
             letter-spacing: 0.2em;
             margin-bottom: 30px;
-            margin-right: 10px;
+            margin-right: 7px;
           }
           p > a:hover {
             text-decoration: underline;
@@ -43,6 +43,7 @@
             font-family: "Roboto Condensed";
             font-size: 12px;
             letter-spacing: 0.2em;
+            margin-right: 7px;
           }
           .entry-p {
             font-family: "Roboto";
@@ -64,7 +65,8 @@
               height: auto;
               margin-left: 5px;
               margin-top: 3px;
-							filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+              filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg)
+                brightness(103%) contrast(103%);
               transition: all 0.2s ease;
             }
           }

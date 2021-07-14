@@ -1,8 +1,6 @@
 import { FunctionComponent, ReactNode } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import Home from "../Home/Home";
-import BlogPost from "../BlogPost/BlogPost";
 import BottomNewsGrid from "../BottomNewsGrid/BottomNewsGrid";
 import Seo from "../Seo";
 import { wrapper } from "./Layout.module.scss";
@@ -22,9 +20,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
     <main className={wrapper}>
       <Seo title={title} description={description} />
       <Header title={title} />
-      {/* <Home /> */}
-      <BlogPost />
-      {/* {children} */}
+      {children}
       <BottomNewsGrid />
       <Footer />
     </main>
