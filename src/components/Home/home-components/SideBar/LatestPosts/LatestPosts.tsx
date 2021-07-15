@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
-import classNames from "classnames";
 
 import { formatDate } from "@miran-soft/common";
 import { useLocalization } from "gatsby-theme-i18n";
