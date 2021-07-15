@@ -2,6 +2,9 @@ import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 
+import { useLocalization } from "gatsby-theme-i18n";
+import { formatDate } from "@miran-soft/common";
+
 import {
   post,
   postContent,
@@ -41,6 +44,7 @@ const TopGridNews: FunctionComponent = () => {
   ];
 
   const news = getNews();
+  const { locale } = useLocalization();
 
   return (
     <>
@@ -53,7 +57,7 @@ const TopGridNews: FunctionComponent = () => {
                   <p>{item.header}</p>
                 </h5>
                 <div className="flex">
-                  <p>{new Date(item.date).toString()}</p>
+                  <p>{formatDate(item.date, locale)}</p>
                   <span>- by</span>
                   <p>{item.author}</p>
                 </div>
