@@ -2,38 +2,44 @@ import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 
+import { formatDate } from "@miran-soft/common";
+import { useLocalization } from "gatsby-theme-i18n";
 import {
   latestPostsBlock,
   latestPostsBlockContent,
 } from "./LatestPosts.module.scss";
 
+interface LatestRecord {
+  title: string;
+  date: number;
+}
+
 const LatestPosts: FunctionComponent = () => {
   const { t } = useTranslation(["site", "latest-posts"]);
+  const { locale } = useLocalization();
+
+  const latestNews = (): LatestRecord[] => [
+    { title: "Magic Love Ball", date: new Date().getTime() },
+    { title: "What 2017 brings you", date: new Date().getTime() },
+    { title: "Do you two match up?", date: new Date().getTime() },
+  ];
+
+  const news = latestNews();
 
   return (
     <>
       <div className={latestPostsBlock}>
         <div className={latestPostsBlockContent}>
-          <h5 className="uppercase">Latest post</h5>
+          <h5 className="uppercase">Latest posts</h5>
           <ul>
-            <li className="flex flex-col">
-              <a className="uppercase" href="http://localhost:8000/blogPost">
-                Magic Love Ball
-              </a>
-              <span>Jan. 11, 2017</span>
-            </li>
-            <li className="flex flex-col">
-              <a className="uppercase" href="http://localhost:8000/blogPost">
-                What 2017 brings you
-              </a>
-              <span>Jan. 10, 2017</span>
-            </li>
-            <li className="flex flex-col">
-              <a className="uppercase" href="http://localhost:8000/blogPost">
-                Do you two match up?
-              </a>
-              <span>Jan. 9, 2017</span>
-            </li>
+            {news.map((item) => (
+              <li className="flex flex-col">
+                <a className="uppercase" href="http://localhost:8000/blogPost">
+                  {item.title}
+                </a>
+                <span>{formatDate(item.date, locale)}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
