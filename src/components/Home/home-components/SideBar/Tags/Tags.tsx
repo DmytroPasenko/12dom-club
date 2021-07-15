@@ -4,44 +4,38 @@ import classNames from "classnames";
 
 import { tagsBlock, tags } from "./Tags.module.scss";
 
+interface TagsRecord {
+  name: string;
+}
+
 const Tags: FunctionComponent = () => {
   const { t } = useTranslation(["site", "tags"]);
+
+  const getTags = (): TagsRecord[] => [
+    { name: "Aquarius" },
+    { name: "Astrology" },
+    { name: "Blog" },
+    { name: "Business" },
+    { name: "Love" },
+    { name: "News" },
+    { name: "Pisces" },
+    { name: "Tarol" },
+    { name: "Tips" },
+    { name: "Zodiac" },
+  ];
+
+  const tagButtons = getTags();
 
   return (
     <>
       <div className={classNames(tagsBlock, "flex")}>
         <div className={tags}>
           <h5 className="uppercase">Tags</h5>
-          <button type="button">
-            <a href="http://localhost:8000/blogPost">Aquarius</a>
-          </button>
-          <button type="button">
-            <a href="http://localhost:8000/blogPost">Astrology</a>
-          </button>
-          <button type="button">
-            <a href="http://localhost:8000/blogPost">Blog</a>
-          </button>
-          <button type="button">
-            <a href="http://localhost:8000/blogPost">Business</a>
-          </button>
-          <button type="button">
-            <a href="http://localhost:8000/blogPost">Love</a>
-          </button>
-          <button type="button">
-            <a href="http://localhost:8000/blogPost">News</a>
-          </button>
-          <button type="button">
-            <a href="http://localhost:8000/blogPost">Pisces</a>
-          </button>
-          <button type="button">
-            <a href="http://localhost:8000/blogPost">Tarol</a>
-          </button>
-          <button type="button">
-            <a href="http://localhost:8000/blogPost">Tips</a>
-          </button>
-          <button type="button">
-            <a href="http://localhost:8000/blogPost">Zodiac</a>
-          </button>
+          {tagButtons.map((item) => (
+            <button type="button">
+              <a href="http://localhost:8000/blogPost">{item.name}</a>
+            </button>
+          ))}
         </div>
       </div>
     </>
