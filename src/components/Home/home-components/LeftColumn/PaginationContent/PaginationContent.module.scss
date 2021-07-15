@@ -82,8 +82,8 @@
     cursor: pointer;
     .image-hover {
       content: "";
-      max-width: 100%;
-      height: auto;
+      width: 100%;
+      height: 100%;
       background: #000000;
       opacity: 0;
       position: absolute;
@@ -111,7 +111,7 @@
   }
   .news-date {
     margin-right: auto;
-    a {
+    p {
       font-size: 12px;
       letter-spacing: 0.2em;
       margin-right: 7px;

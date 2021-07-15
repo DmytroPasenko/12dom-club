@@ -2,6 +2,8 @@ import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 
+import { formatDate } from "@miran-soft/common";
+import { useLocalization } from "gatsby-theme-i18n";
 import {
   page,
   paginationNews,
@@ -22,593 +24,285 @@ import {
   currentPage,
   leftNews,
   rightNews,
-  tempHidden,
+  // tempHidden,
 } from "./PaginationContent.module.scss";
 
-import paginationNewsBg1 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-1.jpg";
-import paginationNewsBg2 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-2.jpg";
-import paginationNewsBg3 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-3.jpg";
-import paginationNewsBg4 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-4.jpg";
-import paginationNewsBg5 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-5.jpg";
-import paginationNewsBg6 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-6.jpg";
-import paginationNewsBg7 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-7.jpg";
-import paginationNewsBg8 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-8.jpg";
-import paginationNewsBg9 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-9.jpg";
-import paginationNewsBg10 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-10.jpg";
-import paginationNewsBg11 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-11.jpg";
-import paginationNewsBg12 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-12.jpg";
-import paginationNewsBg13 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-13.jpg";
-import paginationNewsBg14 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-14.jpg";
-import paginationNewsBg15 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-15.jpg";
-import paginationNewsBg16 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-16.jpg";
-import paginationNewsBg17 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-17.jpg";
-import paginationNewsBg18 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-18.jpg";
-import paginationNewsBg19 from "../../../../../../static/img/home/left-column/pagination-content/pagination-news-bg-19.jpg";
 import arrow from "../../../../../../static/svg/other/arrow.svg";
+
+interface NewsRecord {
+  num: number;
+  class: string;
+  image: string;
+  title: string;
+  date: number;
+  author: string;
+}
+
+interface GalleryRecord {
+  num: number;
+  class: string;
+  image: string;
+  title: string;
+  date: number;
+  author: string;
+}
+
+interface LatsNewsRecord {
+  num: number;
+  class: string;
+  image: string;
+  title: string;
+  date: number;
+  author: string;
+}
 
 const PaginationContent: FunctionComponent = () => {
   const { t } = useTranslation(["site", "pagination-content"]);
+  const { locale } = useLocalization();
+
+  const getNews = (): NewsRecord[] => [
+    {
+      num: 1,
+      class: classNames(paginationNews, leftNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-1.jpg",
+      title: "Magic love ball",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 2,
+      class: classNames(paginationNews, rightNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-2.jpg",
+      title: "What 2017 brings you",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 3,
+      class: classNames(paginationNews, leftNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-3.jpg",
+      title: "Do you two match up?",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 4,
+      class: classNames(paginationNews, rightNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-4.jpg",
+      title: "My daily horoscope",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 5,
+      class: classNames(paginationNews, leftNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-5.jpg",
+      title: "Affects tour life everyday!",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 6,
+      class: classNames(paginationNews, rightNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-6.jpg",
+      title: "2017",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 7,
+      class: classNames(paginationNews, leftNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-7.jpg",
+      title: "Pisces",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 8,
+      class: classNames(paginationNews, rightNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-8.jpg",
+      title: "Use your Jupiter luck",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 9,
+      class: classNames(paginationNews, leftNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-9.jpg",
+      title: "Your aquarius factors and your 1999 flashback",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 10,
+      class: classNames(paginationNews, rightNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-10.jpg",
+      title: "You have a power",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 11,
+      class: classNames(paginationNews, leftNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-11.jpg",
+      title: "We are energy",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 12,
+      class: classNames(paginationNews, rightNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-12.jpg",
+      title: "Forks in the road of life",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 13,
+      class: classNames(paginationNews, leftNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-13.jpg",
+      title: "Open your whole self",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 14,
+      class: classNames(paginationNews, rightNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-14.jpg",
+      title: "I am of you",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 15,
+      class: classNames(paginationNews, leftNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-15.jpg",
+      title: "Greet the dawn",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 16,
+      class: classNames(paginationNews, rightNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-16.jpg",
+      title: "Astrology",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 17,
+      class: classNames(paginationNews, leftNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-17.jpg",
+      title: "Astrology",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 18,
+      class: classNames(paginationNews, rightNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-18.jpg",
+      title: "Taurus: weekly horoscope",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+  ];
+
+  const news = getNews();
+
+  const getGallery = (): GalleryRecord[] => [
+    {
+      num: 22,
+      class: classNames(paginationNews, rightNews, "sm:col-span-1 col-span-2"),
+      image:
+        "img/home/left-column/pagination-content/pagination-news-bg-13.jpg",
+      title: "Image Post",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 23,
+      class: classNames(paginationNews, leftNews, "sm:col-span-1 col-span-2"),
+      image:
+        "img/home/left-column/pagination-content/pagination-news-bg-13.jpg",
+      title: "Image Post",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+  ];
+
+  const galleyNews = getGallery();
+
+  const getLastNews = (): LatsNewsRecord[] => [
+    {
+      num: 24,
+      class: classNames(paginationNews, rightNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-7.jpg",
+      title: "Gemini: weekly horoscope",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+    {
+      num: 25,
+      class: classNames(paginationNews, leftNews, "sm:col-span-1 col-span-2"),
+      image:
+        "/img/home/left-column/pagination-content/pagination-news-bg-19.jpg",
+      title: "Taurus: weekly horoscope",
+      date: new Date().getTime(),
+      author: "admin",
+    },
+  ];
+
+  const lastNews = getLastNews();
 
   return (
     <>
       <div className={classNames(page, "grid grid-cols-2 text-black")}>
-        <div
-          data-num="1"
-          className={classNames(
-            paginationNews,
-            leftNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg1} alt="pagination content bg" />
-          </a>
-          <h5>Magic love ball</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Jan. 11, 2016
+        {news.map((item) => (
+          <div data-num={item.num} className={item.class}>
+            <a href="http://localhost:8000/blogPost">
+              <img src={item.image} alt="pagination content bg" />
+              <h5>{item.title}</h5>
+              <div className={classNames(newsDate, "normal-case flex")}>
+                <p className={aDate}>{formatDate(item.date, locale)}</p>
+                <span>- by</span>
+                <p>{item.author}</p>
+              </div>
+              <button
+                type="button"
+                className={classNames(newsButton, "flex uppercase")}
+              >
+                Read More
+                <div className={arrowIcon}>
+                  <img src={arrow} alt="arrow" />
+                </div>
+              </button>
             </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="2"
-          className={classNames(
-            paginationNews,
-            rightNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg2} alt="pagination content bg" />
-          </a>
-          <h5>What 2017 brings you</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Jan. 10, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="3"
-          className={classNames(
-            paginationNews,
-            leftNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg3} alt="pagination content bg" />
-          </a>
-          <h5>Do you two match up?</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Jan. 9, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="4"
-          className={classNames(
-            paginationNews,
-            rightNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg4} alt="pagination content bg" />
-          </a>
-          <h5>My daily horoscope</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Jan. 8, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="5"
-          className={classNames(
-            paginationNews,
-            leftNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg5} alt="pagination content bg" />
-          </a>
-          <h5>Affects tour life everyday!</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Nov. 9, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="6"
-          className={classNames(
-            paginationNews,
-            rightNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg6} alt="pagination content bg" />
-          </a>
-          <h5>2017</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Nov. 8, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="7"
-          className={classNames(
-            paginationNews,
-            leftNews,
-            tempHidden,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg7} alt="pagination content bg" />
-          </a>
-          <h5>Pisces</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Nov. 8, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="8"
-          className={classNames(
-            paginationNews,
-            rightNews,
-            tempHidden,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg8} alt="pagination content bg" />
-          </a>
-          <h5>Use your Jupiter luck</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Nov. 8, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="9"
-          className={classNames(
-            paginationNews,
-            tempHidden,
-            leftNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg9} alt="pagination content bg" />
-          </a>
-          <h5>Your aquarius factors and your 1999 flashback</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct.26, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="10"
-          className={classNames(
-            paginationNews,
-            tempHidden,
-            rightNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg10} alt="pagination content bg" />
-          </a>
-          <h5>You have a power</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct. 25, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="11"
-          className={classNames(
-            paginationNews,
-            tempHidden,
-            leftNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg11} alt="pagination content bg" />
-          </a>
-          <h5>We are energy</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct. 25, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="12"
-          className={classNames(
-            paginationNews,
-            tempHidden,
-            rightNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg12} alt="pagination content bg" />
-          </a>
-          <h5>Forks in the road of life</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct. 25, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="13"
-          className={classNames(
-            paginationNews,
-            tempHidden,
-            leftNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg13} alt="pagination content bg" />
-          </a>
-          <h5>Open your whole self</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct. 25, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="14"
-          className={classNames(
-            paginationNews,
-            tempHidden,
-            rightNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg14} alt="pagination content bg" />
-          </a>
-          <h5>I am of you</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct. 24, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="15"
-          className={classNames(
-            paginationNews,
-            tempHidden,
-            leftNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg15} alt="pagination content bg" />
-          </a>
-          <h5>Greet the dawn</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct. 24, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="16"
-          className={classNames(
-            paginationNews,
-            tempHidden,
-            rightNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg16} alt="pagination content bg" />
-          </a>
-          <h5>Astrology</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct. 24, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="17"
-          className={classNames(
-            paginationNews,
-            tempHidden,
-            leftNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg17} alt="pagination content bg" />
-          </a>
-          <h5>Aries: weekly horoscope</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct. 24, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="18"
-          className={classNames(
-            paginationNews,
-            tempHidden,
-            rightNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg18} alt="pagination content bg" />
-          </a>
-          <h5>Taurus: weekly horoscope</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct. 23, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
+          </div>
+        ))}
 
         <div
           data-num="19"
           className={classNames(
             paginationNews,
-            tempHidden,
             leftNews,
             "sm:col-span-1 col-span-2",
           )}
@@ -617,21 +311,20 @@ const PaginationContent: FunctionComponent = () => {
             title="Rick Levine Astrology Forecast for March 2017"
             src="https://youtube.com/embed/Iw2JO621eyM"
           />
-          <h5>Video Post</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct. 21, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
+          <a href="http://localhost:8000/blogPost">
+            <h5>Video Post</h5>
+            <div className={classNames(newsDate, "normal-case flex")}>
+              <p className={aDate}>Oct. 21, 2016</p>
+              <span>- by</span>
+              <p>admin</p>
+            </div>
+          </a>
         </div>
 
         <div
           data-num="20"
           className={classNames(
             paginationNews,
-            tempHidden,
             rightNews,
             "sm:col-span-1 col-span-2",
           )}
@@ -652,7 +345,6 @@ const PaginationContent: FunctionComponent = () => {
           data-num="21"
           className={classNames(
             paginationNews,
-            tempHidden,
             leftNews,
             "sm:col-span-1 col-span-2",
           )}
@@ -667,144 +359,61 @@ const PaginationContent: FunctionComponent = () => {
           </div>
         </div>
 
-        <div
-          data-num="22"
-          className={classNames(
-            paginationNews,
-            tempHidden,
-            rightNews,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <div className={imagePost}>
+        {galleyNews.map((item) => (
+          <div data-num={item.num} className={item.class}>
             <a href="http://localhost:8000/blogPost">
-              <img src={paginationNewsBg13} alt="post-bg" />
+              <div className={imagePost}>
+                <img src={item.image} alt="post-bg" />
+                <div className={imageHover} />
+                <p>+</p>
+              </div>
+              <h5>{item.title}</h5>
+              <div className={classNames(newsDate, "normal-case flex")}>
+                <p className={aDate}>{formatDate(item.date, locale)}</p>
+                <span>- by</span>
+                <p>{item.author}</p>
+              </div>
+              <button
+                type="button"
+                className={classNames(newsButton, "flex uppercase")}
+              >
+                Read More
+                <div className={arrowIcon}>
+                  <img src={arrow} alt="arrow" />
+                </div>
+              </button>
             </a>
-            <div className={imageHover} />
-            <p>+</p>
           </div>
-          <h5>Image Post</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct. 21, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
+        ))}
 
-        <div
-          data-num="23"
-          className={classNames(
-            paginationNews,
-            leftNews,
-            tempHidden,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <div className={imagePost}>
+        {lastNews.map((item) => (
+          <div data-num={item.num} className={item.class}>
             <a href="http://localhost:8000/blogPost">
-              <img src={paginationNewsBg13} alt="post-bg" />
+              <img src={item.image} alt="pagination content bg" />
+              <h5>{item.title}</h5>
+              <div className={classNames(newsDate, "normal-case flex")}>
+                <p className={aDate}>{formatDate(item.date, locale)}</p>
+                <span>- by</span>
+                <p>{item.author}</p>
+              </div>
+              <button
+                type="button"
+                className={classNames(newsButton, "flex uppercase")}
+              >
+                Read More
+                <div className={arrowIcon}>
+                  <img src={arrow} alt="arrow" />
+                </div>
+              </button>
             </a>
-            <div className={imageHover} />
-            <p>+</p>
           </div>
-          <h5>Gallery Post</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct. 21, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="24"
-          className={classNames(
-            paginationNews,
-            rightNews,
-            tempHidden,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg7} alt="pagination content bg" />
-          </a>
-          <h5>Gemini: weekly horoscope</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct. 23, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
-
-        <div
-          data-num="25"
-          className={classNames(
-            paginationNews,
-            leftNews,
-            tempHidden,
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <a href="http://localhost:8000/blogPost">
-            <img src={paginationNewsBg19} alt="pagination content bg" />
-          </a>
-          <h5>Cancer: weekly horoscope</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct. 23, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
-            </div>
-          </button>
-        </div>
+        ))}
 
         <div
           data-num="26"
           className={classNames(
             paginationNews,
             rightNews,
-            tempHidden,
             "sm:col-span-1 col-span-2",
           )}
         >
@@ -816,23 +425,23 @@ const PaginationContent: FunctionComponent = () => {
               label="English"
             />
           </audio>
-          <h5>Audio post</h5>
-          <p className={classNames(newsDate, "normal-case")}>
-            <a className={aDate} href="http://localhost:8000/blogPost">
-              Oct. 23, 2016
-            </a>
-            <span>- by</span>
-            <a href="http://localhost:8000/blogPost">admin</a>
-          </p>
-          <button
-            type="button"
-            className={classNames(newsButton, "flex uppercase")}
-          >
-            Read More
-            <div className={arrowIcon}>
-              <img src={arrow} alt="arrow" />
+          <a href="http://localhost:8000/blogPost">
+            <h5>Audio post</h5>
+            <div className={classNames(newsDate, "normal-case flex")}>
+              <p className={aDate}>Oct. 23, 2016</p>
+              <span>- by</span>
+              <p>admin</p>
             </div>
-          </button>
+            <button
+              type="button"
+              className={classNames(newsButton, "flex uppercase")}
+            >
+              Read More
+              <div className={arrowIcon}>
+                <img src={arrow} alt="arrow" />
+              </div>
+            </button>
+          </a>
         </div>
       </div>
 
