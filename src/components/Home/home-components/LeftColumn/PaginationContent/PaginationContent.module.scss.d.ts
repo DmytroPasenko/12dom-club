@@ -18,4 +18,4 @@ export const pageButton: string;
 export const currentPage: string;
 export const leftNews: string;
 export const rightNews: string;
-export const _tempHidden: string;
+export const tempHidden: string;

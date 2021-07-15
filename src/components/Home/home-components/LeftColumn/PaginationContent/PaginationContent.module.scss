@@ -152,7 +152,8 @@
       transition: all 0.4s ease;
       margin-top: 3px;
       position: relative;
-      filter: invert(67%) sepia(48%) saturate(395%) hue-rotate(309deg) brightness(102%) contrast(79%);
+      filter: invert(67%) sepia(48%) saturate(395%) hue-rotate(309deg)
+        brightness(102%) contrast(79%);
     }
   }
   .news-button:hover {
@@ -162,7 +163,7 @@
     filter: none;
   }
 }
-._temp-hidden {
+.temp-hidden {
   display: none;
 }
 

@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
-import classNames from "classnames";
 
 import { entryContent } from "./AboutMePostContainer.module.scss";
 

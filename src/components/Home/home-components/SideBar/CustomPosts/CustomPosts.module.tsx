@@ -31,18 +31,18 @@ const CustomPosts: FunctionComponent = () => {
       >
         <div className={classNames(customPost, leftBox, "text-black")}>
           <div className={classNames(customPostContent, "flex")}>
-            <a href="#">
+            <a href="http://localhost:8000/blogPost">
               <img src={customPostBg1} alt="news-bg" />
             </a>
-            <div className={classNames(customPostTextContent,"flex flex-col")}>
+            <div className={classNames(customPostTextContent, "flex flex-col")}>
               <p className={customPostDate}>
-                <a className={aDate} href="#">
+                <a className={aDate} href="http://localhost:8000/blogPost">
                   Oct. 26, 2016
                 </a>
                 <span>- by</span>
-                <a href="#">admin</a>
+                <a href="http://localhost:8000/blogPost">admin</a>
               </p>
-              <a href="#">
+              <a href="http://localhost:8000/blogPost">
                 <h5>You have a power</h5>
               </a>
             </div>
@@ -51,18 +51,18 @@ const CustomPosts: FunctionComponent = () => {
 
         <div className={classNames(customPost, rightBox, "text-black")}>
           <div className={classNames(customPostContent, "flex")}>
-            <a href="#">
+            <a href="http://localhost:8000/blogPost">
               <img src={customPostBg2} alt="news-bg" />
             </a>
-            <div className={classNames(customPostTextContent,"flex flex-col")}>
+            <div className={classNames(customPostTextContent, "flex flex-col")}>
               <p className={customPostDate}>
-                <a className={aDate} href="#">
+                <a className={aDate} href="http://localhost:8000/blogPost">
                   Oct. 25, 2016
                 </a>
                 <span>- by</span>
-                <a href="#">admin</a>
+                <a href="http://localhost:8000/blogPost">admin</a>
               </p>
-              <a href="#">
+              <a href="http://localhost:8000/blogPost">
                 <h5>We are energy</h5>
               </a>
             </div>
@@ -71,21 +71,18 @@ const CustomPosts: FunctionComponent = () => {
 
         <div className={classNames(customPost, leftBox, "text-black")}>
           <div className={classNames(customPostContent, "flex")}>
-            <a href="#">
-              <img
-                src={customPostBg3}
-                alt="news-bg"
-              />
+            <a href="http://localhost:8000/blogPost">
+              <img src={customPostBg3} alt="news-bg" />
             </a>
-            <div className={classNames(customPostTextContent,"flex flex-col")}>
+            <div className={classNames(customPostTextContent, "flex flex-col")}>
               <p className={customPostDate}>
-                <a className={aDate} href="#">
+                <a className={aDate} href="http://localhost:8000/blogPost">
                   Oct. 25, 2016
                 </a>
                 <span>- by</span>
-                <a href="#">admin</a>
+                <a href="http://localhost:8000/blogPost">admin</a>
               </p>
-              <a href="#">
+              <a href="http://localhost:8000/blogPost">
                 <h5>Forks in the road of life</h5>
               </a>
             </div>

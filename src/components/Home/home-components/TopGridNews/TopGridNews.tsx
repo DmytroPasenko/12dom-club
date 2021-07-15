@@ -12,7 +12,7 @@ import {
   postImg,
 } from "./TopGridNews.module.scss";
 
-interface newsRecord {
+interface NewsRecord {
   header: string;
   date: number;
   author: string;
@@ -23,7 +23,7 @@ interface newsRecord {
 const TopGridNews: FunctionComponent = () => {
   const { t } = useTranslation(["site", "top-grid-news"]);
 
-  const getNews = (): newsRecord[] => [
+  const getNews = (): NewsRecord[] => [
     {
       header: "Use your Jupiter luck in 2017",
       date: new Date().getTime(),
