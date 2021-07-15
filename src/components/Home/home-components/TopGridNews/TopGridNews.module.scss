@@ -17,18 +17,10 @@
       bottom: -120px;
       padding: 40px 0 30px 20px;
       transition: all 0.15s ease;
-      h5 {
-        font-weight: 300;
-        font-size: 24px;
-        line-height: 1.83;
-        font-family: "Oswald", sans-serif;
-        letter-spacing: 0.28em;
-      }
       h5:hover {
         text-decoration: underline;
       }
       div > p {
-        font-family: "Roboto Condensed";
         font-size: 12px;
         letter-spacing: 0.2em;
         margin-bottom: 30px;
@@ -38,7 +30,6 @@
         text-decoration: underline;
       }
       div > span {
-        font-family: "Roboto Condensed";
         font-size: 12px;
         letter-spacing: 0.2em;
         margin-right: 7px;
@@ -53,7 +44,6 @@
       }
       .entry-button {
         transform: scale(0);
-        font-family: "Oswald";
         font-size: 0.75em;
         letter-spacing: 0.72px;
         padding-top: 15px;
