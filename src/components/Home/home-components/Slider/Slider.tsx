@@ -56,9 +56,10 @@ const Slider: FunctionComponent = () => {
   return (
     <>
       <div className={sliderWrapper}>
-        {slides.map((item) => (
-          <div className={item.slideClasses}>
-            <div className={item.slideBgClasses}></div>
+        {slides.map((item, idx) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <div className={item.slideClasses} key={idx}>
+            <div className={item.slideBgClasses} />
             <div className={slideContent}>
               <p className={slideParagraph}>{item.slideParagraph}</p>
               <a className={slideLink} href="#">
@@ -70,9 +71,9 @@ const Slider: FunctionComponent = () => {
         ))}
       </div>
       <div className={classNames(radioButtons, "flex mx-auto")}>
-        <div className={classNames(radioButton, activeRadio)}></div>
-        <div className={radioButton}></div>
-        <div className={radioButton}></div>
+        <div className={classNames(radioButton, activeRadio)} />
+        <div className={radioButton} />
+        <div className={radioButton} />
       </div>
     </>
   );

@@ -50,9 +50,9 @@ module.exports = {
         // Url to query from
         url: API_ENDPOINT,
         headers: {
-          // Learn about environment variables: https://gatsby.dev/env-vars
-          // Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-          SiteID: API_SITE_ID,
+          Authorization: JSON.stringify({
+            siteID: API_SITE_ID,
+          }),
         },
       },
     },
@@ -92,8 +92,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-minify-classnames`,
       options: {
-        dictionary: 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ0123456789',
-        enable: process.env.NODE_ENV === 'production',
+        dictionary: "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ0123456789",
+        enable: process.env.NODE_ENV === "production",
       },
     },
     {

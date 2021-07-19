@@ -44,8 +44,9 @@ const TopGridNews: FunctionComponent = () => {
 
   return (
     <>
-      {news.map((item) => (
-        <div className={post}>
+      {news.map((item, idx) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <div className={post} key={idx}>
           <div className={postContent}>
             <div className={postMeta}>
               <h5 className="uppercase">

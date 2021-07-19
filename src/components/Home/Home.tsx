@@ -25,7 +25,7 @@ import {
   doubleSmartBox,
   paginationContent,
   sideBar,
-  sideBarBlock
+  sideBarBlock,
 } from "./Home.module.scss";
 
 // interface DataRecord {
@@ -48,7 +48,7 @@ const Home: FunctionComponent = () => {
   return (
     <div className={classNames(siteContainer, "mx-auto")}>
       <section className={classNames(slider, "text-white uppercase")}>
-        {<Slider />}
+        <Slider />
       </section>
 
       <section
@@ -75,12 +75,17 @@ const Home: FunctionComponent = () => {
             <DoubleSmartBox />
           </div>
 
-          <div className={classNames(paginationContent,"flex col-span-2 flex-col")}>
+          <div
+            className={classNames(
+              paginationContent,
+              "flex col-span-2 flex-col",
+            )}
+          >
             <PaginationContent />
           </div>
         </div>
 
-        <div className={classNames(sideBar,"normal-case text-black")}>
+        <div className={classNames(sideBar, "normal-case text-black")}>
           <div className={sideBarBlock}>
             <AboutMe />
           </div>
@@ -97,7 +102,7 @@ const Home: FunctionComponent = () => {
             <Tags />
           </div>
 
-          <div className={classNames(sideBarBlock,"text-black")}>
+          <div className={classNames(sideBarBlock, "text-black")}>
             <FollowAndSubscribe />
           </div>
         </div>

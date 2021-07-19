@@ -15,16 +15,14 @@ const Layout: FunctionComponent<LayoutProps> = ({
   title,
   description,
   children,
-}) => {
-  return (
-    <main className={wrapper}>
-      <Seo title={title} description={description} />
-      <Header title={title} />
-      {children}
-      <BottomNewsGrid />
-      <Footer />
-    </main>
-  );
-};
+}) => (
+  <main className={wrapper}>
+    <Seo title={title} description={description} />
+    <Header title={title} />
+    {children}
+    <BottomNewsGrid />
+    <Footer />
+  </main>
+);
 
 export default Layout;
