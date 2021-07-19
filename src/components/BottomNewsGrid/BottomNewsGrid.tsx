@@ -19,8 +19,6 @@ import IndexPageContext from "../Context/IndexContext";
 import { getPropertyAsStr } from "../../utils/getPropertyAsStr";
 import AppLink from "../AppLink";
 
-console.log(IndexPageContext);
-
 const BottomNewsGrid: FunctionComponent = () => {
   const { t } = useTranslation(["site", "bottom-news-grid"]);
   const { locale } = useLocalization();
