@@ -62,10 +62,12 @@ const Slider: FunctionComponent = () => {
             <div className={item.slideBgClasses} />
             <div className={slideContent}>
               <p className={slideParagraph}>{item.slideParagraph}</p>
-              <a className={slideLink} href="#">
-                <h2>{item.slideLink}</h2>
+              <a href="http://localhost:8000/blogPost">
+                <h2 className={slideLink}>{item.slideLink}</h2>
+                <button type="button" className={slideButton}>
+                  Read more
+                </button>
               </a>
-              <button className={slideButton}>Read more</button>
             </div>
           </div>
         ))}

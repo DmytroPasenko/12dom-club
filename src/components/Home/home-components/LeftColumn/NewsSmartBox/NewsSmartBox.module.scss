@@ -16,27 +16,19 @@
       );
       bottom: 0px;
       padding: 120px 0px 20px 20px;
-      h5 {
-        font-family: "Oswald", sans-serif;
-        letter-spacing: 0.28em;
-        line-height: 1.83;
-        font-size: 24px;
-      }
       h5:hover {
         text-decoration: underline;
       }
-      p > a {
-        font-family: "Roboto Condensed";
+      div > p {
         font-size: 12px;
         letter-spacing: 0.2em;
         margin-bottom: 40px;
         margin-right: 7px;
       }
-      p > a:hover {
+      div > p:hover {
         text-decoration: underline;
       }
-      p > span {
-        font-family: "Roboto Condensed";
+      div > span {
         font-size: 12px;
         letter-spacing: 0.2em;
         margin-right: 7px;
@@ -58,21 +50,17 @@
     }
     .news-text-content {
       h5 {
-        font-family: "Oswald", sans-serif;
-        letter-spacing: 0.28em;
-        line-height: 1.83;
-        font-size: 24px;
-        cursor: pointer;
         transition: all 0.3s ease;
       }
       h5:hover {
         color: #e49c9f;
       }
-      p > a {
-        font-family: "Roboto Condensed";
+      div {
+        margin-top: 5px;
+      }
+      div > p {
         font-size: 12px;
         letter-spacing: 0.2em;
-        margin-top: 5px;
         margin-right: 7px;
       }
       .a-date {
@@ -82,8 +70,7 @@
       .a-date:hover {
         color: #000000;
       }
-      p > span {
-        font-family: "Roboto Condensed";
+      div > span {
         font-size: 12px;
         letter-spacing: 0.2em;
         margin-right: 7px;
@@ -93,6 +80,16 @@
 }
 
 /*media-queries*/
+@media screen and (max-width: 1439px) {
+  .news-box-container {
+    .soft-news {
+      a {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1023px) {
   .news-box-container {
     padding: 30px 0px 0px 0px;

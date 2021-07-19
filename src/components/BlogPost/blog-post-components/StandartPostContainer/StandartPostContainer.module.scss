@@ -1,22 +1,11 @@
-/*main*/
-.post-header {
-  font-size: 40px;
-  line-height: 1.775;
-  font-family: "Oswald", sans-serif;
-  letter-spacing: 0.28em;
-  color: #000000;
-  padding-bottom: 18px;
-}
-
 /*post-content*/
 .post-date {
   font-size: 12px;
   line-height: 2.83;
-  font-family: "Roboto Condensed", sans-serif;
   letter-spacing: 0.2em;
   color: #e49c9f;
   margin: 0px -10px 30px;
-  a {
+  p {
     padding: 0px 10px;
     transition: all 0.3s ease;
   }
@@ -26,7 +15,7 @@
   .admin-link {
     color: #333333;
   }
-  a:hover {
+  p:hover {
     color: #000000;
   }
 }

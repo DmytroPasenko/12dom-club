@@ -2,10 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/*google fonts*/
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,300&family=Roboto:wght@300&display=swap");
-
 /*reset css*/
 * {
   padding: 0;
@@ -79,7 +75,7 @@ h6 {
 
 /*main*/
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   background: url("../../static/img/bg/bg-body.webp") no-repeat;
 }
 h3 {
@@ -89,4 +85,14 @@ h3 {
   letter-spacing: 0.28em;
   color: #000000;
   padding-bottom: 18px;
+}
+h5 {
+  font-size: 24px;
+  line-height: 1.83;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.28em;
+  margin-bottom: 24px;
+}
+button {
+  font-family: "Oswald", sans-serif;
 }

@@ -52,7 +52,6 @@
         border: solid 1px #f8f8f8;
         padding: 20.5px 20px 20.5px 60px;
         margin: 0px 5px 5px 0px;
-        font-family: "Roboto Condensed";
         letter-spacing: 0.2em;
         font-size: 12px;
         color: #333333;
@@ -67,7 +66,6 @@
         padding: 20px 30px;
         max-width: 230px;
         max-height: 65px;
-        font-family: "Oswald";
         font-size: 17.6px;
         letter-spacing: 0.72px;
         border: solid 1px #e49c9f;
@@ -110,7 +108,7 @@
 }
 
 @media screen and (max-width: 389px) {
-  .follow-block {
+  .follow-and-subscribe-block {
     .follow {
       ul {
         max-width: 220px;

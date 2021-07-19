@@ -17,28 +17,19 @@
       bottom: -120px;
       padding: 40px 0 30px 20px;
       transition: all 0.15s ease;
-      h5 {
-        font-weight: 300;
-        font-size: 24px;
-        line-height: 1.83;
-        font-family: "Oswald", sans-serif;
-        letter-spacing: 0.28em;
-      }
       h5:hover {
         text-decoration: underline;
       }
-      p > a {
-        font-family: "Roboto Condensed";
+      div > p {
         font-size: 12px;
         letter-spacing: 0.2em;
         margin-bottom: 30px;
         margin-right: 7px;
       }
-      p > a:hover {
+      div > p:hover {
         text-decoration: underline;
       }
-      p > span {
-        font-family: "Roboto Condensed";
+      div > span {
         font-size: 12px;
         letter-spacing: 0.2em;
         margin-right: 7px;
@@ -53,7 +44,6 @@
       }
       .entry-button {
         transform: scale(0);
-        font-family: "Oswald";
         font-size: 0.75em;
         letter-spacing: 0.72px;
         padding-top: 15px;
@@ -62,7 +52,8 @@
           width: 14px;
           height: auto;
           margin-left: 5px;
-          filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(146deg) brightness(107%) contrast(101%);
+          filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(146deg)
+            brightness(107%) contrast(101%);
           transition: all 0.4s ease;
         }
       }
@@ -120,7 +111,7 @@
   }
 }
 
-@media screen and (max-width: 989px) {  
+@media screen and (max-width: 989px) {
   .post {
     .post-content {
       .post-meta {

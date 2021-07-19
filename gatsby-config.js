@@ -32,7 +32,6 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-transformer-json",
     "gatsby-plugin-remove-trailing-slashes",
-
     // {
     //   resolve: "gatsby-source-filesystem",
     //   options: {
@@ -103,6 +102,27 @@ module.exports = {
           require("tailwindcss"),
           require("./tailwind.config.js"), // Optional: Load custom Tailwind CSS configuration
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Roboto",
+              variants: ["300"],
+            },
+            {
+              family: "Roboto Condensed",
+              variants: ["300ital"],
+            },
+            {
+              family: "Oswald",
+              variants: ["300"],
+            },
+          ],
+        },
       },
     },
     // {

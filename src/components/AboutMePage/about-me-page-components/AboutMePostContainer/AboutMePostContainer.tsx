@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
-import classNames from "classnames";
 
 import { entryContent } from "./AboutMePostContainer.module.scss";
 
@@ -14,7 +13,7 @@ const AboutMePostContainer: FunctionComponent = () => {
     <>
       <h3 className="uppercase">Astrology is a precise science!</h3>
       <div className={entryContent}>
-        <img src={mainPostImg} alt="about-me-post-image" />
+        <img src={mainPostImg} alt="about-me-post" />
         <h3 className="uppercase">What astrology is what about?</h3>
         <p>
           As far as the sciences that concern our actual lives go, Astrology may
@@ -22,7 +21,7 @@ const AboutMePostContainer: FunctionComponent = () => {
           that’s been researched and followed for millenia by all cultures of
           the Ancient world be a hoax? I don’t think so.
         </p>
-        <img src={softPostImg} alt="about-me-post-image" />
+        <img src={softPostImg} alt="about-me-post" />
         <h3 className="uppercase">Why have i become an astrologist?</h3>
         <p>
           It was because of how precise all the predictions made for me were,

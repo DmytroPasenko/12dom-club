@@ -10,7 +10,7 @@ import NewsSmartBox from "./home-components/LeftColumn/NewsSmartBox/NewsSmartBox
 import DoubleSmartBox from "./home-components/LeftColumn/DoubleSmartBox/DoubleSmartBox";
 import PaginationContent from "./home-components/LeftColumn/PaginationContent/PaginationContent";
 import AboutMe from "./home-components/SideBar/AboutMe/AboutMe";
-import CustomPosts from "./home-components/SideBar/CustomPosts/CustomPosts.module";
+import CustomPosts from "./home-components/SideBar/CustomPosts/CustomPosts";
 import LatestPosts from "./home-components/SideBar/LatestPosts/LatestPosts";
 import Tags from "./home-components/SideBar/Tags/Tags";
 import FollowAndSubscribe from "./home-components/SideBar/FollowAndSubscribe/FollowAndSubscribe";
