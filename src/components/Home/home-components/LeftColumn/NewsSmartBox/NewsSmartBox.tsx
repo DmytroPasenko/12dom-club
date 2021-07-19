@@ -14,6 +14,7 @@ import {
   leftBox,
   rightBox,
 } from "./NewsSmartBox.module.scss";
+import { isEven } from "../../../../../utils/isEven";
 import IndexPageContext from "../../../../Context/IndexContext";
 import { getPropertyAsStr } from "../../../../../utils/getPropertyAsStr";
 import AppLink from "../../../../AppLink";
