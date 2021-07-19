@@ -66,10 +66,17 @@ const NewsSmartBox: FunctionComponent = () => {
           ? formatDate(parseInt(date, 10), locale)
           : "";
         const author = getPropertyAsStr(item, "author");
-        // const class = getPropertyAsStr(item, "class");
 
         return (
-          <div className={item.class} key={item.slug}>
+          <div
+            className={classNames(
+              newsBoxContainer,
+              { leftBox: isEven(item.slug) },
+              { rightBox: !isEven(item.slug) },
+              "sm:col-span-1 col-span-2",
+            )}
+            key={item.slug}
+          >
             <div className={classNames(softNews, "text-black flex")}>
               <AppLink to={`news/${item.slug}`}>
                 <img className={softNewsImg} src={image} alt="news-bg" />
