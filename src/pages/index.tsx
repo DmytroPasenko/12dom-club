@@ -20,7 +20,7 @@ interface IndexPageProps extends PageProps {
   data: {
     cmsApi: {
       page: CmsPageProperty[];
-      news: CmsTableRecord[];
+      posts: CmsTableRecord[];
     };
   };
 }
@@ -33,7 +33,7 @@ export const pageQuery = graphql`
         type
         value
       }
-      news: table(locale: $locale, content: "news") {
+      posts: table(locale: $locale, content: "posts") {
         slug
         position
         properties {
@@ -51,7 +51,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({ data }) => {
   const { locale } = useLocalization();
   const { cmsApi } = data;
   const [pageData, setPageData] = useState(cmsApi);
-  const { page, news } = pageData;
+  const { page, posts } = pageData;
 
   const title = getPropertyAsStr(page, SEO_TITLE) ?? t("site:title");
   const description =
@@ -65,7 +65,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({ data }) => {
             type
             value
           }
-          news: table(locale: $locale, content: "news") {
+          posts: table(locale: $locale, content: "posts") {
             slug
             position
             properties {
@@ -89,7 +89,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({ data }) => {
     <IndexPageContext.Provider
       value={{
         page,
-        news,
+        posts,
       }}
     >
       <Layout title={title} description={description}>
