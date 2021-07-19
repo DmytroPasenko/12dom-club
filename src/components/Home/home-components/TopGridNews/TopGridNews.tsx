@@ -48,8 +48,9 @@ const TopGridNews: FunctionComponent = () => {
 
   return (
     <>
-      {news.map((item) => (
-        <div className={post}>
+      {news.map((item, idx) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <div className={post} key={idx}>
           <div className={postContent}>
             <a href="http://localhost:8000/blogPost">
               <div className={postMeta}>

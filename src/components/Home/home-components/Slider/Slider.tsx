@@ -56,8 +56,9 @@ const Slider: FunctionComponent = () => {
   return (
     <>
       <div className={sliderWrapper}>
-        {slides.map((item) => (
-          <div className={item.slideClasses}>
+        {slides.map((item, idx) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <div className={item.slideClasses} key={idx}>
             <div className={item.slideBgClasses} />
             <div className={slideContent}>
               <p className={slideParagraph}>{item.slideParagraph}</p>

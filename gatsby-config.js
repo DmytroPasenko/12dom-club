@@ -49,9 +49,9 @@ module.exports = {
         // Url to query from
         url: API_ENDPOINT,
         headers: {
-          // Learn about environment variables: https://gatsby.dev/env-vars
-          // Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-          SiteID: API_SITE_ID,
+          Authorization: JSON.stringify({
+            siteID: API_SITE_ID,
+          }),
         },
       },
     },
