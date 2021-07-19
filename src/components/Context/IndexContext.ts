@@ -3,7 +3,7 @@ import { CmsPageProperty, CmsTableRecord } from "../../types/common";
 
 interface IndexPageContextInterface {
   page?: CmsPageProperty[];
-  news?: CmsTableRecord[];
+  posts?: CmsTableRecord[];
 }
 
 const IndexPageContext: Context<IndexPageContextInterface> = createContext({});

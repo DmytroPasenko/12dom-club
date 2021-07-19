@@ -1,10 +1,8 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
-
-import { useLocalization } from "gatsby-theme-i18n";
 import { formatDate } from "@miran-soft/common";
-
+import { useLocalization } from "gatsby-theme-i18n";
 import {
   post,
   postContent,
@@ -14,72 +12,61 @@ import {
   entryIcon,
   postImg,
 } from "./TopGridNews.module.scss";
+import IndexPageContext from "../../../Context/IndexContext";
+import { getPropertyAsStr } from "../../../../utils/getPropertyAsStr";
+import AppLink from "../../../AppLink";
 
-interface NewsRecord {
-  header: string;
-  date: number;
-  author: string;
-  text: string;
-  image: string;
-}
+console.log(IndexPageContext);
 
 const TopGridNews: FunctionComponent = () => {
   const { t } = useTranslation(["site", "top-grid-news"]);
-
-  const getNews = (): NewsRecord[] => [
-    {
-      header: "Use your Jupiter luck in 2017",
-      date: new Date().getTime(),
-      author: "admin",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque vero eum nisi illo ullam neque est mollitia placeat, quis magni modi itaque distinctio perspiciatis quidem odit qui eveniet exaccusamus!",
-      image: "../../../../../img/home/top-grid-news/top-post-bg-1.jpg",
-    },
-    {
-      header: "Your aquarios factors and your...",
-      date: new Date().getTime(),
-      author: "admin",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque vero eum nisi illo ullam neque est mollitia placeat, quis magni modi itaque distinctio perspiciatis quidem odit qui eveniet exaccusamus!",
-      image: "../../../../../img/home/top-grid-news/top-post-bg-2.jpg",
-    },
-  ];
-
-  const news = getNews();
   const { locale } = useLocalization();
+  const { posts } = useContext(IndexPageContext);
 
   return (
     <>
-      {news.map((item, idx) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <div className={post} key={idx}>
-          <div className={postContent}>
-            <a href="http://localhost:8000/blogPost">
-              <div className={postMeta}>
-                <h5 className="uppercase">
-                  <p>{item.header}</p>
-                </h5>
-                <div className="flex">
-                  <p>{formatDate(item.date, locale)}</p>
-                  <span>- by</span>
-                  <p>{item.author}</p>
+      {posts?.slice(4, 6).map((item) => {
+        const title = getPropertyAsStr(item, "title");
+        const text = getPropertyAsStr(item, "text");
+        const image = getPropertyAsStr(item, "image");
+        const date = getPropertyAsStr(item, "date");
+        const formattedDate = date
+          ? formatDate(parseInt(date, 10), locale)
+          : "";
+        const author = getPropertyAsStr(item, "author");
+
+        return (
+          <div className={post} key={item.slug}>
+            <div className={postContent}>
+              <AppLink to={`news/${item.slug}`}>
+                <div className={postMeta}>
+                  <h5 className="uppercase">
+                    <p>{title}</p>
+                  </h5>
+                  <div className="flex">
+                    <p>{formattedDate}</p>
+                    <span>- by</span>
+                    <p>{author}</p>
+                  </div>
+                  <p className={entryP}>{text}</p>
+                  <button
+                    type="button"
+                    className={classNames(entryButton, "flex uppercase")}
+                  >
+                    Read More
+                    <img
+                      src="../../../../../svg/other/arrow.svg"
+                      alt="arrow"
+                      className={entryIcon}
+                    />
+                  </button>
                 </div>
-                <p className={entryP}>{item.text}</p>
-                <button
-                  type="button"
-                  className={classNames(entryButton, "flex uppercase")}
-                >
-                  Read More
-                  <img
-                    src="../../../../../svg/other/arrow.svg"
-                    alt="arrow"
-                    className={entryIcon}
-                  />
-                </button>
-              </div>
-              <img className={postImg} src={item.image} alt="post-img" />
-            </a>
+                <img className={postImg} src={image} alt="post-img" />
+              </AppLink>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </>
   );
 };

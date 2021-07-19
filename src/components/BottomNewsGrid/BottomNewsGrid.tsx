@@ -19,10 +19,12 @@ import IndexPageContext from "../Context/IndexContext";
 import { getPropertyAsStr } from "../../utils/getPropertyAsStr";
 import AppLink from "../AppLink";
 
+console.log(IndexPageContext);
+
 const BottomNewsGrid: FunctionComponent = () => {
   const { t } = useTranslation(["site", "bottom-news-grid"]);
   const { locale } = useLocalization();
-  const { news } = useContext(IndexPageContext);
+  const { posts } = useContext(IndexPageContext);
 
   return (
     <section className={classNames(bottomNewsGrid, "text-white")}>
@@ -32,7 +34,7 @@ const BottomNewsGrid: FunctionComponent = () => {
           "grid md:grid-cols-4 grid-cols-2 flex",
         )}
       >
-        {news?.map((item) => {
+        {posts?.slice(0, 4).map((item) => {
           const title = getPropertyAsStr(item, "title");
           const text = getPropertyAsStr(item, "text");
           const image = getPropertyAsStr(item, "image");
