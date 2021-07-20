@@ -16,22 +16,6 @@ import {
 } from "./NewsSmartBox.module.scss";
 import { isEven } from "../../../../../utils/isEven";
 
-interface MainNewsRecord {
-  title: string;
-  date: number;
-  author: string;
-  comments: string;
-  image: string;
-}
-
-interface SoftNewsRecord {
-  class: string;
-  image: string;
-  title: string;
-  date: number;
-  author: string;
-}
-
 const NewsSmartBox: FunctionComponent = () => {
   const { t } = useTranslation(["site", "news-smart-box"]);
   const { locale } = useLocalization();
