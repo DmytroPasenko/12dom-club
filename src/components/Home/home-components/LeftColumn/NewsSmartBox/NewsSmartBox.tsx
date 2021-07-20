@@ -15,10 +15,23 @@ import {
   rightBox,
 } from "./NewsSmartBox.module.scss";
 import { isEven } from "../../../../../utils/isEven";
-import IndexPageContext from "../../../../Context/IndexContext";
-import { getPropertyAsStr } from "../../../../../utils/getPropertyAsStr";
-import AppLink from "../../../../AppLink";
 
+interface MainNewsRecord {
+  title: string;
+  date: number;
+  author: string;
+  comments: string;
+  image: string;
+}
+
+interface SoftNewsRecord {
+  class: string;
+  image: string;
+  title: string;
+  date: number;
+  author: string;
+}
+ 
 const NewsSmartBox: FunctionComponent = () => {
   const { t } = useTranslation(["site", "news-smart-box"]);
   const { locale } = useLocalization();
@@ -35,25 +48,27 @@ const NewsSmartBox: FunctionComponent = () => {
           : "";
         const author = getPropertyAsStr(item, "author");
 
-        return (
-          <div
-            className={classNames(newsBoxContainer, "lg:col-span-1 col-span-2")}
-            key={item.slug}
-          >
-            <div className={mainNews}>
-              <AppLink to={`news/${item.slug}`}>
-                <div className={newsTextContent}>
-                  <h5>{title}</h5>
-                  <div className="normal-case flex">
-                    <p>{formattedDate}</p>
-                    <span>- by</span>
-                    <p>{author}</p>
-                    <p>No comment(s)</p>
-                  </div>
+      {softNewsContent.map((item, idx) => (
+        <div
+          className={classNames(
+            newsBoxContainer,
+            { leftBox: isEven(idx) },
+            { rightBox: !isEven(idx) },
+            "sm:col-span-1 col-span-2",
+          )}
+        >
+          <div className={classNames(softNews, "text-black flex")}>
+            <a href="http://localhost:8000/blogPost" className="flex flex-row">
+              <img className={softNewsImg} src={item.image} alt="news-bg" />
+              <div className={classNames(newsTextContent, "flex flex-col")}>
+                <h5>{item.title}</h5>
+                <div className="normal-case flex items-center">
+                  <p className={aDate}>{formatDate(item.date, locale)}</p>
+                  <span>- by</span>
+                  <p>{item.author}</p>
                 </div>
-                <img className={newsImg} src={image} alt="news-bg" />
-              </AppLink>
-            </div>
+              </div>
+            </a>
           </div>
         );
       })}
@@ -66,32 +81,23 @@ const NewsSmartBox: FunctionComponent = () => {
           : "";
         const author = getPropertyAsStr(item, "author");
 
-        return (
-          <div
-            className={classNames(
-              newsBoxContainer,
-              { leftBox: isEven(index) },
-              { rightBox: !isEven(index) },
-              "sm:col-span-1 col-span-2 flex",
-            )}
-            key={item.slug}
-          >
-            <div className={classNames(softNews, "text-black flex")}>
-              <AppLink to={`news/${item.slug}`}>
-                <img className={softNewsImg} src={image} alt="news-bg" />
-                <div className={classNames(newsTextContent, "flex flex-col")}>
-                  <h5>{title}</h5>
-                  <div className="normal-case flex items-center">
-                    <p className={aDate}>{formattedDate}</p>
-                    <span>- by</span>
-                    <p>{author}</p>
-                  </div>
+      {/* {softNewsContent.map((item) => (
+        <div className={item.class}>
+          <div className={classNames(softNews, "text-black flex")}>
+            <a href="http://localhost:8000/blogPost" className="flex flex-row">
+              <img className={softNewsImg} src={item.image} alt="news-bg" />
+              <div className={classNames(newsTextContent, "flex flex-col")}>
+                <h5>{item.title}</h5>
+                <div className="normal-case flex items-center">
+                  <p className={aDate}>{formatDate(item.date, locale)}</p>
+                  <span>- by</span>
+                  <p>{item.author}</p>
                 </div>
-              </AppLink>
-            </div>
+              </div>
+            </a>
           </div>
-        );
-      })}
+        </div>
+      ))} */}
     </>
   );
 };
