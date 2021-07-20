@@ -24,8 +24,6 @@ const NewsSmartBox: FunctionComponent = () => {
   const { locale } = useLocalization();
   const { posts } = useContext(IndexPageContext);
 
-  console.log(posts?.slice(6, 10));
-
   return (
     <>
       {posts?.slice(4, 6).map((item) => {
@@ -59,7 +57,7 @@ const NewsSmartBox: FunctionComponent = () => {
           </div>
         );
       })}
-      {posts?.slice(6, 10).map((item) => {
+      {posts?.slice(6, 10).map((item, index) => {
         const title = getPropertyAsStr(item, "title");
         const image = getPropertyAsStr(item, "image");
         const date = getPropertyAsStr(item, "date");
@@ -72,9 +70,9 @@ const NewsSmartBox: FunctionComponent = () => {
           <div
             className={classNames(
               newsBoxContainer,
-              { leftBox: isEven(item.slug) },
-              { rightBox: !isEven(item.slug) },
-              "sm:col-span-1 col-span-2",
+              { leftBox: isEven(index) },
+              { rightBox: !isEven(index) },
+              "sm:col-span-1 col-span-2 flex",
             )}
             key={item.slug}
           >
