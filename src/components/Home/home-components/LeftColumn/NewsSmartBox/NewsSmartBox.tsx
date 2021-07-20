@@ -1,7 +1,6 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
-
 import { formatDate } from "@miran-soft/common";
 import { useLocalization } from "gatsby-theme-i18n";
 import {
@@ -36,58 +35,7 @@ interface SoftNewsRecord {
 const NewsSmartBox: FunctionComponent = () => {
   const { t } = useTranslation(["site", "news-smart-box"]);
   const { locale } = useLocalization();
-
-  const getMainNews = (): MainNewsRecord[] => [
-    {
-      title: "You have a power",
-      date: new Date().getTime(),
-      author: "admin",
-      comments: "No comment(s)",
-      image: "img/home/left-column/news-smart-box/main-news/main-news-bg-1.jpg",
-    },
-    {
-      title: "We are energy",
-      date: new Date().getTime(),
-      author: "admin",
-      comments: "No comment(s)",
-      image: "img/home/left-column/news-smart-box/main-news/main-news-bg-2.jpg",
-    },
-  ];
-
-  const mainNewsContent = getMainNews();
-
-  const getSoftNews = (): SoftNewsRecord[] => [
-    {
-      class: classNames(newsBoxContainer, leftBox, "sm:col-span-1 col-span-2"),
-      image: "img/home/left-column/news-smart-box/soft-news/soft-news-bg-1.jpg",
-      title: "Forks in the road of life",
-      date: new Date().getTime(),
-      author: "admin",
-    },
-    {
-      class: classNames(newsBoxContainer, rightBox, "sm:col-span-1 col-span-2"),
-      image: "img/home/left-column/news-smart-box/soft-news/soft-news-bg-2.jpg",
-      title: "Open your hole safe",
-      date: new Date().getTime(),
-      author: "admin",
-    },
-    {
-      class: classNames(newsBoxContainer, leftBox, "sm:col-span-1 col-span-2"),
-      image: "img/home/left-column/news-smart-box/soft-news/soft-news-bg-3.jpg",
-      title: "I am of you",
-      date: new Date().getTime(),
-      author: "admin",
-    },
-    {
-      class: classNames(newsBoxContainer, rightBox, "sm:col-span-1 col-span-2"),
-      image: "img/home/left-column/news-smart-box/soft-news/soft-news-bg-4.jpg",
-      title: "Greet the dawn",
-      date: new Date().getTime(),
-      author: "admin",
-    },
-  ];
-
-  const softNewsContent = getSoftNews();
+  const { posts } = useContext(IndexPageContext);
 
   return (
     <>

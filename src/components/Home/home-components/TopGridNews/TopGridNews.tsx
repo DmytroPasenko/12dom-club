@@ -16,8 +16,6 @@ import IndexPageContext from "../../../Context/IndexContext";
 import { getPropertyAsStr } from "../../../../utils/getPropertyAsStr";
 import AppLink from "../../../AppLink";
 
-console.log(IndexPageContext);
-
 const TopGridNews: FunctionComponent = () => {
   const { t } = useTranslation(["site", "top-grid-news"]);
   const { locale } = useLocalization();
@@ -25,7 +23,7 @@ const TopGridNews: FunctionComponent = () => {
 
   return (
     <>
-      {posts?.slice(4, 6).map((item) => {
+      {posts?.slice(10, 12).map((item) => {
         const title = getPropertyAsStr(item, "title");
         const text = getPropertyAsStr(item, "text");
         const image = getPropertyAsStr(item, "image");
