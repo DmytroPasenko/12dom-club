@@ -35,6 +35,7 @@ interface SoftNewsRecord {
 const NewsSmartBox: FunctionComponent = () => {
   const { t } = useTranslation(["site", "news-smart-box"]);
   const { locale } = useLocalization();
+  const { posts } = useContext(IndexPageContext);
 
   const getMainNews = (): MainNewsRecord[] => [
     {
