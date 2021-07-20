@@ -79,6 +79,30 @@ const PaginationContent: FunctionComponent = () => {
           );
         })}
       </div>
+
+      <div className={classNames(pagination, "flex mx-auto")}>
+        <div
+          className={paginator}
+          id="paginators"
+          // onclick="pagination(event)"
+        >
+          <span className={currentPage} data-page="0" id="page1">
+            1
+          </span>
+          <span className={pageButton} data-page="6" id="page1">
+            2
+          </span>
+          <span className={pageButton} data-page="12" id="page1">
+            3
+          </span>
+          <span className={pageButton} data-page="18" id="page1">
+            4
+          </span>
+          <span className={pageButton} data-page="24" id="page1">
+            5
+          </span>
+        </div>
+      </div>
     </>
   );
 };
