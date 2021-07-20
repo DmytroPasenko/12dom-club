@@ -37,105 +37,74 @@ const NewsSmartBox: FunctionComponent = () => {
   const { locale } = useLocalization();
   const { posts } = useContext(IndexPageContext);
 
-  const getMainNews = (): MainNewsRecord[] => [
-    {
-      title: "You have a power",
-      date: new Date().getTime(),
-      author: "admin",
-      comments: "No comment(s)",
-      image: "img/home/left-column/news-smart-box/main-news/main-news-bg-1.jpg",
-    },
-    {
-      title: "We are energy",
-      date: new Date().getTime(),
-      author: "admin",
-      comments: "No comment(s)",
-      image: "img/home/left-column/news-smart-box/main-news/main-news-bg-2.jpg",
-    },
-  ];
-
-  const mainNewsContent = getMainNews();
-
-  const getSoftNews = (): SoftNewsRecord[] => [
-    {
-      class: classNames(newsBoxContainer, leftBox, "sm:col-span-1 col-span-2"),
-      image: "img/home/left-column/news-smart-box/soft-news/soft-news-bg-1.jpg",
-      title: "Forks in the road of life",
-      date: new Date().getTime(),
-      author: "admin",
-    },
-    {
-      class: classNames(newsBoxContainer, rightBox, "sm:col-span-1 col-span-2"),
-      image: "img/home/left-column/news-smart-box/soft-news/soft-news-bg-2.jpg",
-      title: "Open your hole safe",
-      date: new Date().getTime(),
-      author: "admin",
-    },
-    {
-      class: classNames(newsBoxContainer, leftBox, "sm:col-span-1 col-span-2"),
-      image: "img/home/left-column/news-smart-box/soft-news/soft-news-bg-3.jpg",
-      title: "I am of you",
-      date: new Date().getTime(),
-      author: "admin",
-    },
-    {
-      class: classNames(newsBoxContainer, rightBox, "sm:col-span-1 col-span-2"),
-      image: "img/home/left-column/news-smart-box/soft-news/soft-news-bg-4.jpg",
-      title: "Greet the dawn",
-      date: new Date().getTime(),
-      author: "admin",
-    },
-  ];
-
-  const softNewsContent = getSoftNews();
-
   return (
     <>
-      {mainNewsContent.map((item) => (
-        <div
-          className={classNames(newsBoxContainer, "lg:col-span-1 col-span-2")}
-        >
-          <div className={mainNews}>
-            <a href="http://localhost:8000/blogPost">
-              <div className={newsTextContent}>
-                <h5>{item.title}</h5>
-                <div className="normal-case flex">
-                  <p>{formatDate(item.date, locale)}</p>
-                  <span>- by</span>
-                  <p>{item.author}</p>
-                  <p>{item.comments}</p>
-                </div>
-              </div>
-              <img className={newsImg} src={item.image} alt="news-bg" />
-            </a>
-          </div>
-        </div>
-      ))}
+      {posts?.slice(4, 6).map((item) => {
+        const title = getPropertyAsStr(item, "title");
+        const image = getPropertyAsStr(item, "image");
+        const date = getPropertyAsStr(item, "date");
+        const formattedDate = date
+          ? formatDate(parseInt(date, 10), locale)
+          : "";
+        const author = getPropertyAsStr(item, "author");
 
-      {softNewsContent.map((item, idx) => (
-        <div
-          className={classNames(
-            newsBoxContainer,
-            { leftBox: isEven(idx) },
-            { rightBox: !isEven(idx) },
-            "sm:col-span-1 col-span-2",
-          )}
-        >
-          <div className={classNames(softNews, "text-black flex")}>
-            <a href="http://localhost:8000/blogPost" className="flex flex-row">
-              <img className={softNewsImg} src={item.image} alt="news-bg" />
-              <div className={classNames(newsTextContent, "flex flex-col")}>
-                <h5>{item.title}</h5>
-                <div className="normal-case flex items-center">
-                  <p className={aDate}>{formatDate(item.date, locale)}</p>
-                  <span>- by</span>
-                  <p>{item.author}</p>
+        return (
+          <div
+            className={classNames(newsBoxContainer, "lg:col-span-1 col-span-2")}
+            key={item.slug}
+          >
+            <div className={mainNews}>
+              <AppLink to={`news/${item.slug}`}>
+                <div className={newsTextContent}>
+                  <h5>{title}</h5>
+                  <div className="normal-case flex">
+                    <p>{formattedDate}</p>
+                    <span>- by</span>
+                    <p>{author}</p>
+                    <p>No comment(s)</p>
+                  </div>
                 </div>
-              </div>
-            </a>
+                <img className={newsImg} src={image} alt="news-bg" />
+              </AppLink>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
+      {posts?.slice(6, 10).map((item, index) => {
+        const title = getPropertyAsStr(item, "title");
+        const image = getPropertyAsStr(item, "image");
+        const date = getPropertyAsStr(item, "date");
+        const formattedDate = date
+          ? formatDate(parseInt(date, 10), locale)
+          : "";
+        const author = getPropertyAsStr(item, "author");
+
+        return (
+          <div
+            className={classNames(
+              newsBoxContainer,
+              { leftBox: isEven(index) },
+              { rightBox: !isEven(index) },
+              "sm:col-span-1 col-span-2 flex",
+            )}
+            key={item.slug}
+          >
+            <div className={classNames(softNews, "text-black flex")}>
+              <AppLink to={`news/${item.slug}`}>
+                <img className={softNewsImg} src={image} alt="news-bg" />
+                <div className={classNames(newsTextContent, "flex flex-col")}>
+                  <h5>{title}</h5>
+                  <div className="normal-case flex items-center">
+                    <p className={aDate}>{formattedDate}</p>
+                    <span>- by</span>
+                    <p>{author}</p>
+                  </div>
+                </div>
+              </AppLink>
+            </div>
+          </div>
+        );
+      })}
     </>
   );
 };
