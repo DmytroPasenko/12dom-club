@@ -57,7 +57,7 @@ const PaginationContent: FunctionComponent = () => {
               )}
               data-num={index}
             >
-              <a href="http://localhost:8000/blogPost">
+              <AppLink to={`news/${item.slug}`}>
                 <img src={image} alt="pagination content bg" />
                 <h5>{title}</h5>
                 <div className={classNames(newsDate, "normal-case flex")}>
@@ -74,7 +74,7 @@ const PaginationContent: FunctionComponent = () => {
                     <img src={arrow} alt="arrow" />
                   </div>
                 </button>
-              </a>
+              </AppLink>
             </div>
           );
         })}
