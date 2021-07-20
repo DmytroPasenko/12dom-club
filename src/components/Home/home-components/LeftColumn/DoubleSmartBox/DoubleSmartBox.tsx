@@ -1,7 +1,8 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
-
+import { formatDate } from "@miran-soft/common";
+import { useLocalization } from "gatsby-theme-i18n";
 import {
   doubleSmartBoxContent,
   doubleSmartBoxImg,
@@ -11,54 +12,59 @@ import {
   postButton,
   arrowIcon,
 } from "./DoubleSmartBox.module.scss";
-
-import doubleSmartBoxBg from "../../../../../../static/img/home/left-column/double-smart-box/double-smart-box-bg.jpg";
+import IndexPageContext from "../../../../Context/IndexContext";
+import { getPropertyAsStr } from "../../../../../utils/getPropertyAsStr";
+import AppLink from "../../../../AppLink";
 import arrow from "../../../../../../static/svg/other/arrow.svg";
 
 const DoubleSmartBox: FunctionComponent = () => {
   const { t } = useTranslation(["site", "double-smart-box"]);
+  const { locale } = useLocalization();
+  const { posts } = useContext(IndexPageContext);
 
   return (
     <>
-      <div className={doubleSmartBoxContent}>
-        <a href="http://localhost:8000/blogPost">
-          <img
-            src={doubleSmartBoxBg}
-            alt="smart-box-bg"
-            className={doubleSmartBoxImg}
-          />
-          <div className={classNames(doubleSmartBoxText, "normal-case")}>
-            <h5 className="uppercase">Astrology: Talent, Faith and Succes…</h5>
-            <div className={classNames(postDate, "flex")}>
-              <p>Oct. 24, 2016</p>
-              <span>- by</span>
-              <p>admin</p>
-              <p>No comment(s)</p>
-            </div>
-            <p className={entryP}>
-              Find Out How the Stars And Planets Movement. Why the Western
-              world’s been fancying the conventional Zodiac system, hence the
-              one created further east – believed to be originally a creation of
-              the Egyptians, later on adopted by the Babylonians and then
-              historically spread across the rest of the ancient world. Anyways,
-              as it turns out to come as a huge surprise to almost everyone who
-              hears it – there is actually a whole other set of Zodiac signs
-              originating from…Europe! Yet., strangely arguably no one in Europe
-              remembers, not to mention uses it these days. However, this Celtic
-              analog…
-            </p>
-            <button
-              type="button"
-              className={classNames(postButton, "flex uppercase")}
-            >
-              Read More
-              <div className={arrowIcon}>
-                <img src={arrow} alt="arrow" />
+      {posts?.slice(4, 5).map((item) => {
+        const title = getPropertyAsStr(item, "title");
+        const text = getPropertyAsStr(item, "text");
+        const image = getPropertyAsStr(item, "image");
+        const date = getPropertyAsStr(item, "date");
+        const formattedDate = date
+          ? formatDate(parseInt(date, 10), locale)
+          : "";
+        const author = getPropertyAsStr(item, "author");
+
+        return (
+          <div className={doubleSmartBoxContent} key={item.slug}>
+            <AppLink to={`news/${item.slug}`}>
+              <img
+                src={image}
+                alt="smart-box-bg"
+                className={doubleSmartBoxImg}
+              />
+              <div className={classNames(doubleSmartBoxText, "normal-case")}>
+                <h5 className="uppercase">{title}</h5>
+                <div className={classNames(postDate, "flex")}>
+                  <p>{formattedDate}</p>
+                  <span>- by</span>
+                  <p>{author}</p>
+                  <p>No comment(s)</p>
+                </div>
+                <p className={entryP}>{text}</p>
+                <button
+                  type="button"
+                  className={classNames(postButton, "flex uppercase")}
+                >
+                  Read More
+                  <div className={arrowIcon}>
+                    <img src={arrow} alt="arrow" />
+                  </div>
+                </button>
               </div>
-            </button>
+            </AppLink>
           </div>
-        </a>
-      </div>
+        );
+      })}
     </>
   );
 };

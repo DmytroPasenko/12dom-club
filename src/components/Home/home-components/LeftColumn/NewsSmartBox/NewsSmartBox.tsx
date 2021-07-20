@@ -31,7 +31,7 @@ interface SoftNewsRecord {
   date: number;
   author: string;
 }
-
+ 
 const NewsSmartBox: FunctionComponent = () => {
   const { t } = useTranslation(["site", "news-smart-box"]);
   const { locale } = useLocalization();
@@ -39,26 +39,14 @@ const NewsSmartBox: FunctionComponent = () => {
 
   return (
     <>
-      {mainNewsContent.map((item) => (
-        <div
-          className={classNames(newsBoxContainer, "lg:col-span-1 col-span-2")}
-        >
-          <div className={mainNews}>
-            <a href="http://localhost:8000/blogPost">
-              <div className={newsTextContent}>
-                <h5>{item.title}</h5>
-                <div className="normal-case flex">
-                  <p>{formatDate(item.date, locale)}</p>
-                  <span>- by</span>
-                  <p>{item.author}</p>
-                  <p>{item.comments}</p>
-                </div>
-              </div>
-              <img className={newsImg} src={item.image} alt="news-bg" />
-            </a>
-          </div>
-        </div>
-      ))}
+      {posts?.slice(5, 7).map((item) => {
+        const title = getPropertyAsStr(item, "title");
+        const image = getPropertyAsStr(item, "image");
+        const date = getPropertyAsStr(item, "date");
+        const formattedDate = date
+          ? formatDate(parseInt(date, 10), locale)
+          : "";
+        const author = getPropertyAsStr(item, "author");
 
       {softNewsContent.map((item, idx) => (
         <div
@@ -82,8 +70,16 @@ const NewsSmartBox: FunctionComponent = () => {
               </div>
             </a>
           </div>
-        </div>
-      ))}
+        );
+      })}
+      {posts?.slice(7, 11).map((item, index) => {
+        const title = getPropertyAsStr(item, "title");
+        const image = getPropertyAsStr(item, "image");
+        const date = getPropertyAsStr(item, "date");
+        const formattedDate = date
+          ? formatDate(parseInt(date, 10), locale)
+          : "";
+        const author = getPropertyAsStr(item, "author");
 
       {/* {softNewsContent.map((item) => (
         <div className={item.class}>
