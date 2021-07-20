@@ -21,11 +21,12 @@ module.exports = {
     "prettier/prettier": [
       "error",
       {
-        // trailingComma: "es5",
+        trailingComma: "all",
         singleQuote: false,
         endOfLine: "auto",
       },
     ],
+    "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     // this assumes that something that exports one item now will always do so
     "import/prefer-default-export": "off",
@@ -44,13 +45,13 @@ module.exports = {
         paths: ["lodash"],
       },
     ],
-  },
-  overrides: [
-    {
-      files: ["**/*.tsx"],
-      rules: {
-        "react/prop-types": "off",
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        required: {
+          some: ["nesting", "id"],
+        },
       },
-    },
-  ],
+    ],
+  },
 };
