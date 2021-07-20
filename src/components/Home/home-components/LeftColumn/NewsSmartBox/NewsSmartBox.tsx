@@ -37,7 +37,34 @@ const NewsSmartBox: FunctionComponent = () => {
   const { locale } = useLocalization();
   const { posts } = useContext(IndexPageContext);
 
-  return <></>;
+  return (
+    <>
+      {softNewsContent.map((item, idx) => (
+        <div
+          className={classNames(
+            newsBoxContainer,
+            { leftBox: isEven(idx) },
+            { rightBox: !isEven(idx) },
+            "sm:col-span-1 col-span-2",
+          )}
+        >
+          <div className={classNames(softNews, "text-black flex")}>
+            <a href="http://localhost:8000/blogPost" className="flex flex-row">
+              <img className={softNewsImg} src={item.image} alt="news-bg" />
+              <div className={classNames(newsTextContent, "flex flex-col")}>
+                <h5>{item.title}</h5>
+                <div className="normal-case flex items-center">
+                  <p className={aDate}>{formatDate(item.date, locale)}</p>
+                  <span>- by</span>
+                  <p>{item.author}</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      ))}
+    </>
+  );
 };
 
 export default NewsSmartBox;
