@@ -24,6 +24,7 @@ import {
   leftNews,
   rightNews,
 } from "./PaginationContent.module.scss";
+import { readMore } from "../../../../../../i18n/react-i18next/ru/site.json";
 import { isEven } from "../../../../../utils/isEven";
 import IndexPageContext from "../../../../Context/IndexContext";
 import { getPropertyAsStr } from "../../../../../utils/getPropertyAsStr";
@@ -69,7 +70,7 @@ const PaginationContent: FunctionComponent = () => {
                   type="button"
                   className={classNames(newsButton, "flex uppercase")}
                 >
-                  Read More
+                  {readMore}
                   <div className={arrowIcon}>
                     <img src={arrow} alt="arrow" />
                   </div>
