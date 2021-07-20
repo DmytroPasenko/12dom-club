@@ -39,6 +39,27 @@ const NewsSmartBox: FunctionComponent = () => {
 
   return (
     <>
+      {mainNewsContent.map((item) => (
+        <div
+          className={classNames(newsBoxContainer, "lg:col-span-1 col-span-2")}
+        >
+          <div className={mainNews}>
+            <a href="http://localhost:8000/blogPost">
+              <div className={newsTextContent}>
+                <h5>{item.title}</h5>
+                <div className="normal-case flex">
+                  <p>{formatDate(item.date, locale)}</p>
+                  <span>- by</span>
+                  <p>{item.author}</p>
+                  <p>{item.comments}</p>
+                </div>
+              </div>
+              <img className={newsImg} src={item.image} alt="news-bg" />
+            </a>
+          </div>
+        </div>
+      ))}
+
       {softNewsContent.map((item, idx) => (
         <div
           className={classNames(
