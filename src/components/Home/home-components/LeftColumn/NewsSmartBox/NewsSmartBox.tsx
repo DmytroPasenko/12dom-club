@@ -15,6 +15,25 @@ import {
   rightBox,
 } from "./NewsSmartBox.module.scss";
 import { isEven } from "../../../../../utils/isEven";
+import IndexPageContext from "../../../../Context/IndexContext";
+import { getPropertyAsStr } from "../../../../../utils/getPropertyAsStr";
+import AppLink from "../../../../AppLink";
+
+interface MainNewsRecord {
+  title: string;
+  date: number;
+  author: string;
+  comments: string;
+  image: string;
+}
+
+interface SoftNewsRecord {
+  class: string;
+  image: string;
+  title: string;
+  date: number;
+  author: string;
+}
 
 const NewsSmartBox: FunctionComponent = () => {
   const { t } = useTranslation(["site", "news-smart-box"]);
