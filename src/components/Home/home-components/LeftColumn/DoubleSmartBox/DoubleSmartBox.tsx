@@ -24,7 +24,7 @@ const DoubleSmartBox: FunctionComponent = () => {
 
   return (
     <>
-      {posts?.slice(4, 5).map((item) => {
+      {posts?.slice(5, 6).map((item) => {
         const title = getPropertyAsStr(item, "title");
         const text = getPropertyAsStr(item, "text");
         const image = getPropertyAsStr(item, "image");

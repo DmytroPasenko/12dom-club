@@ -26,7 +26,7 @@ const NewsSmartBox: FunctionComponent = () => {
 
   return (
     <>
-      {posts?.slice(5, 7).map((item) => {
+      {posts?.slice(6, 8).map((item) => {
         const title = getPropertyAsStr(item, "title");
         const image = getPropertyAsStr(item, "image");
         const date = getPropertyAsStr(item, "date");
@@ -57,7 +57,7 @@ const NewsSmartBox: FunctionComponent = () => {
           </div>
         );
       })}
-      {posts?.slice(7, 11).map((item, index) => {
+      {posts?.slice(8, 12).map((item, index) => {
         const title = getPropertyAsStr(item, "title");
         const image = getPropertyAsStr(item, "image");
         const date = getPropertyAsStr(item, "date");
