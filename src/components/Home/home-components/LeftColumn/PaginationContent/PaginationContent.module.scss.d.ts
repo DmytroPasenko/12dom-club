@@ -19,8 +19,3 @@ export const currentPage: string;
 export const leftNews: string;
 export const rightNews: string;
 export const tempHidden: string;
-
-declare module "*.json" {
-  const value: any;
-  export default value;
-}
