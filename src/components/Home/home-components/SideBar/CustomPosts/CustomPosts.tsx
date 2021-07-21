@@ -45,14 +45,13 @@ const CustomPosts: FunctionComponent = () => {
             <div
               className={classNames(
                 customPost,
-                { leftBox: isEven(index) },
-                { rightBox: !isEven(index) },
+                `box ${isEven(index) ? leftBox : rightBox}`,
                 "flex flex-row",
               )}
               key={item.slug}
             >
               <div className={classNames(customPostContent, "flex flex-row")}>
-                <AppLink to={`news/${item.slug}`}>
+                <AppLink to={`news/${item.slug}`} className="flex">
                   <img src={image} alt="news-bg" />
                   <div
                     className={classNames(
