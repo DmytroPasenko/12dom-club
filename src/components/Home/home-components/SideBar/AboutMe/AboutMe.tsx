@@ -23,7 +23,7 @@ const AboutMe: FunctionComponent = () => {
 
   return (
     <>
-      {posts?.slice(13, 14).map((item) => {
+      {posts?.slice(19, 20).map((item) => {
         const title = getPropertyAsStr(item, "title");
         const text = getPropertyAsStr(item, "text");
         const image = getPropertyAsStr(item, "image");

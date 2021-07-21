@@ -23,7 +23,7 @@ const LatestPosts: FunctionComponent = () => {
         <div className={latestPostsBlockContent}>
           <h5 className="uppercase">Latest posts</h5>
           <ul>
-            {posts?.slice(4, 7).map((item) => {
+            {posts?.slice(13, 16).map((item) => {
               const title = getPropertyAsStr(item, "title");
               const date = getPropertyAsStr(item, "date");
               const formattedDate = date
