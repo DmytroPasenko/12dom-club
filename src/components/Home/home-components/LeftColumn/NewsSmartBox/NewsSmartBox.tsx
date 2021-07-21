@@ -1,5 +1,4 @@
 import { FunctionComponent, useContext } from "react";
-import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 import { formatDate } from "@miran-soft/common";
 import { useLocalization } from "gatsby-theme-i18n";
@@ -20,7 +19,6 @@ import { getPropertyAsStr } from "../../../../../utils/getPropertyAsStr";
 import AppLink from "../../../../AppLink";
 
 const NewsSmartBox: FunctionComponent = () => {
-  const { t } = useTranslation(["site", "news-smart-box"]);
   const { locale } = useLocalization();
   const { posts } = useContext(IndexPageContext);
 
@@ -41,7 +39,7 @@ const NewsSmartBox: FunctionComponent = () => {
             key={item.slug}
           >
             <div className={mainNews}>
-              <AppLink to={`news/${item.slug}`}>
+              <AppLink to={`post/${item.slug}`}>
                 <div className={newsTextContent}>
                   <h5>{title}</h5>
                   <div className="normal-case flex">
@@ -76,7 +74,7 @@ const NewsSmartBox: FunctionComponent = () => {
             key={item.slug}
           >
             <div className={classNames(softNews, "text-black")}>
-              <AppLink className="flex flex-row" to={`news/${item.slug}`}>
+              <AppLink className="flex flex-row" to={`post/${item.slug}`}>
                 <img className={softNewsImg} src={image} alt="news-bg" />
                 <div className={classNames(newsTextContent, "flex flex-col")}>
                   <h5>{title}</h5>

@@ -27,7 +27,7 @@ interface SlidesRecord {
 }
 
 const Slider: FunctionComponent = () => {
-  const { t } = useTranslation(["site", "slider"]);
+  const { t } = useTranslation(["site"]);
 
   const getSlides = (): SlidesRecord[] => [
     {

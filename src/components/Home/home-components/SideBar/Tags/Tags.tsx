@@ -1,7 +1,5 @@
 import { FunctionComponent } from "react";
-import { useTranslation } from "react-i18next";
 import classNames from "classnames";
-
 import { tagsBlock, tags } from "./Tags.module.scss";
 
 interface TagsRecord {
@@ -9,8 +7,6 @@ interface TagsRecord {
 }
 
 const Tags: FunctionComponent = () => {
-  const { t } = useTranslation(["site", "tags"]);
-
   const getTags = (): TagsRecord[] => [
     { name: "Aquarius" },
     { name: "Astrology" },

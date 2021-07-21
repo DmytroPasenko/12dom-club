@@ -17,7 +17,7 @@ import { getPropertyAsStr } from "../../../../utils/getPropertyAsStr";
 import AppLink from "../../../AppLink";
 
 const TopGridNews: FunctionComponent = () => {
-  const { t } = useTranslation(["site", "top-grid-news"]);
+  const { t } = useTranslation(["site"]);
   const { locale } = useLocalization();
   const { posts } = useContext(IndexPageContext);
 
@@ -36,7 +36,7 @@ const TopGridNews: FunctionComponent = () => {
         return (
           <div className={post} key={item.slug}>
             <div className={postContent}>
-              <AppLink to={`news/${item.slug}`}>
+              <AppLink to={`post/${item.slug}`}>
                 <div className={postMeta}>
                   <h5 className="uppercase">
                     <p>{title}</p>

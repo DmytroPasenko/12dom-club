@@ -63,7 +63,7 @@ export interface IndexPageGqlArgs {
 
 export interface IndexPageGqlResponse {
   page: CmsPageProperty[];
-  news: CmsTableRecord[];
+  posts: CmsTableRecord[];
 }
 
 // export interface AboutPageGqlResponse {
