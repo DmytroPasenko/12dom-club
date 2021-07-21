@@ -1,5 +1,7 @@
 import { FunctionComponent, Fragment } from "react";
 import classNames from "classnames";
+import { useLocalization } from "gatsby-theme-i18n";
+import { useLocation } from "@reach/router";
 import {
   header,
   logo,
@@ -39,495 +41,526 @@ import logoImage from "../../../static/img/logo/logo.png";
 import moreIcon from "../../../static/svg/header/more-icon.svg";
 import ruIcon from "../../../static/img/flags/ru.png";
 import uaIcon from "../../../static/img/flags/ua.png";
+import AppLink from "../AppLink";
+import { LOCALE_RU, LOCALE_UA } from "../../../app-config";
 
 interface HeaderProps {
   title: string;
 }
 
-const Header: FunctionComponent<HeaderProps> = ({ title }) => (
-  <>
-    <header
-      className={classNames(
-        header,
-        "flex items-center justify-between text-white uppercase mx-auto",
-      )}
-    >
-      <a
-        href="http://localhost:8000/"
-        className={classNames("flex justify-center")}
+const Header: FunctionComponent<HeaderProps> = ({ title }) => {
+  const { pathname } = useLocation();
+  const { locale } = useLocalization();
+
+  let relativeUrl = "";
+  if (pathname !== "/" && pathname !== `/${locale}`) {
+    relativeUrl = pathname.startsWith(`/${locale}/`)
+      ? pathname.substr(`/${locale}/`.length - 1)
+      : pathname;
+  }
+
+  return (
+    <>
+      <header
+        className={classNames(
+          header,
+          "flex items-center justify-between text-white uppercase mx-auto",
+        )}
       >
-        <img
-          className={classNames(logo, "flex")}
-          src={logoImage}
-          alt="site-logo"
-        />
-      </a>
-      <div className={menuContainer}>
-        <div className={menuIcon} id="menu-icon">
-          <span />
-        </div>
-        <nav
-          className={classNames(siteNavigation, "mx-auto text-xs text-white")}
-          id="site-navigation"
+        <a
+          href="http://localhost:8000/"
+          className={classNames("flex justify-center")}
         >
-          <ul className={classNames("flex md:flex-row flex-col")}>
-            <li>
-              <a
-                className={classNames(siteLink, linkList, "flex uppercase")}
-                href="http://localhost:8000/"
-              >
-                Home
-                <div className={classNames(moreThenContainer, "flex")}>
-                  <img
-                    className={classNames(moreThen, "md:block hidden")}
-                    src={moreIcon}
-                    alt="more"
-                  />
-                  <img
-                    className={classNames(moreThenBlack, "md:hidden")}
-                    src={moreIcon}
-                    alt="more"
-                  />
-                </div>
-              </a>
-              <ul
-                className={classNames(subMenu, "flex flex-col md:normal-case")}
-              >
-                <li className={classNames(topLi, homeTopLi, "md:bg-white")}>
-                  <a
-                    href="http://localhost:8000/"
-                    className={classNames(siteSubLink, "flex")}
-                  >
-                    Header settings
-                    <div className={subMoreThenContainer}>
-                      <img
-                        className={classNames(subMoreThen)}
-                        src={moreIcon}
-                        alt="more"
-                      />
-                    </div>
-                  </a>
-                  <ul className={subSubMenu}>
-                    <li className={classNames(topLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Header Style 1
-                      </a>
-                    </li>
-                    <li className={classNames(middleLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Header Style 2
-                      </a>
-                    </li>
-                    <li className={classNames(middleLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Header Style 3
-                      </a>
-                    </li>
-                    <li className={classNames(middleLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Header Style 4
-                      </a>
-                    </li>
-                    <li className={classNames(middleLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Header Style 5
-                      </a>
-                    </li>
-                    <li className={classNames(middleLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Header Style 6
-                      </a>
-                    </li>
-                    <li className={classNames(bottomLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Header Style 7
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-
-                <li
-                  className={classNames(bottomLi, homeBottomLi, "md:bg-white")}
+          <img
+            className={classNames(logo, "flex")}
+            src={logoImage}
+            alt="site-logo"
+          />
+        </a>
+        <div className={menuContainer}>
+          <div className={menuIcon} id="menu-icon">
+            <span />
+          </div>
+          <nav
+            className={classNames(siteNavigation, "mx-auto text-xs text-white")}
+            id="site-navigation"
+          >
+            <ul className={classNames("flex md:flex-row flex-col")}>
+              <li>
+                <a
+                  className={classNames(siteLink, linkList, "flex uppercase")}
+                  href="http://localhost:8000/"
                 >
-                  <a
-                    href="http://localhost:8000/"
-                    className={classNames(siteSubLink, "flex")}
-                  >
-                    Footer settings
-                    <div className={subMoreThenContainer}>
-                      <img
-                        className={classNames(subMoreThen, subMoreThenBlack)}
-                        src={moreIcon}
-                        alt="more"
-                      />
-                    </div>
-                  </a>
-                  <ul className={subSubMenu}>
-                    <li className={classNames(topLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Footer Style 1
-                      </a>
-                    </li>
-                    <li className={classNames(middleLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Footer Style 2
-                      </a>
-                    </li>
-                    <li className={classNames(bottomLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Footer Style 3
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a
-                className={classNames(siteLink, "uppercase")}
-                href="http://localhost:8000/"
-              >
-                About me
-              </a>
-            </li>
-
-            <li>
-              <a
-                className={classNames(siteLink, linkList, "flex uppercase")}
-                href="http://localhost:8000/"
-              >
-                Blog
-                <div className={classNames(moreThenContainer, "flex")}>
-                  <img
-                    className={classNames(moreThen, "md:block hidden")}
-                    src={moreIcon}
-                    alt="more"
-                  />
-                  <img
-                    className={classNames(moreThenBlack, "md:hidden")}
-                    src={moreIcon}
-                    alt="more"
-                  />
-                </div>
-              </a>
-              <ul className={classNames(subMenu, "md:normal-case")}>
-                <li className={classNames(topLi, blogTopLi, "md:bg-white")}>
-                  <a
-                    className={classNames(siteSubLink, "flex")}
-                    href="http://localhost:8000/"
-                  >
-                    Post Formats
-                    <div className={subMoreThenContainer}>
-                      <img
-                        className={classNames(subMoreThen, subMoreThenBlack)}
-                        src={moreIcon}
-                        alt="more"
-                      />
-                    </div>
-                  </a>
-                  <ul className={subSubMenu}>
-                    <li className={classNames(topLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Nonstandart Post
-                      </a>
-                    </li>
-                    <li className={classNames(middleLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Gallery Post
-                      </a>
-                    </li>
-                    <li className={classNames(middleLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Image Post
-                      </a>
-                    </li>
-                    <li className={classNames(middleLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Link Post
-                      </a>
-                    </li>
-                    <li className={classNames(middleLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Quote Post
-                      </a>
-                    </li>
-                    <li className={classNames(middleLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Video Post
-                      </a>
-                    </li>
-                    <li className={classNames(bottomLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Audio Post
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-
-                <li
-                  className={classNames(middleLi, blogMiddleLi, "md:bg-white")}
-                >
-                  <a
-                    className={classNames(siteSubLink, "flex")}
-                    href="http://localhost:8000/"
-                  >
-                    Blog Layouts
-                    <div className={subMoreThenContainer}>
-                      <img
-                        className={classNames(subMoreThen, subMoreThenBlack)}
-                        src={moreIcon}
-                        alt="more"
-                      />
-                    </div>
-                  </a>
-                  <ul className={subSubMenu}>
-                    <li className={classNames(topLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Classic
-                      </a>
-                    </li>
-                    <li className={classNames(middleLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Grid
-                      </a>
-                    </li>
-                    <li className={classNames(middleLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Mansory
-                      </a>
-                    </li>
-                    <li className={classNames(bottomLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Justify
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-
-                <li
-                  className={classNames(bottomLi, blogBottomLi, "md:bg-white")}
-                >
-                  <a
-                    className={classNames(siteSubLink, "flex")}
-                    href="http://localhost:8000/"
-                  >
-                    Sidebar
-                    <div className={subMoreThenContainer}>
-                      <img
-                        className={classNames(subMoreThen, subMoreThenBlack)}
-                        src={moreIcon}
-                        alt="more"
-                      />
-                    </div>
-                  </a>
-                  <ul className={subSubMenu}>
-                    <li className={classNames(topLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Left Sidebar
-                      </a>
-                    </li>
-                    <li className={classNames(middleLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        Right Sidebar
-                      </a>
-                    </li>
-                    <li className={classNames(bottomLi, "md:bg-white")}>
-                      <a
-                        href="http://localhost:8000/"
-                        className={siteSubSubLink}
-                      >
-                        No Sidebar
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a
-                className={classNames(siteLink, linkList, "flex uppercase")}
-                href="http://localhost:8000/"
-              >
-                Pages
-                <div className={classNames(moreThenContainer, "flex")}>
-                  <img
-                    className={classNames(moreThen, "md:block hidden")}
-                    src={moreIcon}
-                    alt="more"
-                  />
-                  <img
-                    className={classNames(moreThenBlack, "md:hidden")}
-                    src={moreIcon}
-                    alt="more"
-                  />
-                </div>
-              </a>
-              <ul className={classNames(subMenu, "md:normal-case")}>
-                <li className={classNames(topLi, "md:bg-white")}>
-                  <a
-                    className={classNames(siteSubLink, "flex")}
-                    href="http://localhost:8000/"
-                  >
-                    Typography
-                  </a>
-                </li>
-                <li className={classNames(middleLi, "md:bg-white")}>
-                  <a
-                    className={classNames(siteSubLink, "flex")}
-                    href="http://localhost:8000/"
-                  >
-                    Error 404 Page
-                  </a>
-                </li>
-                <li className={classNames(bottomLi, "md:bg-white")}>
-                  <a
-                    className={classNames(siteSubLink, "flex")}
-                    href="http://localhost:8000/"
-                  >
-                    Documentation
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a
-                className={classNames(siteLink, "uppercase")}
-                href="http://localhost:8000/"
-              >
-                Contacts
-              </a>
-            </li>
-
-            <li>
-              <a
-                className={classNames(siteLink, linkList, "flex uppercase")}
-                href="http://localhost:8000/"
-              >
-                Ua
-                <div className={classNames(moreThenContainer, "flex")}>
-                  <img
-                    className={classNames(moreThen, "md:block hidden")}
-                    src={moreIcon}
-                    alt="more"
-                  />
-                  <img
-                    className={classNames(moreThenBlack, "md:hidden")}
-                    src={moreIcon}
-                    alt="more"
-                  />
-                </div>
-              </a>
-              <ul
-                className={classNames(
-                  subMenu,
-                  localizationMenu,
-                  "md:normal-case",
-                )}
-              >
-                <li className={classNames(topLi, "md:bg-white")}>
-                  <a
-                    className={classNames(siteSubLink, "flex items-center")}
-                    href="http://localhost:8000/"
-                  >
+                  Home
+                  <div className={classNames(moreThenContainer, "flex")}>
                     <img
-                      className={classNames(localizationImage, "mr-3")}
-                      src={ruIcon}
-                      alt="ru"
+                      className={classNames(moreThen, "md:block hidden")}
+                      src={moreIcon}
+                      alt="more"
                     />
-                    Русский
-                  </a>
-                </li>
-                <li className={classNames(bottomLi, "md:bg-white")}>
-                  <a
-                    className={classNames(siteSubLink, "flex items-center")}
-                    href="http://localhost:8000/"
-                  >
                     <img
-                      className={classNames(localizationImage, "mr-3")}
-                      src={uaIcon}
-                      alt="ua"
+                      className={classNames(moreThenBlack, "md:hidden")}
+                      src={moreIcon}
+                      alt="more"
                     />
-                    Українська
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-  </>
-);
+                  </div>
+                </a>
+                <ul
+                  className={classNames(
+                    subMenu,
+                    "flex flex-col md:normal-case",
+                  )}
+                >
+                  <li className={classNames(topLi, homeTopLi, "md:bg-white")}>
+                    <a
+                      href="http://localhost:8000/"
+                      className={classNames(siteSubLink, "flex")}
+                    >
+                      Header settings
+                      <div className={subMoreThenContainer}>
+                        <img
+                          className={classNames(subMoreThen)}
+                          src={moreIcon}
+                          alt="more"
+                        />
+                      </div>
+                    </a>
+                    <ul className={subSubMenu}>
+                      <li className={classNames(topLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Header Style 1
+                        </a>
+                      </li>
+                      <li className={classNames(middleLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Header Style 2
+                        </a>
+                      </li>
+                      <li className={classNames(middleLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Header Style 3
+                        </a>
+                      </li>
+                      <li className={classNames(middleLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Header Style 4
+                        </a>
+                      </li>
+                      <li className={classNames(middleLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Header Style 5
+                        </a>
+                      </li>
+                      <li className={classNames(middleLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Header Style 6
+                        </a>
+                      </li>
+                      <li className={classNames(bottomLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Header Style 7
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li
+                    className={classNames(
+                      bottomLi,
+                      homeBottomLi,
+                      "md:bg-white",
+                    )}
+                  >
+                    <a
+                      href="http://localhost:8000/"
+                      className={classNames(siteSubLink, "flex")}
+                    >
+                      Footer settings
+                      <div className={subMoreThenContainer}>
+                        <img
+                          className={classNames(subMoreThen, subMoreThenBlack)}
+                          src={moreIcon}
+                          alt="more"
+                        />
+                      </div>
+                    </a>
+                    <ul className={subSubMenu}>
+                      <li className={classNames(topLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Footer Style 1
+                        </a>
+                      </li>
+                      <li className={classNames(middleLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Footer Style 2
+                        </a>
+                      </li>
+                      <li className={classNames(bottomLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Footer Style 3
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a
+                  className={classNames(siteLink, "uppercase")}
+                  href="http://localhost:8000/"
+                >
+                  About me
+                </a>
+              </li>
+
+              <li>
+                <a
+                  className={classNames(siteLink, linkList, "flex uppercase")}
+                  href="http://localhost:8000/"
+                >
+                  Blog
+                  <div className={classNames(moreThenContainer, "flex")}>
+                    <img
+                      className={classNames(moreThen, "md:block hidden")}
+                      src={moreIcon}
+                      alt="more"
+                    />
+                    <img
+                      className={classNames(moreThenBlack, "md:hidden")}
+                      src={moreIcon}
+                      alt="more"
+                    />
+                  </div>
+                </a>
+                <ul className={classNames(subMenu, "md:normal-case")}>
+                  <li className={classNames(topLi, blogTopLi, "md:bg-white")}>
+                    <a
+                      className={classNames(siteSubLink, "flex")}
+                      href="http://localhost:8000/"
+                    >
+                      Post Formats
+                      <div className={subMoreThenContainer}>
+                        <img
+                          className={classNames(subMoreThen, subMoreThenBlack)}
+                          src={moreIcon}
+                          alt="more"
+                        />
+                      </div>
+                    </a>
+                    <ul className={subSubMenu}>
+                      <li className={classNames(topLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Nonstandart Post
+                        </a>
+                      </li>
+                      <li className={classNames(middleLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Gallery Post
+                        </a>
+                      </li>
+                      <li className={classNames(middleLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Image Post
+                        </a>
+                      </li>
+                      <li className={classNames(middleLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Link Post
+                        </a>
+                      </li>
+                      <li className={classNames(middleLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Quote Post
+                        </a>
+                      </li>
+                      <li className={classNames(middleLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Video Post
+                        </a>
+                      </li>
+                      <li className={classNames(bottomLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Audio Post
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li
+                    className={classNames(
+                      middleLi,
+                      blogMiddleLi,
+                      "md:bg-white",
+                    )}
+                  >
+                    <a
+                      className={classNames(siteSubLink, "flex")}
+                      href="http://localhost:8000/"
+                    >
+                      Blog Layouts
+                      <div className={subMoreThenContainer}>
+                        <img
+                          className={classNames(subMoreThen, subMoreThenBlack)}
+                          src={moreIcon}
+                          alt="more"
+                        />
+                      </div>
+                    </a>
+                    <ul className={subSubMenu}>
+                      <li className={classNames(topLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Classic
+                        </a>
+                      </li>
+                      <li className={classNames(middleLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Grid
+                        </a>
+                      </li>
+                      <li className={classNames(middleLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Mansory
+                        </a>
+                      </li>
+                      <li className={classNames(bottomLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Justify
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li
+                    className={classNames(
+                      bottomLi,
+                      blogBottomLi,
+                      "md:bg-white",
+                    )}
+                  >
+                    <a
+                      className={classNames(siteSubLink, "flex")}
+                      href="http://localhost:8000/"
+                    >
+                      Sidebar
+                      <div className={subMoreThenContainer}>
+                        <img
+                          className={classNames(subMoreThen, subMoreThenBlack)}
+                          src={moreIcon}
+                          alt="more"
+                        />
+                      </div>
+                    </a>
+                    <ul className={subSubMenu}>
+                      <li className={classNames(topLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Left Sidebar
+                        </a>
+                      </li>
+                      <li className={classNames(middleLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          Right Sidebar
+                        </a>
+                      </li>
+                      <li className={classNames(bottomLi, "md:bg-white")}>
+                        <a
+                          href="http://localhost:8000/"
+                          className={siteSubSubLink}
+                        >
+                          No Sidebar
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a
+                  className={classNames(siteLink, linkList, "flex uppercase")}
+                  href="http://localhost:8000/"
+                >
+                  Pages
+                  <div className={classNames(moreThenContainer, "flex")}>
+                    <img
+                      className={classNames(moreThen, "md:block hidden")}
+                      src={moreIcon}
+                      alt="more"
+                    />
+                    <img
+                      className={classNames(moreThenBlack, "md:hidden")}
+                      src={moreIcon}
+                      alt="more"
+                    />
+                  </div>
+                </a>
+                <ul className={classNames(subMenu, "md:normal-case")}>
+                  <li className={classNames(topLi, "md:bg-white")}>
+                    <a
+                      className={classNames(siteSubLink, "flex")}
+                      href="http://localhost:8000/"
+                    >
+                      Typography
+                    </a>
+                  </li>
+                  <li className={classNames(middleLi, "md:bg-white")}>
+                    <a
+                      className={classNames(siteSubLink, "flex")}
+                      href="http://localhost:8000/"
+                    >
+                      Error 404 Page
+                    </a>
+                  </li>
+                  <li className={classNames(bottomLi, "md:bg-white")}>
+                    <a
+                      className={classNames(siteSubLink, "flex")}
+                      href="http://localhost:8000/"
+                    >
+                      Documentation
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a
+                  className={classNames(siteLink, "uppercase")}
+                  href="http://localhost:8000/"
+                >
+                  Contacts
+                </a>
+              </li>
+
+              <li>
+                <a
+                  className={classNames(siteLink, linkList, "flex uppercase")}
+                  href="http://localhost:8000/"
+                >
+                  Ua
+                  <div className={classNames(moreThenContainer, "flex")}>
+                    <img
+                      className={classNames(moreThen, "md:block hidden")}
+                      src={moreIcon}
+                      alt="more"
+                    />
+                    <img
+                      className={classNames(moreThenBlack, "md:hidden")}
+                      src={moreIcon}
+                      alt="more"
+                    />
+                  </div>
+                </a>
+                <ul
+                  className={classNames(
+                    subMenu,
+                    localizationMenu,
+                    "md:normal-case",
+                  )}
+                >
+                  <li className={classNames(topLi, "md:bg-white")}>
+                    <AppLink
+                      to={relativeUrl || "/"}
+                      language={LOCALE_RU}
+                      className={classNames(siteSubLink, "flex items-center")}
+                    >
+                      <img
+                        className={classNames(localizationImage, "mr-3")}
+                        src={ruIcon}
+                        alt="ru"
+                      />
+                      Русский
+                    </AppLink>
+                  </li>
+                  <li className={classNames(bottomLi, "md:bg-white")}>
+                    <AppLink
+                      to={relativeUrl || "/ua"}
+                      language={LOCALE_UA}
+                      className={classNames(siteSubLink, "flex items-center")}
+                    >
+                      <img
+                        className={classNames(localizationImage, "mr-3")}
+                        src={uaIcon}
+                        alt="ua"
+                      />
+                      Українська
+                    </AppLink>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </>
+  );
+};
 export default Header;

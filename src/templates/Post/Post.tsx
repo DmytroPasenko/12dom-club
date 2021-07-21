@@ -13,7 +13,7 @@ interface PostTemplateProps {
     locale: string;
   };
   data: {
-    post: CmsTableRecord;
+    cmsApi: { post: CmsTableRecord };
   };
 }
 
@@ -33,29 +33,18 @@ export const templateQuery = graphql`
   }
 `;
 
-const PostTemplate: FunctionComponent<PostTemplateProps> = ({
-  pageContext,
-  data,
-}) => {
+const PostTemplate: FunctionComponent<PostTemplateProps> = ({ data }) => {
   const { t } = useTranslation(["site"]);
-  // const { slug } = pageContext;
-  const { post } = data;
-
-  console.log("pageContext", pageContext);
-  console.log("post", post);
+  const { cmsApi } = data;
+  const { post } = cmsApi;
 
   const title = getPropertyAsStr(post, SEO_TITLE) ?? t("site:title");
   const description =
     getPropertyAsStr(post, SEO_DESCRIPTION) ?? t("site:description");
 
-  // const { imageBig, packages, qualities } = data.product;
-  // const title = t(`products:${slug}`);
-
-  // const description = `${title} ${t(`product:seoDescription`)}`;
-
   return (
     <Layout title={title} description={description}>
-      <Post data={data.post} />
+      <Post data={post} />
     </Layout>
   );
 };
