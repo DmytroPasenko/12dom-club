@@ -32,7 +32,7 @@ const BottomNewsGrid: FunctionComponent = () => {
           "grid md:grid-cols-4 grid-cols-2 flex",
         )}
       >
-        {posts?.slice(1, 5).map((item) => {
+        {posts?.slice(0, 4).map((item) => {
           const title = getPropertyAsStr(item, "title");
           const text = getPropertyAsStr(item, "text");
           const image = getPropertyAsStr(item, "image");
