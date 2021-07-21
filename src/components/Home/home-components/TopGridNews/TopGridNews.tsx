@@ -51,7 +51,7 @@ const TopGridNews: FunctionComponent = () => {
                     type="button"
                     className={classNames(entryButton, "flex uppercase")}
                   >
-                    Read More
+                    {t("site:readMore")}
                     <img
                       src="../../../../../svg/other/arrow.svg"
                       alt="arrow"

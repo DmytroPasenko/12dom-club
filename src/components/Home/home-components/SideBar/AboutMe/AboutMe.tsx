@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 import { formatDate } from "@miran-soft/common";
 import { useLocalization } from "gatsby-theme-i18n";
+import { read } from "fs";
 import {
   aboutBlock,
   aboutBlockContent,
@@ -10,7 +11,6 @@ import {
   postButton,
   arrowIcon,
 } from "./AboutMe.module.scss";
-
 import IndexPageContext from "../../../../Context/IndexContext";
 import { getPropertyAsStr } from "../../../../../utils/getPropertyAsStr";
 import AppLink from "../../../../AppLink";
@@ -38,7 +38,7 @@ const AboutMe: FunctionComponent = () => {
                 type="button"
                 className={classNames(postButton, "flex uppercase")}
               >
-                Read More
+                {t("site:readMore")}
                 <div className={arrowIcon}>
                   <img src={arrow} alt="arrow" className="entry-icon-white" />
                 </div>

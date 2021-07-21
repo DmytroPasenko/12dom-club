@@ -55,7 +55,7 @@ const DoubleSmartBox: FunctionComponent = () => {
                   type="button"
                   className={classNames(postButton, "flex uppercase")}
                 >
-                  Read More
+                  {t("site:readMore")}
                   <div className={arrowIcon}>
                     <img src={arrow} alt="arrow" />
                   </div>

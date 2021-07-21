@@ -58,7 +58,7 @@ const BottomNewsGrid: FunctionComponent = () => {
                       type="button"
                       className={classNames(entryButton, "flex uppercase")}
                     >
-                      Read More
+                      {t("site:readMore")}
                       <img src={buttonIcon} alt="arrow" className={entryIcon} />
                     </button>
                   </div>

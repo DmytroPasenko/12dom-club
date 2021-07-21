@@ -65,7 +65,7 @@ const Slider: FunctionComponent = () => {
               <a href="http://localhost:8000/blogPost">
                 <h2 className={slideLink}>{item.slideLink}</h2>
                 <button type="button" className={slideButton}>
-                  Read more
+                  {t("site:readMore")}
                 </button>
               </a>
             </div>
