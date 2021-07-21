@@ -23,7 +23,7 @@ const TopGridNews: FunctionComponent = () => {
 
   return (
     <>
-      {posts?.slice(11, 13).map((item) => {
+      {posts?.slice(12, 14).map((item) => {
         const title = getPropertyAsStr(item, "title");
         const text = getPropertyAsStr(item, "text");
         const image = getPropertyAsStr(item, "image");
