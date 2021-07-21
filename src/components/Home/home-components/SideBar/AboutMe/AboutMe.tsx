@@ -11,7 +11,6 @@ import {
   postButton,
   arrowIcon,
 } from "./AboutMe.module.scss";
-import { readMore } from "../../../../../../i18n/react-i18next/ru/site.json";
 import IndexPageContext from "../../../../Context/IndexContext";
 import { getPropertyAsStr } from "../../../../../utils/getPropertyAsStr";
 import AppLink from "../../../../AppLink";
@@ -39,7 +38,7 @@ const AboutMe: FunctionComponent = () => {
                 type="button"
                 className={classNames(postButton, "flex uppercase")}
               >
-                {readMore}
+                {t("site:readMore")}
                 <div className={arrowIcon}>
                   <img src={arrow} alt="arrow" className="entry-icon-white" />
                 </div>

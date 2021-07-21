@@ -12,7 +12,6 @@ import {
   entryIcon,
   postImg,
 } from "./TopGridNews.module.scss";
-import { readMore } from "../../../../../i18n/react-i18next/ru/site.json";
 import IndexPageContext from "../../../Context/IndexContext";
 import { getPropertyAsStr } from "../../../../utils/getPropertyAsStr";
 import AppLink from "../../../AppLink";
@@ -52,7 +51,7 @@ const TopGridNews: FunctionComponent = () => {
                     type="button"
                     className={classNames(entryButton, "flex uppercase")}
                   >
-                    {readMore}
+                    {t("site:readMore")}
                     <img
                       src="../../../../../svg/other/arrow.svg"
                       alt="arrow"

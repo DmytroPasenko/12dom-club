@@ -14,7 +14,6 @@ import {
   entryIcon,
   thumbnailImg,
 } from "./BottomNewsGrid.module.scss";
-import { readMore } from "../../../i18n/react-i18next/ru/site.json";
 import buttonIcon from "../../../static/svg/other/arrow.svg";
 import IndexPageContext from "../Context/IndexContext";
 import { getPropertyAsStr } from "../../utils/getPropertyAsStr";
@@ -59,7 +58,7 @@ const BottomNewsGrid: FunctionComponent = () => {
                       type="button"
                       className={classNames(entryButton, "flex uppercase")}
                     >
-                      {readMore}
+                      {t("site:readMore")}
                       <img src={buttonIcon} alt="arrow" className={entryIcon} />
                     </button>
                   </div>
