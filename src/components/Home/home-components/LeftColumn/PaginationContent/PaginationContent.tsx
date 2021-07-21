@@ -42,6 +42,7 @@ const PaginationContent: FunctionComponent = () => {
 
           return (
             <div
+              key={item.slug}
               className={classNames(
                 paginationNews,
                 `box ${isEven(index) ? leftNews : rightNews}`,

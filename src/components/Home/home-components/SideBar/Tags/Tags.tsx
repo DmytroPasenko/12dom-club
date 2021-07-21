@@ -28,7 +28,7 @@ const Tags: FunctionComponent = () => {
         <div className={tags}>
           <h5 className="uppercase">Tags</h5>
           {tagButtons.map((item) => (
-            <button type="button">
+            <button type="button" key={item.name}>
               <a href="http://localhost:8000/blogPost">{item.name}</a>
             </button>
           ))}
