@@ -51,8 +51,7 @@ const PaginationContent: FunctionComponent = () => {
             <div
               className={classNames(
                 paginationNews,
-                { leftBox: isEven(index) },
-                { rightBox: !isEven(index) },
+                `box ${isEven(index) ? leftNews : rightNews}`,
                 "sm:col-span-1 col-span-2",
               )}
               data-num={index}
