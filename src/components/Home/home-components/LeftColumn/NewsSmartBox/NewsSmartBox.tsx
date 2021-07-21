@@ -70,14 +70,13 @@ const NewsSmartBox: FunctionComponent = () => {
           <div
             className={classNames(
               newsBoxContainer,
-              { leftBox: isEven(index) },
-              { rightBox: !isEven(index) },
-              "sm:col-span-1 col-span-2 flex",
+              `box ${isEven(index) ? leftBox : rightBox}`,
+              "sm:col-span-1 col-span-2",
             )}
             key={item.slug}
           >
-            <div className={classNames(softNews, "text-black flex")}>
-              <AppLink to={`news/${item.slug}`}>
+            <div className={classNames(softNews, "text-black")}>
+              <AppLink className="flex flex-row" to={`news/${item.slug}`}>
                 <img className={softNewsImg} src={image} alt="news-bg" />
                 <div className={classNames(newsTextContent, "flex flex-col")}>
                   <h5>{title}</h5>
