@@ -84,7 +84,7 @@ module.exports = {
       options: {
         locales: `./i18n/react-i18next`,
         i18nextOptions: {
-          ns: ["site", "footer", "about"],
+          ns: ["404", "about", "footer", "site"],
         },
       },
     },

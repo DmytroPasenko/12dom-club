@@ -18,7 +18,7 @@ import AppLink from "../../../../AppLink";
 import arrow from "../../../../../../static/svg/other/arrow.svg";
 
 const DoubleSmartBox: FunctionComponent = () => {
-  const { t } = useTranslation(["site", "double-smart-box"]);
+  const { t } = useTranslation(["site"]);
   const { locale } = useLocalization();
   const { posts } = useContext(IndexPageContext);
 
@@ -36,7 +36,7 @@ const DoubleSmartBox: FunctionComponent = () => {
 
         return (
           <div className={doubleSmartBoxContent} key={item.slug}>
-            <AppLink to={`news/${item.slug}`}>
+            <AppLink to={`post/${item.slug}`}>
               <img
                 src={image}
                 alt="smart-box-bg"

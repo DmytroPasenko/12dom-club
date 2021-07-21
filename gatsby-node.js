@@ -1,4 +1,4 @@
-const { LOCALES } = require("./app-config");
+const { DEF_LOCALE, LOCALES } = require("./app-config");
 
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   if (getConfig().mode === "production") {
@@ -8,18 +8,15 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   }
 };
 
-/*
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
 
-  const productTemplate = require.resolve(
-    `./src/templates/Product/Product.tsx`,
-  );
+  const postTemplate = require.resolve(`./src/templates/Post/Post.tsx`);
 
   const queryResult = await graphql(`
     query {
-      products: allProductsJson(sort: { fields: position }) {
-        nodes {
+      cmsApi {
+        posts: table(content: "posts", locale: "${DEF_LOCALE}") {
           slug
         }
       }
@@ -31,13 +28,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
 
-  queryResult.data.products.nodes.forEach((node) => {
+  queryResult.data.cmsApi.posts.forEach((node) => {
     const { slug } = node;
 
     LOCALES.forEach((locale) => {
       createPage({
-        path: `/product/${slug}`,
-        component: productTemplate,
+        path: `/post/${slug}`,
+        component: postTemplate,
         context: {
           slug,
           locale,
@@ -46,4 +43,3 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     });
   });
 };
-*/

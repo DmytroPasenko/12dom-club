@@ -6,13 +6,6 @@ import { useLocalization } from "gatsby-theme-i18n";
 import {
   page,
   paginationNews,
-  quote,
-  quoteText,
-  quoteAuthor,
-  linkPost,
-  linkPostContent,
-  imagePost,
-  imageHover,
   newsDate,
   aDate,
   newsButton,
@@ -31,7 +24,7 @@ import AppLink from "../../../../AppLink";
 import arrow from "../../../../../../static/svg/other/arrow.svg";
 
 const PaginationContent: FunctionComponent = () => {
-  const { t } = useTranslation(["site", "pagination-content"]);
+  const { t } = useTranslation(["site"]);
   const { locale } = useLocalization();
   const { posts } = useContext(IndexPageContext);
 
@@ -56,7 +49,7 @@ const PaginationContent: FunctionComponent = () => {
               )}
               data-num={index}
             >
-              <AppLink to={`news/${item.slug}`}>
+              <AppLink to={`post/${item.slug}`}>
                 <img src={image} alt="pagination content bg" />
                 <h5>{title}</h5>
                 <div className={classNames(newsDate, "normal-case flex")}>

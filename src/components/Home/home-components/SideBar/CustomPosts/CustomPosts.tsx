@@ -1,5 +1,4 @@
 import { FunctionComponent, useContext } from "react";
-import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 import { formatDate } from "@miran-soft/common";
 import { useLocalization } from "gatsby-theme-i18n";
@@ -19,7 +18,6 @@ import { getPropertyAsStr } from "../../../../../utils/getPropertyAsStr";
 import AppLink from "../../../../AppLink";
 
 const CustomPosts: FunctionComponent = () => {
-  const { t } = useTranslation(["site", "custom-posts"]);
   const { locale } = useLocalization();
   const { posts } = useContext(IndexPageContext);
 
@@ -29,7 +27,7 @@ const CustomPosts: FunctionComponent = () => {
       <div
         className={classNames(
           customPostsBlock,
-          "grid lg:grid-cols-1 sm:grid-cols-2 grid-cols-1 flex lg:flex-col flex-row",
+          "lg:grid-cols-1 sm:grid-cols-2 grid-cols-1 flex lg:flex-col flex-row",
         )}
       >
         {posts?.slice(6, 9).map((item, index) => {
@@ -51,7 +49,7 @@ const CustomPosts: FunctionComponent = () => {
               key={item.slug}
             >
               <div className={classNames(customPostContent, "flex flex-row")}>
-                <AppLink to={`news/${item.slug}`} className="flex">
+                <AppLink to={`post/${item.slug}`} className="flex">
                   <img src={image} alt="news-bg" />
                   <div
                     className={classNames(

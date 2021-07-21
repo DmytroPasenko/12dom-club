@@ -20,7 +20,7 @@ import { getPropertyAsStr } from "../../utils/getPropertyAsStr";
 import AppLink from "../AppLink";
 
 const BottomNewsGrid: FunctionComponent = () => {
-  const { t } = useTranslation(["site", "bottom-news-grid"]);
+  const { t } = useTranslation(["site"]);
   const { locale } = useLocalization();
   const { posts } = useContext(IndexPageContext);
 
@@ -29,7 +29,7 @@ const BottomNewsGrid: FunctionComponent = () => {
       <div
         className={classNames(
           bottomNewsGridWrapper,
-          "grid md:grid-cols-4 grid-cols-2 flex",
+          "grid md:grid-cols-4 grid-cols-2",
         )}
       >
         {posts?.slice(0, 4).map((item) => {
@@ -45,7 +45,7 @@ const BottomNewsGrid: FunctionComponent = () => {
           return (
             <div className={bottomNews} key={item.slug}>
               <div className={bottomNewsContent}>
-                <AppLink to={`news/${item.slug}`}>
+                <AppLink to={`post/${item.slug}`}>
                   <div className={bottomNewsMeta}>
                     <h5 className="uppercase">{title}</h5>
                     <div className="flex">

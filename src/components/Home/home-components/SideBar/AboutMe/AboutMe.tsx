@@ -1,9 +1,6 @@
 import { FunctionComponent, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
-import { formatDate } from "@miran-soft/common";
-import { useLocalization } from "gatsby-theme-i18n";
-import { read } from "fs";
 import {
   aboutBlock,
   aboutBlockContent,
@@ -13,12 +10,10 @@ import {
 } from "./AboutMe.module.scss";
 import IndexPageContext from "../../../../Context/IndexContext";
 import { getPropertyAsStr } from "../../../../../utils/getPropertyAsStr";
-import AppLink from "../../../../AppLink";
 import arrow from "../../../../../../static/svg/other/arrow.svg";
 
 const AboutMe: FunctionComponent = () => {
-  const { t } = useTranslation(["site", "about-me"]);
-  const { locale } = useLocalization();
+  const { t } = useTranslation(["site"]);
   const { posts } = useContext(IndexPageContext);
 
   return (
