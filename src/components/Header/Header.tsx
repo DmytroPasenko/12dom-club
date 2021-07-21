@@ -1,5 +1,4 @@
 import { FunctionComponent, Fragment } from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import classNames from "classnames";
 import {
   header,
@@ -33,9 +32,13 @@ import {
   homeTopLi,
   homeBottomLi,
   blogTopLi,
+  localizationImage,
+  localizationMenu,
 } from "./Header.module.scss";
-
+import logoImage from "../../../static/img/logo/logo.png";
 import moreIcon from "../../../static/svg/header/more-icon.svg";
+import ruIcon from "../../../static/img/flags/ru.png";
+import uaIcon from "../../../static/img/flags/ua.png";
 
 interface HeaderProps {
   title: string;
@@ -46,16 +49,16 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => (
     <header
       className={classNames(
         header,
-        "flex flex-col text-white uppercase mx-auto",
+        "flex items-center justify-between text-white uppercase mx-auto",
       )}
     >
       <a
         href="http://localhost:8000/"
         className={classNames("flex justify-center")}
       >
-        <StaticImage
+        <img
           className={classNames(logo, "flex")}
-          src="../../../static/img/logo/logo.png"
+          src={logoImage}
           alt="site-logo"
         />
       </a>
@@ -465,6 +468,61 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => (
               >
                 Contacts
               </a>
+            </li>
+
+            <li>
+              <a
+                className={classNames(siteLink, linkList, "flex uppercase")}
+                href="http://localhost:8000/"
+              >
+                Ua
+                <div className={classNames(moreThenContainer, "flex")}>
+                  <img
+                    className={classNames(moreThen, "md:block hidden")}
+                    src={moreIcon}
+                    alt="more"
+                  />
+                  <img
+                    className={classNames(moreThenBlack, "md:hidden")}
+                    src={moreIcon}
+                    alt="more"
+                  />
+                </div>
+              </a>
+              <ul
+                className={classNames(
+                  subMenu,
+                  localizationMenu,
+                  "md:normal-case",
+                )}
+              >
+                <li className={classNames(topLi, "md:bg-white")}>
+                  <a
+                    className={classNames(siteSubLink, "flex items-center")}
+                    href="http://localhost:8000/"
+                  >
+                    <img
+                      className={classNames(localizationImage, "mr-3")}
+                      src={ruIcon}
+                      alt="ru"
+                    />
+                    Русский
+                  </a>
+                </li>
+                <li className={classNames(bottomLi, "md:bg-white")}>
+                  <a
+                    className={classNames(siteSubLink, "flex items-center")}
+                    href="http://localhost:8000/"
+                  >
+                    <img
+                      className={classNames(localizationImage, "mr-3")}
+                      src={uaIcon}
+                      alt="ua"
+                    />
+                    Українська
+                  </a>
+                </li>
+              </ul>
             </li>
           </ul>
         </nav>

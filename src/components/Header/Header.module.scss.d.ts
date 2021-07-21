@@ -35,3 +35,5 @@ export const linkList: string;
 export const homeTopLi: string;
 export const homeBottomLi: string;
 export const blogTopLi: string;
+export const localizationImage: string;
+export const localizationMenu: string;
