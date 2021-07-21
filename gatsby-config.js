@@ -120,6 +120,7 @@ module.exports = {
             {
               family: "Oswald",
               variants: ["300"],
+              subsets: ["latin", "cyrillic"],
             },
           ],
         },
