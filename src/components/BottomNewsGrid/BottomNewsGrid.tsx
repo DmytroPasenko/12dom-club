@@ -28,7 +28,7 @@ const BottomNewsGrid: FunctionComponent = () => {
       <div
         className={classNames(
           bottomNewsGridWrapper,
-          "grid md:grid-cols-4 grid-cols-2",
+          "grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1",
         )}
       >
         {posts?.slice(0, 4).map((item) => {

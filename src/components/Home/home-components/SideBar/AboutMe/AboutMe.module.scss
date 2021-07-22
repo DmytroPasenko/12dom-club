@@ -30,11 +30,19 @@
           brightness(102%) contrast(79%);
       }
     }
-    .post-button:hover {
-      color: #000000;
-    }
-    .post-button:hover .arrow-icon {
-      filter: none;
+  }
+}
+
+/*media-queries*/
+@media screen and (min-width: 767px) {
+  .about-block {
+    .about-block-content {
+      .post-button:hover {
+        color: #000000;
+      }
+      .post-button:hover .arrow-icon {
+        filter: none;
+      }
     }
   }
 }

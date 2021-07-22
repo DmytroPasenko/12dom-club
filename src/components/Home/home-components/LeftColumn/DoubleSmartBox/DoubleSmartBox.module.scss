@@ -20,9 +20,6 @@
       font-family: "Oswald", sans-serif;
       letter-spacing: 0.28em;
     }
-    h5:hover {
-      text-decoration: underline;
-    }
     .post-date {
       line-height: 2.83;
       font-size: 12px;
@@ -30,9 +27,6 @@
         font-family: "Roboto Condensed";
         letter-spacing: 0.2em;
         margin-right: 7px;
-      }
-      p:hover {
-        text-decoration: underline;
       }
       span {
         font-family: "Roboto Condensed";
@@ -52,24 +46,15 @@
       font-size: 0.75em;
       letter-spacing: 0.72px;
       padding-top: 35px;
-      transition: all 0.3s ease;
       .arrow-icon {
         width: 14px;
         height: auto;
         margin-left: 5px;
-        transition: all 0.4s ease;
         margin-top: 3px;
         position: relative;
         filter: invert(100%) sepia(2%) saturate(0%) hue-rotate(181deg)
           brightness(102%) contrast(101%);
       }
-    }
-    .post-button:hover {
-      color: #e49c9f;
-    }
-    .post-button:hover .arrow-icon {
-      filter: invert(67%) sepia(48%) saturate(395%) hue-rotate(309deg)
-        brightness(102%) contrast(79%);
     }
   }
 }
@@ -78,7 +63,7 @@
 @media screen and (max-width: 1439px) {
   .double-smart-box-content {
     .double-smart-box-text {
-      padding-top: 30px;
+      padding: 30px;
       h5 {
         font-size: 21.5px;
       }
@@ -119,6 +104,7 @@
 
 @media screen and (max-width: 767px) {
   .double-smart-box-content {
+    margin-bottom: 30px;
     .double-smart-box-text {
       position: absolute;
       padding: 10px 15px 0px;
@@ -128,26 +114,11 @@
       h5 {
         font-size: 20px;
       }
-      h5:hover {
-        text-decoration: none;
-      }
-      .post-date {
-        p:hover {
-          text-decoration: none;
-        }
-      }
       .entry-p {
         display: none;
       }
       .post-button {
         padding-top: 10px;
-      }
-      .post-button:hover {
-        color: #ffffff;
-      }
-      .post-button:hover .arrow-icon {
-        filter: invert(100%) sepia(2%) saturate(0%) hue-rotate(181deg)
-          brightness(102%) contrast(101%);
       }
     }
   }
@@ -218,6 +189,34 @@
       .post-button {
         font-size: 8px;
         padding-top: 0px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .double-smart-box-content {
+    .double-smart-box-text {
+      h5:hover {
+        text-decoration: underline;
+      }
+      .post-date {
+        p:hover {
+          text-decoration: underline;
+        }
+      }
+      .post-button {
+        transition: all 0.3s ease;
+        .arrow-icon {
+          transition: all 0.4s ease;
+        }
+      }
+      .post-button:hover {
+        color: #e49c9f;
+      }
+      .post-button:hover .arrow-icon {
+        filter: invert(67%) sepia(48%) saturate(395%) hue-rotate(309deg)
+          brightness(102%) contrast(79%);
       }
     }
   }
