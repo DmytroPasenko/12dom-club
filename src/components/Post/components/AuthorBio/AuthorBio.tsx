@@ -3,11 +3,15 @@ import classNames from "classnames";
 import { postAuthorText } from "./AuthorBio.module.scss";
 import authorPic from "../../../../../static/img/other/user-pic.png";
 
-const AuthorBio: FunctionComponent = () => (
+interface AuthorProps {
+  author: string;
+}
+
+const AuthorBio: FunctionComponent<AuthorProps> = ({ author }) => (
   <>
     <div className={classNames(postAuthorText, "flex flex-col")}>
       <h5 className="uppercase">
-        About the <a href="http://localhost:8000/about/">admin</a>
+        About the <a href="http://localhost:8000/about/">{author}</a>
       </h5>
       <p>
         <img src={authorPic} alt="user-avatar" />

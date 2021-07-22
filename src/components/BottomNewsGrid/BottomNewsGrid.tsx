@@ -23,7 +23,6 @@ const BottomNewsGrid: FunctionComponent = () => {
   const { t } = useTranslation(["site"]);
   const { locale } = useLocalization();
   const { posts } = useContext(IndexPageContext);
-
   return (
     <section className={classNames(bottomNewsGrid, "text-white")}>
       <div
