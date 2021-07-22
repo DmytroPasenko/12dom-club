@@ -5,9 +5,12 @@
     margin-bottom: 35px;
     .custom-post-content {
       flex-direction: column;
-      > a img {
-        width: 100%;
-        height: auto;
+      width: 100%;
+      a {
+        img {
+          width: 100%;
+          height: auto;
+        }
       }
       .custom-post-text-content {
         line-height: 1.714285;

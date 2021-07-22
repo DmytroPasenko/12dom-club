@@ -27,7 +27,7 @@ const CustomPosts: FunctionComponent = () => {
       <div
         className={classNames(
           customPostsBlock,
-          "lg:grid-cols-1 sm:grid-cols-2 grid-cols-1 flex lg:flex-col flex-row",
+          "grid lg:grid-cols-1 sm:grid-cols-2 grid-cols-1 flex lg:flex-col flex-row",
         )}
       >
         {posts?.slice(6, 9).map((item, index) => {

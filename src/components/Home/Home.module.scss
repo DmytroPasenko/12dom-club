@@ -125,9 +125,18 @@
     height: 540px;
     z-index: 3;
   }
+  .top-grid-news {
+    margin-bottom: 0px;
+  }
   .news-container {
-    .double-smart-box {
-      margin: 0px 0px 0px 0px;
+    .left-column {
+      .news-smart-box {
+        padding-bottom: 30px;
+        margin: 0px;
+      }
+      .double-smart-box {
+        margin: 30px 0px 0px 0px;
+      }
     }
   }
 }
