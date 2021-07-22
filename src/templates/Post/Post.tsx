@@ -13,14 +13,14 @@ interface PostTemplateProps {
     locale: string;
   };
   data: {
-    cmsApi: { post: CmsTableRecord };
+    cmsApi: { posts: CmsTableRecord[] };
   };
 }
 
 export const templateQuery = graphql`
   query ($locale: String!, $slug: String!) {
     cmsApi {
-      post: table(content: "posts", locale: $locale, slug: $slug) {
+      posts: table(content: "posts", locale: $locale, slug: $slug) {
         slug
         position
         properties {
@@ -36,12 +36,11 @@ export const templateQuery = graphql`
 const PostTemplate: FunctionComponent<PostTemplateProps> = ({ data }) => {
   const { t } = useTranslation(["site"]);
   const { cmsApi } = data;
-  const { post } = cmsApi;
-
+  const { posts } = cmsApi;
+  const [post] = posts;
   const title = getPropertyAsStr(post, SEO_TITLE) ?? t("site:title");
   const description =
     getPropertyAsStr(post, SEO_DESCRIPTION) ?? t("site:description");
-
   return (
     <Layout title={title} description={description}>
       <Post data={post} />
