@@ -105,6 +105,8 @@
 
 @media screen and (max-width: 767px) {
   .news-box-container {
+    margin: 30px 0px 0px 0px;
+    padding: 0px;
     .main-news {
       .news-text-content {
         h5 {
@@ -119,6 +121,12 @@
         }
       }
     }
+  }
+  .left-box {
+    margin-right: 15px;
+  }
+  .right-box {
+    margin-left: 15px;
   }
 }
 

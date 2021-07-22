@@ -25,9 +25,9 @@
     }
     .post-date {
       line-height: 2.83;
+      font-size: 12px;
       p {
         font-family: "Roboto Condensed";
-        font-size: 12px;
         letter-spacing: 0.2em;
         margin-right: 7px;
       }
@@ -36,7 +36,6 @@
       }
       span {
         font-family: "Roboto Condensed";
-        font-size: 12px;
         letter-spacing: 0.2em;
         margin-right: 7px;
       }
@@ -121,19 +120,34 @@
 @media screen and (max-width: 767px) {
   .double-smart-box-content {
     .double-smart-box-text {
-      position: relative;
-      width: 100%;
-      margin: 0px 10px;
+      position: absolute;
       padding: 10px 15px 0px;
-      bottom: 90px;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -80%);
       h5 {
         font-size: 20px;
+      }
+      h5:hover {
+        text-decoration: none;
+      }
+      .post-date {
+        p:hover {
+          text-decoration: none;
+        }
       }
       .entry-p {
         display: none;
       }
       .post-button {
         padding-top: 10px;
+      }
+      .post-button:hover {
+        color: #ffffff;
+      }
+      .post-button:hover .arrow-icon {
+        filter: invert(100%) sepia(2%) saturate(0%) hue-rotate(181deg)
+          brightness(102%) contrast(101%);
       }
     }
   }
@@ -152,19 +166,17 @@
 @media screen and (max-width: 389px) {
   .double-smart-box-content {
     .double-smart-box-text {
-      width: 100%;
-      bottom: 60px;
       margin: 10px;
       padding: 0px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       h5 {
         font-size: 14px;
       }
       .post-date {
         line-height: 2.83;
-        font-size: 10px;
-      }
-      .entry-p {
-        display: none;
+        font-size: 11px;
       }
       .post-button {
         font-size: 10px;
@@ -174,11 +186,39 @@
   }
 }
 
+@media screen and (max-width: 339px) {
+  .double-smart-box-content {
+    .double-smart-box-text {
+      .post-date {
+        line-height: 2.83;
+        p {
+          margin-right: 3px;
+        }
+        p:hover {
+          text-decoration: underline;
+        }
+        span {
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 319px) {
   .double-smart-box-content {
     .double-smart-box-text {
-      width: 100%;
-      bottom: 80px;
+      h5 {
+        font-size: 12px;
+      }
+      .post-date {
+        line-height: 1.83;
+        font-size: 9px;
+      }
+      .post-button {
+        font-size: 8px;
+        padding-top: 0px;
+      }
     }
   }
 }
