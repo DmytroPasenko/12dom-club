@@ -16,17 +16,11 @@
       );
       bottom: 0px;
       padding: 120px 0px 20px 20px;
-      h5:hover {
-        text-decoration: underline;
-      }
       div > p {
         font-size: 12px;
         letter-spacing: 0.2em;
         margin-bottom: 40px;
         margin-right: 7px;
-      }
-      div > p:hover {
-        text-decoration: underline;
       }
       div > span {
         font-size: 12px;
@@ -49,12 +43,6 @@
       cursor: pointer;
     }
     .news-text-content {
-      h5 {
-        transition: all 0.3s ease;
-      }
-      h5:hover {
-        color: #e49c9f;
-      }
       div {
         margin-top: 5px;
       }
@@ -65,10 +53,6 @@
       }
       .a-date {
         color: #e49c9f;
-        transition: all 0.3s ease;
-      }
-      .a-date:hover {
-        color: #000000;
       }
       div > span {
         font-size: 12px;
@@ -136,6 +120,38 @@
   }
   .right-box {
     margin-left: 0px;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  /*news-box-container*/
+  .news-box-container {
+    .main-news {
+      .news-text-content {
+        h5:hover {
+          text-decoration: underline;
+        }
+        div > p:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .soft-news {
+      .news-text-content {
+        h5 {
+          transition: all 0.3s ease;
+        }
+        h5:hover {
+          color: #e49c9f;
+        }
+        .a-date {
+          transition: all 0.3s ease;
+        }
+        .a-date:hover {
+          color: #000000;
+        }
+      }
+    }
   }
 }
 

@@ -22,12 +22,6 @@
     height: auto;
     margin-bottom: 27px;
   }
-  h5 {
-    transition: all 0.3s ease;
-  }
-  h5:hover {
-    color: #e49c9f;
-  }
   iframe {
     width: 100%;
     height: 317px;
@@ -118,10 +112,6 @@
     }
     .a-date {
       color: #e49c9f;
-      transition: all 0.3s ease;
-    }
-    .a-date:hover {
-      color: #000000;
     }
     span {
       font-size: 12px;
@@ -146,12 +136,6 @@
         brightness(102%) contrast(79%);
     }
   }
-  .news-button:hover {
-    color: #000000;
-  }
-  .news-button:hover .arrow-icon {
-    filter: none;
-  }
 }
 .temp-hidden {
   display: none;
@@ -173,10 +157,6 @@
       color: black;
       border: solid 1px #f6f6f6;
       background: #f6f6f6;
-      transition: all 0.3s ease;
-    }
-    .page-button:hover {
-      background: #ffffff;
     }
     .current-page {
       display: inline-block;
@@ -210,7 +190,21 @@
 }
 
 @media screen and (max-width: 767px) {
-  //TODO: customize post adaptive
+  .page {
+    margin-bottom: 30px;
+    .pagination-news {
+      padding: 0px;
+      h5 {
+        font-size: 18px;
+      }
+    }
+    .left-news {
+      padding-right: 15px;
+    }
+    .right-news {
+      padding-left: 15px;
+    }
+  }
 }
 
 @media screen and (max-width: 639px) {
@@ -220,6 +214,48 @@
     }
     .right-news {
       padding-left: 0px;
+    }
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .pagination-news {
+    h5 {
+      transition: all 0.3s ease;
+    }
+    h5:hover {
+      color: #e49c9f;
+    }
+    .news-date {
+      .a-date {
+        color: #e49c9f;
+        transition: all 0.3s ease;
+      }
+      .a-date:hover {
+        color: #000000;
+      }
+    }
+    .news-button {
+      transition: all 0.3s ease;
+      .arrow-icon {
+        transition: all 0.4s ease;
+      }
+    }
+    .news-button:hover {
+      color: #000000;
+    }
+    .news-button:hover .arrow-icon {
+      filter: none;
+    }
+  }
+  .pagination {
+    .paginator {
+      .page-button {
+        transition: all 0.3s ease;
+      }
+      .page-button:hover {
+        background: #ffffff;
+      }
     }
   }
 }

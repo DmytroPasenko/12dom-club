@@ -32,9 +32,6 @@
             color: #e49c9f;
             transition: all 0.3s ease;
           }
-          .a-date:hover {
-            color: #000000;
-          }
         }
       }
     }
@@ -65,6 +62,23 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  .custom-posts-block {
+    padding-bottom: 30px;
+    .custom-post {
+      margin-top: 30px;
+      margin-bottom: 0px;
+      .custom-post-content {
+        .custom-post-text-content {
+          h5 {
+            margin-bottom: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 639px) {
   .custom-posts-block {
     .left-box {
@@ -72,6 +86,22 @@
     }
     .right-box {
       margin-left: 0px;
+    }
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .custom-posts-block {
+    .custom-post {
+      .custom-post-content {
+        .custom-post-text-content {
+          .custom-post-date {
+            .a-date:hover {
+              color: #000000;
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -16,18 +16,11 @@
       );
       bottom: -120px;
       padding: 40px 0 30px 20px;
-      transition: all 0.15s ease;
-      h5:hover {
-        text-decoration: underline;
-      }
       div > p {
         font-size: 12px;
         letter-spacing: 0.2em;
         margin-bottom: 30px;
         margin-right: 7px;
-      }
-      div > p:hover {
-        text-decoration: underline;
       }
       div > span {
         font-size: 12px;
@@ -57,19 +50,6 @@
           transition: all 0.4s ease;
         }
       }
-    }
-    .entry-button:hover .entry-icon {
-      margin-left: 10px;
-    }
-    .post-meta:hover {
-      bottom: 0px;
-    }
-    .post-meta:hover .entry-p {
-      transform: scale(1);
-      visibility: visible;
-    }
-    .post-meta:hover .entry-button {
-      transform: scale(1);
     }
     .post-img {
       width: 100%;
@@ -136,31 +116,13 @@
         bottom: 0px;
         padding: 40px 0 30px 20px;
         transition: none;
-        h5:hover {
-          text-decoration: none;
-        }
         div > p {
           margin-bottom: 10px;
-        }
-        div > p:hover {
-          text-decoration: none;
         }
         .entry-p {
           display: none;
         }
         .entry-button {
-          transform: scale(1);
-        }
-        .entry-button:hover .entry-icon {
-          margin-left: 5px;
-        }
-        .post-meta:hover {
-          bottom: 0px;
-        }
-        .post-meta:hover .entry-p {
-          visibility: hidden;
-        }
-        .post-meta:hover .entry-button {
           transform: scale(1);
         }
       }
@@ -213,25 +175,26 @@
   .post {
     .post-content {
       .post-meta {
+        transition: all 0.15s ease;
         h5:hover {
           text-decoration: underline;
         }
         div > p:hover {
           text-decoration: underline;
         }
-        .entry-button:hover .entry-icon {
-          margin-left: 10px;
-        }
-        .post-meta:hover {
-          bottom: 0px;
-        }
-        .post-meta:hover .entry-p {
-          transform: scale(1);
-          visibility: visible;
-        }
-        .post-meta:hover .entry-button {
-          transform: scale(1);
-        }
+      }
+      .entry-button:hover .entry-icon {
+        margin-left: 10px;
+      }
+      .post-meta:hover {
+        bottom: 0px;
+      }
+      .post-meta:hover .entry-p {
+        transform: scale(1);
+        visibility: visible;
+      }
+      .post-meta:hover .entry-button {
+        transform: scale(1);
       }
     }
   }

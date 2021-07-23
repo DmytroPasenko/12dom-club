@@ -17,12 +17,22 @@
       border: solid 1px #e49c9f;
       border-radius: 4px;
       background: #e49c9f;
-      transition: all 0.3s ease;
     }
-    button:hover {
-      color: #e49c9f;
-      background: #ffffff;
-      border: solid 1px #e49c9f;
+  }
+}
+
+/*media-queries*/
+@media screen and (min-width: 767px) {
+  .tags-block {
+    .tags {
+      button {
+        transition: all 0.3s ease;
+      }
+      button:hover {
+        color: #e49c9f;
+        background: #ffffff;
+        border: solid 1px #e49c9f;
+      }
     }
   }
 }

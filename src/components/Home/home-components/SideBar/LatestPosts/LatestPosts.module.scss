@@ -19,15 +19,25 @@
           letter-spacing: 0.28em;
           transition: all 0.3s ease;
         }
-        a:hover {
-          color: #e49c9f;
-        }
         span {
           font-size: 12px;
           line-height: 1.714285;
           letter-spacing: 0.2em;
           color: #333333;
           margin-top: 6px;
+        }
+      }
+    }
+  }
+}
+
+/*media-queries*/
+@media screen and (min-width: 767px) {
+  .latest-posts-block {
+    .latest-posts-block-content {
+      ul {
+        a:hover {
+          color: #e49c9f;
         }
       }
     }
