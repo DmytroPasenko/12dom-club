@@ -15,7 +15,7 @@
       > ul {
         > li {
           .sub-menu.localization-menu {
-            left: -140px;
+            left: -60px;
           }
         }
       }
@@ -301,8 +301,11 @@
             .current-page {
               color: #e49c9f;
             }
+            .solo-link {
+              position: relative;
+            }
             .site-link {
-              transition: all 0.4s ease;
+              transition: all 0.25s ease;
               .more-then-container {
                 position: relative;
               }
@@ -315,28 +318,43 @@
                   brightness(103%) contrast(103%);
               }
             }
-            .site-link:hover {
-              color: #e49c9f;
+            .site-link.solo-link::after {
+              background-color: #ffffff;
+              display: block;
+              content: "";
+              height: 1px;
+              width: 0%;
+              left: 50%;
+              position: absolute;
+              -webkit-transition: width 0.25s ease-in-out;
+              -moz--transition: width 0.25s ease-in-out;
+              transition: width 0.25s ease-in-out;
+              -webkit-transform: translateX(-50%);
+              -moz-transform: translateX(-50%);
+              transform: translateX(-50%);
             }
-            .site-link:hover .more-then {
-              filter: invert(67%) sepia(48%) saturate(395%) hue-rotate(309deg)
-                brightness(102%) contrast(79%);
+            .site-link.solo-link:hover::after,
+            .site-link.solo-link:focus::after {
+              width: 120%;
             }
             .sub-menu {
               position: absolute;
               left: -40px;
-              padding-top: 100px;
+              padding-top: 20px;
               opacity: 0;
               visibility: hidden;
-              width: 220px;
+              width: 175px;
               font-size: 13px;
               letter-spacing: 0.2em;
               pointer-events: none;
               transition: all 0.4s ease;
               > li {
-                padding: 4px 0 4px 35px;
+                padding: 5px 0 5px 15px;
                 .site-sub-link {
-                  color: #e49c9f;
+                  color: #222222;
+                  position: relative;
+                  text-transform: uppercase;
+                  text-decoration: none;
                   transition: all 0.4s ease;
                   .sub-more-then-container {
                     position: relative;
@@ -357,21 +375,33 @@
                     height: 16px;
                   }
                 }
+                .site-sub-link::after {
+                  display: block;
+                  position: absolute;
+                  left: 30px;
+                  top: 20px;
+                  width: 0px;
+                  height: 1px;
+                  background-color: #222222;
+                  content: "";
+                  transition: all 0.3s ease;
+                }
+                .site-sub-link:hover::after,
+                .site-sub-link:focus::after {
+                  width: 60%;
+                }
                 .current-sub-link {
                   color: #000000;
-                }
-                .site-sub-link:hover {
-                  color: #222222;
                 }
                 .site-sub-link:hover .sub-more-then {
                   filter: none;
                 }
               }
               .top-li {
-                padding-top: 27px;
+                padding-top: 15px;
               }
               .bottom-li {
-                padding-bottom: 27px;
+                padding-bottom: 15px;
               }
               .sub-sub-menu {
                 position: absolute;
@@ -399,15 +429,6 @@
             .site-sub-sub-link {
               color: #e49c9f;
               transition: all 0.4s ease;
-            }
-            .current-site-sub-sub-link {
-              color: #000000;
-            }
-            .site-sub-sub-link:hover {
-              color: #222222;
-            }
-            .link-list {
-              padding: 0 3px 0 0;
             }
             .home-top-li:hover .sub-sub-menu {
               margin-top: 30px;
@@ -446,7 +467,6 @@
             }
           }
           > li:hover .sub-menu {
-            padding-top: 30px;
             opacity: 1;
             visibility: visible;
             pointer-events: all;
