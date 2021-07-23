@@ -69,7 +69,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
           "flex items-center justify-between text-white uppercase mx-auto",
         )}
       >
-        <AppLink to="" className={classNames("flex justify-center")}>
+        <AppLink to="/" className={classNames("flex justify-center")}>
           <img
             className={classNames(logo, "flex")}
             src={logoImage}
@@ -87,7 +87,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
             <ul className={classNames("flex md:flex-row flex-col")}>
               <li>
                 <AppLink
-                  to=""
+                  to="/"
                   className={classNames(siteLink, linkList, "flex uppercase")}
                 >
                   {t("site:home")}
