@@ -1,0 +1,59 @@
+.form-container {
+  .input-box {
+    position: relative;
+    margin-bottom: 20px;
+    img {
+      width: 24px;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+    }
+    input,
+    textarea {
+      width: 100%;
+      padding: 20.5px 20px 20.5px 60px;
+      font-size: 12px;
+      font-family: "Roboto Condensed", sans-serif;
+      letter-spacing: 0.2em;
+      color: #333333;
+      border: solid 1px #ffffff;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    input:focus,
+    textarea:focus {
+      background-color: transparent;
+    }
+    input:active,
+    textarea:active {
+      background-color: transparent;
+    }
+    input::placeholder,
+    textarea::placeholder {
+      color: #333333;
+    }
+    span textarea {
+      line-height: 1.83;
+      padding: 20.5px 20px 220.5px 60px;
+      resize: none;
+      overflow: hidden;
+    }
+    span img {
+      top: 7%;
+      transform: translateY(-7%);
+    }
+  }
+  button {
+    padding: 20px 49px;
+    border: solid 1px #000000;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  button:hover {
+    color: #ffffff;
+    background-color: #000000;
+  }
+}
