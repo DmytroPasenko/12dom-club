@@ -6,7 +6,7 @@ const Contacts = (): JSX.Element => {
   const { t } = useTranslation(["contacts", "site"]);
 
   return (
-    <Layout title={t("site:about")} description={t("site:description")}>
+    <Layout title={t("site:contacts")} description={t("site:description")}>
       <ContactsPage />
     </Layout>
   );

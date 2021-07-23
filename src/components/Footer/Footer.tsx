@@ -52,6 +52,7 @@ const Footer: FunctionComponent = () => {
             Subscribe
           </button>
         </div> */}
+        <h5 className={footerHeader}>{t("site:follow")}</h5>
         <div className={socialNetworksContent}>
           <ul
             className={classNames(
