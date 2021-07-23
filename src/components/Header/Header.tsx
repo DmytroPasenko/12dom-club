@@ -1,6 +1,7 @@
 import { FunctionComponent, Fragment } from "react";
 import classNames from "classnames";
 import { useLocalization } from "gatsby-theme-i18n";
+import { useTranslation } from "react-i18next";
 import { useLocation } from "@reach/router";
 import {
   header,
@@ -49,6 +50,7 @@ interface HeaderProps {
 }
 
 const Header: FunctionComponent<HeaderProps> = ({ title }) => {
+  const { t } = useTranslation(["site"]);
   const { pathname } = useLocation();
   const { locale } = useLocalization();
 
@@ -91,7 +93,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
                   className={classNames(siteLink, linkList, "flex uppercase")}
                   href="http://localhost:8000/"
                 >
-                  Home
+                  {t("site:home")}
                 </a>
               </li>
 
@@ -100,7 +102,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
                   className={classNames(siteLink, "uppercase")}
                   href="http://localhost:8000/about"
                 >
-                  About me
+                  {t("site:about")}
                 </a>
               </li>
 
@@ -356,7 +358,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
                   className={classNames(siteLink, "uppercase")}
                   href="http://localhost:8000/contacts"
                 >
-                  Contacts
+                  {t("site:contacts")}
                 </a>
               </li>
 
@@ -365,7 +367,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
                   className={classNames(siteLink, linkList, "flex uppercase")}
                   href="http://localhost:8000/"
                 >
-                  Ua
+                  {t("site:localization")}
                   <div className={classNames(moreThenContainer, "flex")}>
                     <img
                       className={classNames(moreThen, "md:block hidden")}

@@ -36,14 +36,14 @@ const TopGridNews: FunctionComponent = () => {
         return (
           <div className={post} key={item.slug}>
             <div className={postContent}>
-              <AppLink to={`post/${item.slug}`}>
+              <AppLink to={`/post/${item.slug}`}>
                 <div className={postMeta}>
                   <h5 className="uppercase">
                     <p>{title}</p>
                   </h5>
                   <div className="flex">
                     <p>{formattedDate}</p>
-                    <span>- by</span>
+                    <span>- {t("site:by")}</span>
                     <p>{author}</p>
                   </div>
                   <p className={entryP}>{text}</p>

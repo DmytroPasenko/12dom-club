@@ -3,5 +3,14 @@
   "description": "12dom.club",
   "menu": "Меню",
   "home": "Головна",
+  "about": "Про мене",
+  "contacts": "Контакти",
+  "localization": "Ua",
+  "by": "від",
+  "latestPosts": "Останні пости",
+  "customPosts": "Користувацькі пости",
+  "tags": "Теги",
+  "follow": "Слідкуй за нами",
+  "subscribe": "Підписуйся",
   "readMore": "Читати більше"
 }

@@ -36,7 +36,7 @@ const DoubleSmartBox: FunctionComponent = () => {
 
         return (
           <div className={doubleSmartBoxContent} key={item.slug}>
-            <AppLink to={`post/${item.slug}`}>
+            <AppLink to={`/post/${item.slug}`}>
               <img
                 src={image}
                 alt="smart-box-bg"
@@ -46,7 +46,7 @@ const DoubleSmartBox: FunctionComponent = () => {
                 <h5 className="uppercase">{title}</h5>
                 <div className={classNames(postDate, "flex")}>
                   <p>{formattedDate}</p>
-                  <span>- by</span>
+                  <span>- {t("site:by")}</span>
                   <p>{author}</p>
                   <p>No comment(s)</p>
                 </div>

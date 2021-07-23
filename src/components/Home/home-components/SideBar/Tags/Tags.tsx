@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
 import classNames from "classnames";
+import { useTranslation } from "react-i18next";
 import { tagsBlock, tags } from "./Tags.module.scss";
 
 interface TagsRecord {
@@ -7,6 +8,7 @@ interface TagsRecord {
 }
 
 const Tags: FunctionComponent = () => {
+  const { t } = useTranslation();
   const getTags = (): TagsRecord[] => [
     { name: "Aquarius" },
     { name: "Astrology" },
@@ -26,7 +28,7 @@ const Tags: FunctionComponent = () => {
     <>
       <div className={classNames(tagsBlock, "flex")}>
         <div className={tags}>
-          <h5 className="uppercase">Tags</h5>
+          <h5 className="uppercase">{t("site:tags")}</h5>
           {tagButtons.map((item) => (
             <button type="button" key={item.name}>
               <a href="http://localhost:8000/blogPost">{item.name}</a>

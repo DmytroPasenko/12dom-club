@@ -3,5 +3,11 @@
   "description": "12dom.club",
   "menu": "Меню",
   "home": "Главная",
+  "about": "Обо мне",
+  "contacts": "Контакты",
+  "localization": "Ru",
+  "by": "от",
+  "latestPosts": "Последние посты",
+  "customPosts": "Пользовательские посты",
   "readMore": "Читать больше"
 }

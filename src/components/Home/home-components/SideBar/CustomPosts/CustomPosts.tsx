@@ -2,6 +2,7 @@ import { FunctionComponent, useContext } from "react";
 import classNames from "classnames";
 import { formatDate } from "@miran-soft/common";
 import { useLocalization } from "gatsby-theme-i18n";
+import { useTranslation } from "react-i18next";
 import {
   customPostsBlock,
   customPost,
@@ -18,12 +19,13 @@ import { getPropertyAsStr } from "../../../../../utils/getPropertyAsStr";
 import AppLink from "../../../../AppLink";
 
 const CustomPosts: FunctionComponent = () => {
+  const { t } = useTranslation();
   const { locale } = useLocalization();
   const { posts } = useContext(IndexPageContext);
 
   return (
     <>
-      <h5 className="uppercase">Custom Posts</h5>
+      <h5 className="uppercase">{t("site:customPosts")}</h5>
       <div
         className={classNames(
           customPostsBlock,
@@ -49,7 +51,7 @@ const CustomPosts: FunctionComponent = () => {
               key={item.slug}
             >
               <div className={classNames(customPostContent, "flex flex-row")}>
-                <AppLink to={`post/${item.slug}`} className="flex">
+                <AppLink to={`/post/${item.slug}`} className="flex">
                   <img src={image} alt="news-bg" />
                   <div
                     className={classNames(
@@ -61,7 +63,7 @@ const CustomPosts: FunctionComponent = () => {
                       className={classNames(customPostDate, "flex flex-row")}
                     >
                       <p className={aDate}>{formattedDate}</p>
-                      <span>- by</span>
+                      <span>- {t("site:by")}</span>
                       <p>{author}</p>
                     </div>
                     <h5>{title}</h5>

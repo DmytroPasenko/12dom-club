@@ -50,12 +50,12 @@ const PaginationContent: FunctionComponent = () => {
               )}
               data-num={index}
             >
-              <AppLink to={`post/${item.slug}`}>
+              <AppLink to={`/post/${item.slug}`}>
                 <img src={image} alt="pagination content bg" />
                 <h5>{title}</h5>
                 <div className={classNames(newsDate, "normal-case flex")}>
                   <p className={aDate}>{formattedDate}</p>
-                  <span>- by</span>
+                  <span>- {t("site:by")}</span>
                   <p>{author}</p>
                 </div>
                 <button

@@ -112,10 +112,12 @@ module.exports = {
             {
               family: "Roboto",
               variants: ["300"],
+              subsets: ["latin", "cyrillic"],
             },
             {
               family: "Roboto Condensed",
               variants: ["300ital"],
+              subsets: ["latin", "cyrillic"],
             },
             {
               family: "Oswald",
