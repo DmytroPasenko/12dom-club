@@ -37,6 +37,7 @@ import {
   // blogTopLi,
   localizationImage,
   localizationMenu,
+  soloLink,
 } from "./Header.module.scss";
 import logoImage from "../../../static/img/logo/logo.png";
 import moreIcon from "../../../static/svg/header/more-icon.svg";
@@ -88,7 +89,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
               <li>
                 <AppLink
                   to="/"
-                  className={classNames(siteLink, linkList, "flex uppercase")}
+                  className={classNames(siteLink, soloLink, "uppercase")}
                 >
                   {t("site:home")}
                 </AppLink>
@@ -97,7 +98,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
               <li>
                 <AppLink
                   to="/about/"
-                  className={classNames(siteLink, "uppercase")}
+                  className={classNames(siteLink, soloLink, "uppercase")}
                 >
                   {t("site:about")}
                 </AppLink>
@@ -353,7 +354,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
               <li>
                 <AppLink
                   to="/contacts/"
-                  className={classNames(siteLink, "uppercase")}
+                  className={classNames(siteLink, soloLink, "uppercase")}
                 >
                   {t("site:contacts")}
                 </AppLink>
@@ -368,11 +369,6 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
                   <div className={classNames(moreThenContainer, "flex")}>
                     <img
                       className={classNames(moreThen, "md:block hidden")}
-                      src={moreIcon}
-                      alt="more"
-                    />
-                    <img
-                      className={classNames(moreThenBlack, "md:hidden")}
                       src={moreIcon}
                       alt="more"
                     />
