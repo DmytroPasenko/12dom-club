@@ -19,14 +19,13 @@ const AboutMe: FunctionComponent = () => {
   return (
     <>
       {posts?.slice(19, 20).map((item) => {
-        const title = getPropertyAsStr(item, "title");
         const text = getPropertyAsStr(item, "text");
         const image = getPropertyAsStr(item, "image");
 
         return (
           <div className={aboutBlock} key={item.slug}>
             <div className={aboutBlockContent}>
-              <h5 className="uppercase">{title}</h5>
+              <h5 className="uppercase">{t("site:about")}</h5>
               <img src={image} alt="author-img" />
               <p className={aboutText}>{text}</p>
               <button

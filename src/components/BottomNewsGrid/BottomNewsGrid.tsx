@@ -44,12 +44,12 @@ const BottomNewsGrid: FunctionComponent = () => {
           return (
             <div className={bottomNews} key={item.slug}>
               <div className={bottomNewsContent}>
-                <AppLink to={`post/${item.slug}`}>
+                <AppLink to={`/post/${item.slug}`}>
                   <div className={bottomNewsMeta}>
                     <h5 className="uppercase">{title}</h5>
                     <div className="flex">
                       <p>{formattedDate}</p>
-                      <span>- by</span>
+                      <span>- {t("site:by")}</span>
                       <p>{author}</p>
                     </div>
                     <p className={entryP}>{text}</p>

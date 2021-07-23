@@ -33,11 +33,11 @@ const Footer: FunctionComponent = () => {
       className={classNames(footer, "flex flex-col text-center uppercase")}
     >
       <div className={classNames(footerContent, "mx-auto")}>
-        <h5 className={footerHeader}>
+        {/* <h5 className={footerHeader}>
           Get latest news delivered daily! We will send you breaking news right
           to yuor inbox.
-        </h5>
-        <div
+        </h5> */}
+        {/* <div
           className={classNames(emailContainer, "flex sm:flex-row flex-col")}
         >
           <div className={inputBox}>
@@ -51,7 +51,8 @@ const Footer: FunctionComponent = () => {
           <button type="button" className={emailButton}>
             Subscribe
           </button>
-        </div>
+        </div> */}
+        <h5 className={footerHeader}>{t("site:follow")}</h5>
         <div className={socialNetworksContent}>
           <ul
             className={classNames(

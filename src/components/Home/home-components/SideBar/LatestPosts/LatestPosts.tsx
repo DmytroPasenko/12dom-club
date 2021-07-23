@@ -1,6 +1,7 @@
 import { FunctionComponent, useContext } from "react";
 import { formatDate } from "@miran-soft/common";
 import { useLocalization } from "gatsby-theme-i18n";
+import { useTranslation } from "react-i18next";
 import {
   latestPostsBlock,
   latestPostsBlockContent,
@@ -10,6 +11,7 @@ import { getPropertyAsStr } from "../../../../../utils/getPropertyAsStr";
 import AppLink from "../../../../AppLink";
 
 const LatestPosts: FunctionComponent = () => {
+  const { t } = useTranslation();
   const { locale } = useLocalization();
   const { posts } = useContext(IndexPageContext);
 
@@ -17,7 +19,7 @@ const LatestPosts: FunctionComponent = () => {
     <>
       <div className={latestPostsBlock}>
         <div className={latestPostsBlockContent}>
-          <h5 className="uppercase">Latest posts</h5>
+          <h5 className="uppercase">{t("site:latestPosts")}</h5>
           <ul>
             {posts?.slice(13, 16).map((item) => {
               const title = getPropertyAsStr(item, "title");
@@ -28,7 +30,7 @@ const LatestPosts: FunctionComponent = () => {
 
               return (
                 <li className="flex flex-col" key={item.slug}>
-                  <AppLink to={`post/${item.slug}`} className="uppercase">
+                  <AppLink to={`/post/${item.slug}`} className="uppercase">
                     {title}
                   </AppLink>
                   <span>{formattedDate}</span>

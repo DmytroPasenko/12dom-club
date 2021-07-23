@@ -56,29 +56,28 @@
     }
     .social-networks-content {
       position: relative;
-      margin: 170px auto 0px auto;
+      // margin: 170px auto 0px auto;
+      margin: 0px auto;
       max-width: 260px;
       .social-networks {
         li {
           position: relative;
+          padding: 0px 0px;
           a {
             .social-link {
               height: 18px;
               width: auto;
-              position: absolute;
               left: 0px;
-              margin: 5px 11px;
+              margin: 0px 15px;
               transition: all 0.3s ease-in-out;
               filter: invert(59%) sepia(2%) saturate(7%) hue-rotate(350deg)
                 brightness(95%) contrast(88%);
             }
           }
-          a {
-            &:hover {
-              .social-link {
-                filter: invert(67%) sepia(48%) saturate(395%) hue-rotate(309deg)
-                  brightness(102%) contrast(79%);
-              }
+          a:hover {
+            .social-link {
+              filter: invert(67%) sepia(48%) saturate(395%) hue-rotate(309deg)
+                brightness(102%) contrast(79%);
             }
           }
         }
@@ -109,7 +108,6 @@
         }
       }
       .social-networks-content {
-        margin: 225px auto 0px auto;
         max-width: 200px;
       }
     }

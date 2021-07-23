@@ -1,6 +1,7 @@
 import { FunctionComponent, Fragment } from "react";
 import classNames from "classnames";
 import { useLocalization } from "gatsby-theme-i18n";
+import { useTranslation } from "react-i18next";
 import { useLocation } from "@reach/router";
 import {
   header,
@@ -49,6 +50,7 @@ interface HeaderProps {
 }
 
 const Header: FunctionComponent<HeaderProps> = ({ title }) => {
+  const { t } = useTranslation(["site"]);
   const { pathname } = useLocation();
   const { locale } = useLocalization();
 
@@ -67,16 +69,13 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
           "flex items-center justify-between text-white uppercase mx-auto",
         )}
       >
-        <a
-          href="http://localhost:8000/"
-          className={classNames("flex justify-center")}
-        >
+        <AppLink to="/" className={classNames("flex justify-center")}>
           <img
             className={classNames(logo, "flex")}
             src={logoImage}
             alt="site-logo"
           />
-        </a>
+        </AppLink>
         <div className={menuContainer}>
           <div className={menuIcon} id="menu-icon">
             <span />
@@ -87,21 +86,21 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
           >
             <ul className={classNames("flex md:flex-row flex-col")}>
               <li>
-                <a
+                <AppLink
+                  to="/"
                   className={classNames(siteLink, linkList, "flex uppercase")}
-                  href="http://localhost:8000/"
                 >
-                  Home
-                </a>
+                  {t("site:home")}
+                </AppLink>
               </li>
 
               <li>
-                <a
+                <AppLink
+                  to="/about/"
                   className={classNames(siteLink, "uppercase")}
-                  href="http://localhost:8000/about"
                 >
-                  About me
-                </a>
+                  {t("site:about")}
+                </AppLink>
               </li>
 
               {/* <li>
@@ -352,12 +351,12 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
               </li> */}
 
               <li>
-                <a
+                <AppLink
+                  to="/contacts/"
                   className={classNames(siteLink, "uppercase")}
-                  href="http://localhost:8000/contacts"
                 >
-                  Contacts
-                </a>
+                  {t("site:contacts")}
+                </AppLink>
               </li>
 
               <li>
@@ -365,7 +364,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
                   className={classNames(siteLink, linkList, "flex uppercase")}
                   href="http://localhost:8000/"
                 >
-                  Ua
+                  {t("site:localization")}
                   <div className={classNames(moreThenContainer, "flex")}>
                     <img
                       className={classNames(moreThen, "md:block hidden")}
