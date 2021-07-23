@@ -116,7 +116,7 @@ module.exports = {
             },
             {
               family: "Roboto Condensed",
-              variants: ["300ital"],
+              variants: ["300ital", "400ital"],
               subsets: ["latin", "cyrillic"],
             },
             {
