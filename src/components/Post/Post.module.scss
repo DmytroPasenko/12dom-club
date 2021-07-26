@@ -21,16 +21,9 @@
 /*blog-post-header*/
 .blogPostHeader {
   background-color: #333333;
-  height: 280px;
+  height: 220px;
   margin: 0px 0px 54px;
   width: 100%;
-}
-
-/*media-queries*/
-@media screen and (max-width: 767px) {
-  .blogPostHeader {
-    height: 280px;
-  }
 }
 
 /*media-queries*/
@@ -50,10 +43,16 @@
   .site-container {
     max-width: 720px;
   }
+  .blogPostHeader {
+    height: 280px;
+  }
 }
 
 @media screen and (max-width: 767px) {
   .site-container {
     max-width: 576px;
+  }
+  .blogPostHeader {
+    height: 240px;
   }
 }
