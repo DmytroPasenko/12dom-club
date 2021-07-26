@@ -1,21 +1,22 @@
-import { FunctionComponent, Fragment } from "react";
+import { FunctionComponent, Fragment, BaseSyntheticEvent } from "react";
 import classNames from "classnames";
 import { useLocalization } from "gatsby-theme-i18n";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "@reach/router";
+
 import {
   header,
   logo,
   menuContainer,
   siteNavigation,
   menuIcon,
-  // activeIcon,
+  activeIcon,
   siteLink,
-  moreThenBlack,
+  // touchLink,
   subMenu,
   siteSubLink,
   // subMoreThenBlack,
-  // activeLink,
+  activeLink,
   // subMoreThenContainer,
   // subSubMenu,
   // blogMiddleLi,
@@ -23,7 +24,7 @@ import {
   // middleLi,
   bottomLi,
   // siteSubSubLink,
-  // activeNavigation,
+  activeNavigation,
   // currentPage,
   moreThenContainer,
   moreThen,
@@ -62,6 +63,36 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
       : pathname;
   }
 
+  const menuIconElement = document.getElementById("menu-icon");
+  const menuBody = document.getElementById("site-navigation");
+
+  const openBurger = (event: BaseSyntheticEvent) => {
+    if (menuIconElement) {
+      menuIconElement.classList.toggle(activeIcon);
+      console.log("click");
+    }
+    if (menuBody) {
+      menuBody.classList.toggle(activeNavigation);
+    }
+  };
+
+  const menuLink = document.getElementById("touch-link");
+  const subMenuList = document.getElementById("sub-menu");
+
+  const openSubMenu = (event: BaseSyntheticEvent) => {
+    if (menuLink) {
+      menuLink.classList.toggle(activeLink);
+    }
+    if (subMenuList) {
+      if (subMenuList.style.display === "block") {
+        subMenuList.style.display = "none";
+      } else {
+        subMenuList.style.display = "block";
+      }
+    }
+    console.log("click");
+  };
+
   return (
     <>
       <header
@@ -78,9 +109,14 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
           />
         </AppLink>
         <div className={menuContainer}>
-          <div className={menuIcon} id="menu-icon">
+          <button
+            className={menuIcon}
+            id="menu-icon"
+            onClick={openBurger}
+            type="button"
+          >
             <span />
-          </div>
+          </button>
           <nav
             className={classNames(siteNavigation, "mx-auto text-xs text-white")}
             id="site-navigation"
@@ -89,7 +125,11 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
               <li>
                 <AppLink
                   to="/"
-                  className={classNames(siteLink, soloLink, "uppercase")}
+                  className={classNames(
+                    siteLink,
+                    soloLink,
+                    "uppercase site-link",
+                  )}
                 >
                   {t("site:home")}
                 </AppLink>
@@ -361,25 +401,28 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
               </li>
 
               <li>
-                <a
-                  className={classNames(siteLink, linkList, "flex uppercase")}
-                  href="http://localhost:8000/"
-                >
+                <p className={classNames(siteLink, linkList, "flex uppercase")}>
                   {t("site:localization")}
-                  <div className={classNames(moreThenContainer, "flex")}>
+                  <button
+                    type="button"
+                    id="touch-link"
+                    className={classNames(moreThenContainer, "flex")}
+                    onClick={openSubMenu}
+                  >
                     <img
-                      className={classNames(moreThen, "md:block hidden")}
+                      className={classNames(moreThen)}
                       src={moreIcon}
                       alt="more"
                     />
-                  </div>
-                </a>
+                  </button>
+                </p>
                 <ul
                   className={classNames(
                     subMenu,
                     localizationMenu,
                     "md:normal-case",
                   )}
+                  id="sub-menu"
                 >
                   <li className={classNames(topLi, "md:bg-white")}>
                     <AppLink

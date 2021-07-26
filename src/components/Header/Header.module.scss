@@ -24,6 +24,38 @@
 }
 
 /*media-queries*/
+@media screen and (max-width: 1439px) {
+  .header {
+    .menu-container {
+      .site-navigation {
+        > ul {
+          > li {
+            .sub-menu.localization-menu {
+              left: -100px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .header {
+    .menu-container {
+      .site-navigation {
+        > ul {
+          > li {
+            .sub-menu.localization-menu {
+              left: -150px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1199px) {
   .header {
     min-width: 900px;
@@ -32,7 +64,7 @@
         > ul {
           > li {
             .sub-menu.localization-menu {
-              left: -180px;
+              left: -120px;
             }
           }
         }
@@ -51,7 +83,7 @@
         > ul {
           > li {
             .sub-menu.localization-menu {
-              left: -180px;
+              left: -50px;
             }
           }
         }
@@ -137,7 +169,7 @@
         left: -100%;
         padding: 32px 25px;
         width: 100%;
-        height: 700%;
+        height: 100vh;
         background-color: white;
         letter-spacing: 0.2em;
         overflow: auto;
@@ -148,13 +180,21 @@
             .site-link {
               color: #e49c9f;
               font-size: 17px;
-              .more-then-black {
+            }
+            .more-then-container {
+              position: relative;
+              width: 100%;
+              .more-then {
                 width: 18px;
+                cursor: pointer;
                 position: absolute;
-                right: 25px;
+                right: 0px;
                 transform: rotate(0deg);
                 transition: all 0.4s ease;
               }
+            }
+            .more-then-container.active-link img {
+              transform: rotate(180deg);
             }
             .sub-menu {
               display: none;
@@ -164,7 +204,7 @@
                 font-size: 13px;
                 .site-sub-link {
                   transition: all 0.4s ease;
-                  .sub-more-then-black {
+                  .sub-more-then {
                     width: 18px;
                     position: absolute;
                     right: 25px;
@@ -182,7 +222,7 @@
               li.active-link
                 .site-sub-link
                 .sub-more-then-container
-                > .sub-more-then-black {
+                > .sub-more-then {
                 transform: rotate(180deg);
               }
               li.active-link .sub-sub-menu {
@@ -210,6 +250,9 @@
                 }
               }
             }
+            .more-then-container.active-link .sub-menu {
+              display: block;
+            }
             .site-sub-sub-link {
               padding: 0px 0px 0px 20px;
               transition: all 0.4s ease;
@@ -217,12 +260,6 @@
             .site-sub-sub-link:hover {
               color: #000000;
             }
-          }
-          li.active-link .site-link .more-then-black {
-            transform: rotate(180deg);
-          }
-          li.active-link .sub-menu {
-            display: block;
           }
         }
       }
@@ -287,9 +324,6 @@
 @media screen and (min-width: 767px) {
   .header {
     .menu-container {
-      .menu-icon {
-        display: none;
-      }
       .site-navigation {
         line-height: 1.89;
         letter-spacing: 0.2em;
@@ -308,8 +342,12 @@
               transition: all 0.25s ease;
               .more-then-container {
                 position: relative;
+                width: 9px;
               }
               .more-then {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
                 width: 9px;
                 height: auto;
                 margin-left: 3px;
@@ -472,6 +510,16 @@
             pointer-events: all;
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    .menu-container {
+      .menu-icon {
+        display: none;
       }
     }
   }
