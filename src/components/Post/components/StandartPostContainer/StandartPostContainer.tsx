@@ -2,18 +2,15 @@ import { FunctionComponent } from "react";
 import classNames from "classnames";
 import {
   postDate,
-  adminLink,
   mainImg,
   postImg,
   entryContent,
-  initialCap,
+  // initialCap,
   shareList,
   socialNetworksContent,
   socialNetworks,
   socialLink,
 } from "./StandartPostContainer.module.scss";
-import mainPostImg from "../../../../../static/img/blog-post/post-container/main-post-img.jpg";
-import softPostImg from "../../../../../static/img/blog-post/post-container/soft-post-img.jpg";
 import fbIcon from "../../../../../static/svg/social-networks/fb-icon.svg";
 import googlePlusIcon from "../../../../../static/svg/social-networks/google-plus-icon.svg";
 import pinterestIcon from "../../../../../static/svg/social-networks/pinterest-icon.svg";
@@ -45,7 +42,7 @@ const StandartPostContainer: FunctionComponent<PostProps> = ({
       >
         <p>{date}</p>
         <span>- by</span>
-        <p className={adminLink}>{author}</p>
+        <p>{author}</p>
         <p>No comment(s)</p>
         <p>Astrology</p>
         <p>Zodiac</p>

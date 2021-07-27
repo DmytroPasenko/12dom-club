@@ -10,7 +10,7 @@ const ContactsPage: FunctionComponent = () => (
       <div className={contactsHeader} />
     </div>
 
-    <div className={classNames(siteContainer, "mx-auto")}>
+    <div className={classNames(siteContainer, "mx-auto text-center")}>
       <Contacts />
 
       <FeedbackForm />
