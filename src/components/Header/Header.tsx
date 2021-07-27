@@ -63,10 +63,9 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
       : pathname;
   }
 
-  const menuIconElement = document.getElementById("menu-icon");
-  const menuBody = document.getElementById("site-navigation");
-
   const openBurger = (event: BaseSyntheticEvent) => {
+    const menuIconElement = document.getElementById("menu-icon");
+    const menuBody = document.getElementById("site-navigation");
     if (menuIconElement) {
       menuIconElement.classList.toggle(activeIcon);
       console.log("click");
@@ -76,10 +75,9 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
     }
   };
 
-  const menuLink = document.getElementById("touch-link");
-  const subMenuList = document.getElementById("sub-menu");
-
   const openSubMenu = (event: BaseSyntheticEvent) => {
+    const menuLink = document.getElementById("touch-link");
+    const subMenuList = document.getElementById("sub-menu");
     if (menuLink) {
       menuLink.classList.toggle(activeLink);
     }
@@ -90,7 +88,6 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
         subMenuList.style.display = "block";
       }
     }
-    console.log("click");
   };
 
   return (
