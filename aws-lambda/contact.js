@@ -217,7 +217,7 @@ function getEmailBody(subject, name, phone, email, message) {
                             <tbody>
                                 <tr>
                                     <td align="center" width="100%" style="color: #656565; font-size: 12px; line-height: 24px; padding-bottom: 30px; padding-top: 30px;">
-                                        <div>&copy; ${year} agroimpex.group</div>
+                                        <div>&copy; ${year} 12dom.club</div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -237,14 +237,14 @@ exports.handler = async (event) => {
   const body = JSON.parse(event.body);
   const { name, phone, email, message } = body;
 
-  const subject = `Cообщение из формы: "Свяжитесь с нами" - agroimpex.group`;
+  const subject = `Сообщение из формы Свяжитесь с нами - 12dom.club`;
   const bodyAsHTML = getEmailBody(subject, name, phone, email, message);
 
-  await sendEmail(
-    "eu-central-1",
-    "no-reply@agroimpex.group",
-    "agroimpex.group",
-    "info@agroimpex.group",
+  const res = await sendEmail(
+    "eu-west-1",
+    "no-reply@12dom.club",
+    "12dom.club",
+    ["nikolaevmikhail@gmail.com", "elengardway@gmail.com"], // TODO replace to real email
     subject,
     bodyAsHTML,
   );
