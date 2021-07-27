@@ -37,3 +37,5 @@ export const homeBottomLi: string;
 export const blogTopLi: string;
 export const localizationImage: string;
 export const localizationMenu: string;
+export const soloLink: string;
+export const touchLink: string;

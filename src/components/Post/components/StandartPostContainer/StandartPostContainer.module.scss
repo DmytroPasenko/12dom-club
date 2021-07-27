@@ -1,9 +1,10 @@
 /*post-content*/
 .post-date {
   font-size: 12px;
+  font-weight: 400;
   line-height: 2.83;
   letter-spacing: 0.2em;
-  color: #e49c9f;
+  color: #333333;
   margin: 0px -10px 30px;
   p {
     padding: 0px 10px;
@@ -12,10 +13,8 @@
   span {
     color: #333333;
   }
-  .admin-link {
-    color: #333333;
-  }
   p:hover {
+    text-decoration: underline;
     color: #000000;
   }
 }

@@ -1,6 +1,6 @@
 /*site-container*/
 .site-container {
-  max-width: 1405px;
+  max-width: 1220px;
   padding: 0px 25px;
 }
 
@@ -12,23 +12,36 @@
   word-wrap: break-word;
 }
 
-/*media-queries*/
+/*about-me-header*/
+.about-me-header {
+  background-color: #333333;
+  height: 220px;
+  margin: 0px 0px 54px;
+  width: 100%;
+}
 
+/*media-queries*/
 @media screen and (max-width: 1199px) {
   .site-container {
-    max-width: 990px;
+    max-width: 950px;
   }
 }
 
 @media screen and (max-width: 989px) {
   .site-container {
-    max-width: 670px;
+    max-width: 750px;
+  }
+  .contacts-header {
+    height: 280px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .site-container {
     max-width: 590px;
+  }
+  .contacts-header {
+    height: 240px;
   }
 }
 
@@ -41,11 +54,5 @@
 @media screen and (max-width: 389px) {
   .site-container {
     max-width: 350px;
-  }
-}
-
-@media screen and (max-width: 319px) {
-  .site-container {
-    max-width: 270px;
   }
 }
