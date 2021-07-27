@@ -20,15 +20,6 @@
       color: #333333;
       border: solid 1px #ffffff;
       border-radius: 4px;
-      transition: all 0.3s ease;
-    }
-    input:focus,
-    textarea:focus {
-      background-color: transparent;
-    }
-    input:active,
-    textarea:active {
-      background-color: transparent;
     }
     input::placeholder,
     textarea::placeholder {

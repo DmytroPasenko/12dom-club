@@ -32,7 +32,6 @@ import {
   // currentSubLink,
   topLi,
   // currentSiteSubSubLink,
-  linkList,
   // homeTopLi,
   // homeBottomLi,
   // blogTopLi,
@@ -343,7 +342,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
 
               {/* <li>
                 <a
-                  className={classNames(siteLink, linkList, "flex uppercase")}
+                  className={classNames(siteLink, "flex uppercase")}
                   href="http://localhost:8000/"
                 >
                   Pages
@@ -398,7 +397,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
               </li>
 
               <li>
-                <p className={classNames(siteLink, linkList, "flex uppercase")}>
+                <p className={classNames(siteLink, "flex uppercase")}>
                   {t("site:localization")}
                   <button
                     type="button"

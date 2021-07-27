@@ -31,7 +31,6 @@ export const currentSubMoreThanBlack: string;
 export const currentSubLink: string;
 export const topLi: string;
 export const currentSiteSubSubLink: string;
-export const linkList: string;
 export const homeTopLi: string;
 export const homeBottomLi: string;
 export const blogTopLi: string;
