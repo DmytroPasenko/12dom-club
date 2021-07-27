@@ -9,14 +9,14 @@
   ],
   "scripts": {
     "clean": "gatsby clean",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop --open",
     "build": "gatsby clean && gatsby build",
     "build-prefix-links": "gatsby build --prefix-links",
     "deploy-prod": "npm version patch && gatsby clean && gatsby build && serverless deploy --force --stage=prod -c=serverless.yml",
     "deploy-dev": "gatsby clean && gatsby build && serverless deploy --force --stage=dev -c=serverless.yml",
     "sls-deploy-prod": "serverless deploy --force --stage=prod -c=serverless.yml",
     "sls-deploy-dev": "serverless deploy --force --stage=dev -c=serverless.yml",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve --open",
     "type-check": "tsc --noEmit",
     "lint": "tsc --noEmit && eslint . --ignore-path .gitignore --ext .ts,.tsx,.js"
   },
