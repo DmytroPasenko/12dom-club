@@ -26,7 +26,7 @@ custom:
     prod: 12dom.club # your production site address
 
   frontendBucketName: ${self:custom.bucketNames.${self:provider.stage}} # the bucket name is based on the stage
-  storageBucketName: s.${self:custom.bucketNames.prod}
+  storageBucketName: s.${self:custom.bucketNames.${self:provider.stage}}
 
   siteAliases:
     dev:
