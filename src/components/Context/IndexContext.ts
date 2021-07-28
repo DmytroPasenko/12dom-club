@@ -1,9 +1,14 @@
 import { Context, createContext } from "react";
-import { CmsPageProperty, CmsTableRecord } from "../../types/common";
+import {
+  CmsPageProperty,
+  CmsTableProperty,
+  CmsTableRecord,
+} from "../../types/common";
 
 interface IndexPageContextInterface {
   page?: CmsPageProperty[];
   posts?: CmsTableRecord[];
+  consultations?: CmsTableRecord[];
 }
 
 const IndexPageContext: Context<IndexPageContextInterface> = createContext({});
