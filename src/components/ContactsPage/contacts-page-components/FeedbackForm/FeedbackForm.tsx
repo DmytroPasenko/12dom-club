@@ -146,7 +146,7 @@ const FeedbackForm: FunctionComponent = () => {
             className="uppercase"
             disabled={submitStatus === "submitting"}
           >
-            {submitStatus === "submitting" ? t("site:sent") : t("site:send")}
+            {submitStatus === "submitting" ? t("site:sending") : t("site:send")}
           </button>
         )}
         {submitStatus === "success" && (
@@ -164,7 +164,7 @@ const FeedbackForm: FunctionComponent = () => {
               onClick={handleSendMore}
               type="submit"
             >
-              {t("site:sent")}
+              {t("site:sendMore")}
             </button>
           </div>
         )}
