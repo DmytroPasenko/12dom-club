@@ -21,6 +21,10 @@
   "yourEmail": "Ваш E-mail",
   "yourPhone": "Ваш телефон",
   "yourMessage": "Ваше сообщение",
+  "contactUsError": "Ошибка. Сообщение не отправлено.",
+  "contactUsSuccess": "Сообщение было успешно отправлено!",
   "send": "Отправить",
-  "readMore": "Читать больше"
+  "sending": "Отправление...",
+  "readMore": "Читать больше",
+  "sendMore": "Отправить еще?"
 }
