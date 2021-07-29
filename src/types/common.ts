@@ -64,6 +64,7 @@ export interface IndexPageGqlArgs {
 export interface IndexPageGqlResponse {
   page: CmsPageProperty[];
   posts: CmsTableRecord[];
+  consultations: CmsTableRecord[];
 }
 
 // export interface AboutPageGqlResponse {

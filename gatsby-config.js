@@ -121,7 +121,7 @@ module.exports = {
             },
             {
               family: "Oswald",
-              variants: ["300"],
+              variants: ["300", "400"],
               subsets: ["latin", "cyrillic"],
             },
           ],

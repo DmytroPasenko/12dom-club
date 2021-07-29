@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import classNames from "classnames";
 import Slider from "./home-components/Slider/Slider";
 import TopGridNews from "./home-components/TopGridNews/TopGridNews";
+import Consultation from "./home-components/Consultation/Consultation";
 import NewsSmartBox from "./home-components/LeftColumn/NewsSmartBox/NewsSmartBox";
 import DoubleSmartBox from "./home-components/LeftColumn/DoubleSmartBox/DoubleSmartBox";
 import PaginationContent from "./home-components/LeftColumn/PaginationContent/PaginationContent";
@@ -37,6 +38,10 @@ const Home: FunctionComponent = () => (
       )}
     >
       <TopGridNews />
+    </section>
+
+    <section>
+      <Consultation />
     </section>
 
     <section

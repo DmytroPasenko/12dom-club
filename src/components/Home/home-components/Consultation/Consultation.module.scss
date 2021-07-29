@@ -1,0 +1,112 @@
+.consultation-body {
+  font-family: "Roboto", sans-serif;
+  h3 {
+    font-weight: 400;
+  }
+  blockquote,
+  strong,
+  p {
+    margin-bottom: 24px;
+  }
+  blockquote,
+  strong {
+    font-family: "Oswald", sans-serif;
+    line-height: 1.89;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 24px;
+  }
+  blockquote {
+    padding: 0px 0px 0px 37px;
+    border-left: solid 4px #000000;
+    text-align: left;
+  }
+  p,
+  li {
+    font-size: 18px;
+    line-height: 1.19;
+  }
+  p {
+    strong {
+      font-weight: 300;
+    }
+  }
+  ul li::before {
+    content: "\2022";
+    color: #e49c9f;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+  }
+  ol {
+    li {
+      margin-left: 48px;
+    }
+  }
+  .consultation-content {
+    margin: 45px 0px;
+    .consultation-image {
+      max-width: 660px;
+      min-width: 100px;
+      height: auto;
+      .left-image {
+        padding-right: 45px;
+      }
+      .right-image {
+        padding-left: 45px;
+      }
+    }
+    .consultation-text {
+      max-width: 50%;
+      .sub-li {
+        margin-left: 45px;
+      }
+      .sub-li::before {
+        content: none;
+      }
+    }
+  }
+  .consultation-footer {
+    margin-bottom: 55px;
+    .sub-p {
+      margin-top: -24px;
+      margin-left: 45px;
+    }
+  }
+}
+
+/*media-queries*/
+@media screen and (max-width: 1023px) {
+  .consultation-body {
+    .consultation-content {
+      margin-bottom: 0px;
+      .consultation-image {
+        max-width: 100%;
+        margin-bottom: 45px;
+        .left-image {
+          padding-right: 0px;
+        }
+        .right-image {
+          padding-left: 0px;
+        }
+      }
+      .consultation-text {
+        max-width: 100%;
+        margin-bottom: 45px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .consultation-body {
+    p {
+      strong {
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: 0.28em;
+      }
+    }
+  }
+}
