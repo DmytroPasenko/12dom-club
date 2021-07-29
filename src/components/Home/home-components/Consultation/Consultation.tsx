@@ -2,6 +2,7 @@ import { FunctionComponent, useContext } from "react";
 import { useLocalization } from "gatsby-theme-i18n";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
+import sanitizeHtml from "sanitize-html";
 import {
   consultationBody,
   quoteHeader,
@@ -11,7 +12,6 @@ import {
   rightImage,
   consultationText,
   subLi,
-  bulletList,
   consultationFooter,
   subP,
 } from "./Consultation.module.scss";
@@ -32,19 +32,22 @@ const Slider: FunctionComponent = () => {
         const subTitle = getPropertyAsStr(item, "subTitle");
         const quoteTitle = getPropertyAsStr(item, "quoteTitle");
         const image = getPropertyAsStr(item, "image");
-        const textContent = getPropertyAsStr(item, "textContent");
-        const footer = getPropertyAsStr(item, "footer");
+        const textContent = sanitizeHtml(getPropertyAsStr(item, "textContent"));
+        const footer = sanitizeHtml(getPropertyAsStr(item, "footer"));
 
         return (
           <div className={consultationBody}>
             <div className="uppercase text-center">
               <h3>{title}</h3>
               <h6>{subTitle}</h6>
-              <h5 className={classNames(quoteHeader, "text-left")}>
-                {quoteTitle}
-              </h5>
+              <blockquote>{quoteTitle}</blockquote>
             </div>
-            <div className={classNames(consultationContent, "flex flex-row")}>
+            <div
+              className={classNames(
+                consultationContent,
+                "flex lg:flex-row flex-col",
+              )}
+            >
               <div
                 className={classNames(consultationImage, {
                   "order-1": !isEven(index),
@@ -58,15 +61,18 @@ const Slider: FunctionComponent = () => {
                 />
               </div>
               <div
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{ __html: textContent }}
                 className={classNames(consultationText, {
                   "order-1": isEven(index),
                   "order-2": !isEven(index),
                 })}
-              >
-                {textContent}
-              </div>
+              />
             </div>
-            <div className={consultationFooter}>{footer}</div>
+            <div // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{ __html: footer }}
+              className={consultationFooter}
+            />
           </div>
         );
       })}

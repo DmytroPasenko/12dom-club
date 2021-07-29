@@ -7,6 +7,5 @@ export const leftImage: string;
 export const rightImage: string;
 export const consultationText: string;
 export const subLi: string;
-export const bulletList: string;
 export const consultationFooter: string;
 export const subP: string;
