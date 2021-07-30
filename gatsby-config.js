@@ -111,7 +111,7 @@ module.exports = {
           google: [
             {
               family: "Roboto",
-              variants: ["300"],
+              variants: ["300", "400", "500"],
               subsets: ["latin", "cyrillic"],
             },
             {

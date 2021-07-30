@@ -1,6 +1,11 @@
 import { FunctionComponent, BaseSyntheticEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { formContainer, inputBox } from "./Feedback.module.scss";
+import classNames from "classnames";
+import {
+  formContainer,
+  inputBox,
+  inputContainer,
+} from "./Feedback.module.scss";
 import manIcon from "../../../../../static/svg/feedback-form/man-icon.svg";
 import emailIcon from "../../../../../static/svg/feedback-form/email-icon.svg";
 import phoneIcon from "../../../../../static/svg/feedback-form/phone-icon.svg";
@@ -89,43 +94,64 @@ const FeedbackForm: FunctionComponent = () => {
         onSubmit={handleSubmit}
         className={formContainer}
       >
-        <div className={inputBox}>
-          <img src={manIcon} alt="man" />
-          <input
-            type="text"
-            id="name"
-            placeholder={t("site:yourName")}
-            required
-          />
-        </div>
-        <div className={inputBox}>
-          <img src={emailIcon} alt="e-mail" />
-          <input
-            type="email"
-            id="email"
-            placeholder={t("site:yourEmail")}
-            required
-          />
-        </div>
-        <div className={inputBox}>
-          <img src={phoneIcon} alt="phone" />
-          <input
-            type="phone"
-            id="phone"
-            placeholder={t("site:yourPhone")}
-            required
-          />
-        </div>
-        <div className={inputBox}>
-          <span>
-            <img src={penIcon} alt="pen" />
-            <textarea
-              id="message"
-              name="message"
-              placeholder={t("site:yourMessage")}
+        <div
+          className={classNames(
+            inputContainer,
+            "grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1",
+          )}
+        >
+          <div
+            className={classNames(inputBox, "lg:pr-4 sm:pr-2 pb-4 col-span-1")}
+          >
+            {/* <img src={manIcon} alt="man" /> */}
+            <input
+              type="text"
+              id="name"
+              placeholder={t("site:yourName")}
               required
             />
-          </span>
+          </div>
+          <div
+            className={classNames(inputBox, "lg:px-2 sm:pl-2 pb-4 col-span-1")}
+          >
+            {/* <img src={phoneIcon} alt="phone" /> */}
+            <input
+              type="phone"
+              id="phone"
+              placeholder={t("site:yourPhone")}
+              required
+            />
+          </div>
+          <div
+            className={classNames(
+              inputBox,
+              "lg:pl-4 pb-4 lg:col-span-1 sm:col-span-2 col-span-1",
+            )}
+          >
+            {/* <img src={emailIcon} alt="e-mail" /> */}
+            <input
+              type="email"
+              id="email"
+              placeholder={t("site:yourEmail")}
+              required
+            />
+          </div>
+          <div
+            className={classNames(
+              inputBox,
+              "lg:col-span-3 sm:col-span-2 col-span-1",
+            )}
+          >
+            <span>
+              {/* <img src={penIcon} alt="pen" /> */}
+              <textarea
+                id="message"
+                name="message"
+                placeholder={t("site:yourMessage")}
+                required
+              />
+            </span>
+          </div>
         </div>
 
         {submitStatus === "error" && (
@@ -143,7 +169,7 @@ const FeedbackForm: FunctionComponent = () => {
         {submitStatus !== "success" && (
           <button
             type="submit"
-            className="uppercase"
+            // className="uppercase"
             disabled={submitStatus === "submitting"}
           >
             {submitStatus === "submitting" ? t("site:sending") : t("site:send")}
@@ -160,7 +186,7 @@ const FeedbackForm: FunctionComponent = () => {
               </span>
             </div>
             <button
-              className="uppercase"
+              // className="uppercase"
               onClick={handleSendMore}
               type="submit"
             >
