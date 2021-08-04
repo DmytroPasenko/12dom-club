@@ -1,50 +1,62 @@
 .form-container {
-  .input-box {
-    position: relative;
-    margin-bottom: 20px;
-    img {
-      width: 24px;
-      height: auto;
-      position: absolute;
-      top: 50%;
-      left: 20px;
-      transform: translateY(-50%);
-    }
-    input,
-    textarea {
-      width: 100%;
-      padding: 20.5px 20px 20.5px 60px;
-      font-size: 12px;
-      font-family: "Roboto Condensed", sans-serif;
-      letter-spacing: 0.2em;
-      color: #333333;
-      border: solid 1px #ffffff;
-      border-radius: 4px;
-    }
-    input::placeholder,
-    textarea::placeholder {
-      color: #333333;
-    }
-    span textarea {
-      line-height: 1.83;
-      padding: 20.5px 20px 220.5px 60px;
-      resize: none;
-      overflow: hidden;
-    }
-    span img {
-      top: 7%;
-      transform: translateY(-7%);
+  .input-container {
+    // background-color: #ffffff;
+    margin-bottom: 40px;
+    font-family: "Roboto", sans-serif;
+    // border-radius: 4px;
+    .input-box {
+      position: relative;
+      // img {
+      //   width: 24px;
+      //   height: auto;
+      //   position: absolute;
+      //   top: 50%;
+      //   left: 20px;
+      //   transform: translateY(-50%);
+      // }
+      input,
+      textarea {
+        width: 100%;
+        padding: 20.5px 20px 20.5px 20px;
+        font-size: 18px;
+        line-height: 1.89;
+        letter-spacing: 0em;
+        color: #222222;
+        font-weight: 400;
+        border: solid 1px #000000;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: #8c8c8c;
+        font-weight: 300;
+      }
+      span textarea {
+        line-height: 1.83;
+        padding: 20.5px 20px 150.5px 20px;
+        resize: vertical;
+        overflow: hidden;
+      }
+      span img {
+        top: 7%;
+        transform: translateY(-7%);
+      }
     }
   }
   button {
-    padding: 20px 49px;
+    padding: 28px 79px;
     border: solid 1px #000000;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000000;
+    font-family: "Roboto", sans-serif;
     border-radius: 4px;
-    font-size: 14px;
-    transition: all 0.3s ease;
+    font-size: 18px;
+    transition: all 0.7s ease;
   }
   button:hover {
-    color: #ffffff;
-    background-color: #000000;
+    color: #000000;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #000000;
   }
 }
