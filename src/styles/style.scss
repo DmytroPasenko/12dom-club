@@ -76,8 +76,23 @@ h6 {
 /*main*/
 body {
   font-family: "Roboto Condensed", sans-serif;
-  background: url("../../static/img/bg/background_1.png") top center no-repeat,
-    url("../../static/img/bg/background_1_1.png") center repeat-y;
+  background: url("../../static/svg/background/background_1.svg") top center
+      no-repeat,
+    linear-gradient(
+      90deg,
+      rgba(182, 182, 182, 1) 0%,
+      rgba(207, 208, 209, 1) 5%,
+      rgba(219, 220, 221, 1) 15%,
+      rgba(241, 241, 241, 1) 25%,
+      rgba(253, 254, 254, 1) 35%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(253, 254, 254, 1) 65%,
+      rgba(241, 241, 241, 1) 75%,
+      rgba(219, 220, 221, 1) 85%,
+      rgba(207, 208, 209, 1) 95%,
+      rgba(182, 182, 182, 1) 100%
+    );
+  background-size: 100%;
 }
 h3 {
   font-size: 40px;
