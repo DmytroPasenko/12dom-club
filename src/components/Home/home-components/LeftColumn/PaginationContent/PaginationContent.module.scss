@@ -11,7 +11,7 @@
   height: 1px;
   width: calc(100% - 30px);
   padding-top: 50px;
-  border-bottom: 1px solid #e2e2e2;
+  border-bottom: 1px solid #bbbbbb;
 }
 .pagination-news {
   width: 100%;
@@ -155,8 +155,8 @@
       width: 50px;
       text-align: center;
       color: black;
-      border: solid 1px #f6f6f6;
-      background: #f6f6f6;
+      background: #e5e5e5;
+      border: solid 1px #bbbbbb;
     }
     .current-page {
       display: inline-block;
@@ -166,7 +166,8 @@
       width: 50px;
       text-align: center;
       color: black;
-      border: solid 1px #f6f6f6;
+      background: #cccccc;
+      border: solid 1px #bbbbbb;
     }
   }
 }
@@ -254,7 +255,7 @@
         transition: all 0.3s ease;
       }
       .page-button:hover {
-        background: #ffffff;
+        background: #cccccc;
       }
     }
   }
