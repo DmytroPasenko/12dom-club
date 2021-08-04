@@ -76,7 +76,9 @@ h6 {
 /*main*/
 body {
   font-family: "Roboto Condensed", sans-serif;
-  background: url("../../static/img/bg/bg-body.webp") no-repeat;
+  // background: url("../../static/img/bg/bg-body.webp") no-repeat;
+  background: url("../../static/svg/background/background_1.svg") no-repeat,
+    url("../../static/svg/background/background_1_1.svg");
 }
 h3 {
   font-size: 40px;
