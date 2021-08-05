@@ -38,6 +38,7 @@ import {
   localizationImage,
   localizationMenu,
   soloLink,
+  linkWithMenu,
 } from "./Header.module.scss";
 import logoImage from "../../../static/img/logo/logo.png";
 import moreIcon from "../../../static/svg/header/more-icon.svg";
@@ -67,7 +68,6 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
     const menuBody = document.getElementById("site-navigation");
     if (menuIconElement) {
       menuIconElement.classList.toggle(activeIcon);
-      console.log("click");
     }
     if (menuBody) {
       menuBody.classList.toggle(activeNavigation);
@@ -396,7 +396,7 @@ const Header: FunctionComponent<HeaderProps> = ({ title }) => {
                 </AppLink>
               </li>
 
-              <li>
+              <li className={linkWithMenu}>
                 <p className={classNames(siteLink, "flex uppercase")}>
                   {t("site:localization")}
                   <button

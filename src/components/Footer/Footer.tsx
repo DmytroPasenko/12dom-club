@@ -54,13 +54,8 @@ const Footer: FunctionComponent = () => {
         </div> */}
         <h5 className={footerHeader}>{t("site:follow")}</h5>
         <div className={socialNetworksContent}>
-          <ul
-            className={classNames(
-              socialNetworks,
-              "lex grid sm:grid-cols-6 grid-cols-5",
-            )}
-          >
-            <li className="flex">
+          <ul className={classNames(socialNetworks, "flex justify-between")}>
+            <li className="flex mx-2">
               <a href="https://www.facebook.com/">
                 <img
                   className={socialLink}
@@ -69,7 +64,7 @@ const Footer: FunctionComponent = () => {
                 />
               </a>
             </li>
-            <li className="flex">
+            <li className="flex mx-2">
               <a href="https://twitter.com/">
                 <img
                   className={socialLink}
@@ -78,7 +73,7 @@ const Footer: FunctionComponent = () => {
                 />
               </a>
             </li>
-            <li className="flex">
+            <li className="flex mx-2">
               <a href="https://myaccount.google.com/">
                 <img
                   className={socialLink}
@@ -87,7 +82,7 @@ const Footer: FunctionComponent = () => {
                 />
               </a>
             </li>
-            <li className="flex">
+            <li className="flex mx-2">
               <a href="https://vimeo.com/">
                 <img
                   className={socialLink}
@@ -96,7 +91,7 @@ const Footer: FunctionComponent = () => {
                 />
               </a>
             </li>
-            <li className="flex">
+            <li className="flex mx-2">
               <a href="https://www.youtube.com/">
                 <img
                   className={socialLink}
@@ -105,7 +100,7 @@ const Footer: FunctionComponent = () => {
                 />
               </a>
             </li>
-            <li className="flex sm:col-span-1 col-span-5">
+            <li className="flex mx-2">
               <a href="https://www.pinterest.com/">
                 <img
                   className={socialLink}
