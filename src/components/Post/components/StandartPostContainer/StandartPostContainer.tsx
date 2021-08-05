@@ -38,7 +38,7 @@ const StandartPostContainer: FunctionComponent<PostProps> = ({
       <h3 className="uppercase">{title}</h3>
       <a
         href="http://localhost:8000/blogPost"
-        className={classNames(postDate, "normal-case flex")}
+        className={classNames(postDate, "normal-case flex flex-wrap")}
       >
         <p>{date}</p>
         <span>- by</span>
@@ -59,12 +59,7 @@ const StandartPostContainer: FunctionComponent<PostProps> = ({
       </div>
       <div className={shareList}>
         <div className={socialNetworksContent}>
-          <ul
-            className={classNames(
-              socialNetworks,
-              "grid sm:grid-cols-5 grid-cols-4",
-            )}
-          >
+          <ul className={classNames(socialNetworks, "grid grid-cols-5")}>
             <li className="flex">
               <a href="https://www.facebook.com/">
                 <img
@@ -101,7 +96,7 @@ const StandartPostContainer: FunctionComponent<PostProps> = ({
                 />
               </a>
             </li>
-            <li className="flex sm:col-span-1 col-span-4 sm:my-0 my-2">
+            <li className="flex">
               <a href="https://www.pinterest.com/">
                 <img
                   className={socialLink}
